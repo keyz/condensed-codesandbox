@@ -32,7 +32,6 @@
     },
     "prettier.documentSelectors": ["**/*.svg"],
     "typescript.enablePromptUseWorkspaceTsdk": true,
-    "typescript.preferences.importModuleSpecifier": "non-relative",
-    "typescript.tsdk": "js/node_modules/typescript/lib"
+    "typescript.preferences.importModuleSpecifier": "non-relative"
   }
 }
