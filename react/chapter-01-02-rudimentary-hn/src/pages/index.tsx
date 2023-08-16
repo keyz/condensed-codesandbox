@@ -1,5 +1,5 @@
-import { Hello } from "../root";
+import { HackerNews } from "../root";
 
 export default function HomePage() {
-  return <Hello />;
+  return <HackerNews />;
 }
