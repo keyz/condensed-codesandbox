@@ -1,5 +1,5 @@
 {
-  "name": "@condensed/template",
+  "name": "@condensed/chapter-01-01-hello-world",
   "private": true,
   "scripts": {
     "dev": "next dev",
