@@ -1,5 +1,5 @@
 {
-  "name": "@condensed/chapter-01-02-rudimentary-hn",
+  "name": "@condensed/chapter-01-02-just-titles",
   "private": true,
   "scripts": {
     "dev": "next dev",
