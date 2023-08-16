@@ -1,5 +1,9 @@
 {
   "name": "condensed-codesandbox",
   "private": true,
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "prettier": "^3.0.2",
+    "prettier-plugin-tailwindcss": "^0.5.3"
+  }
 }
