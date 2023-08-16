@@ -1,0 +1,38 @@
+{
+  "extensions": {
+    "recommendations": [
+      "bradlc.vscode-tailwindcss",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "orta.vscode-twoslash-queries"
+    ]
+  },
+  "folders": [
+    {
+      "name": "~/",
+      "path": "."
+    }
+  ],
+  "settings": {
+    "[typescriptreact]": {
+      "editor.quickSuggestions": {
+        "strings": true
+      }
+    },
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": true
+    },
+    "eslint.workingDirectories": [
+      {
+        "pattern": "./react/*/"
+      }
+    ],
+    "files.associations": {
+      "*.css": "tailwindcss"
+    },
+    "prettier.documentSelectors": ["**/*.svg"],
+    "typescript.enablePromptUseWorkspaceTsdk": true,
+    "typescript.preferences.importModuleSpecifier": "non-relative",
+    "typescript.tsdk": "js/node_modules/typescript/lib"
+  }
+}
