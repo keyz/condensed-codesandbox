@@ -1,0 +1,28 @@
+{
+  "setupTasks": [
+    {
+      "name": "Install Dependencies",
+      "command": "npm install"
+    }
+  ],
+  "tasks": {
+    "dev": {
+      "name": "Dev Server",
+      "command": "npm run dev",
+      "runAtStart": true,
+      "preview": {
+        "port": 3000
+      },
+      "restartOn": {
+        "files": ["./package-lock.json"]
+      }
+    },
+    "install": {
+      "name": "Install Dependencies",
+      "command": "npm install",
+      "restartOn": {
+        "files": ["./package.json"]
+      }
+    }
+  }
+}
