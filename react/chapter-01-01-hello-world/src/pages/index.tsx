@@ -1,3 +1,5 @@
+import { Hello } from "../root";
+
 export default function HomePage() {
-  return <main>Hello Condensed!</main>;
+  return <Hello />;
 }
