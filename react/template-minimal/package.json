@@ -1,5 +1,5 @@
 {
-  "name": "@condensed/template",
+  "name": "@condensed/template-minimal",
   "private": true,
   "scripts": {
     "dev": "next dev",
