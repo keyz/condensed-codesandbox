@@ -1,0 +1,32 @@
+{
+  "setupTasks": [
+    {
+      "name": "Install dependencies",
+      "command": "npm install"
+    }
+  ],
+  "tasks": {
+    "dev": {
+      "name": "Dev server",
+      "command": "npm run dev",
+      "runAtStart": true,
+      "preview": {
+        "port": 3000
+      },
+      "restartOn": {
+        "files": ["./package-lock.json"]
+      }
+    },
+    "install": {
+      "name": "Install dependencies",
+      "command": "npm install",
+      "restartOn": {
+        "files": ["./package.json"]
+      }
+    },
+    "reset": {
+      "name": "Reset sandbox state",
+      "command": "rm -rf ./.next ./node_modules"
+    }
+  }
+}
