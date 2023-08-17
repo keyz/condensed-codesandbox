@@ -16,3 +16,13 @@ for-each:
 		printf '%s $$ %s\n' "$$dir" "$(COMMAND)"; \
 		(cd $$dir && $(COMMAND)); \
 	done
+
+.PHONY: install
+install:
+	npm install
+	@$(MAKE) for-each COMMAND="npm install"
+
+.PHONY: upgrade
+upgrade:
+	npm upgrade --save
+	@$(MAKE) for-each COMMAND="npm upgrade --save"
