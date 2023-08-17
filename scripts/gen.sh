@@ -20,7 +20,8 @@ else
   echo "Updating generated files..."
 
   cd "$REACT_ROOT/$name"
-  for file in *.{json,md}; do
+  for file in *.{json,md}
+  do
     sed -i "" "s/$template/$name/g" "$file"
   done
 
