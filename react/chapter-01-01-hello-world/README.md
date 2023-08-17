@@ -1,3 +1,5 @@
+<!-- CODESANDBOX: https://codesandbox.io/p/sandbox/github/keyz/condensed-codesandbox/tree/main/react/chapter-01-01-hello-world?file=/src/root.tsx -->
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
