@@ -27,7 +27,7 @@ const data = [
 
 export function HackerNews() {
   return (
-    <div className="flex flex-col gap-4 p-6">
+    <div className="flex flex-col gap-6 p-8">
       {data.map((item) => {
         return <p key={item.id}>{item.title}</p>;
       })}
