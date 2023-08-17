@@ -3,6 +3,10 @@ include $(REPO_ROOT)/shared.mk
 
 REACT_SUBDIR_LIST := $(wildcard react/*)
 
+.PHONY: diff
+diff:
+	@./scripts/diff.sh
+
 .PHONY: embed
 embed:
 	@for dir in $(REACT_SUBDIR_LIST); do \
@@ -16,6 +20,10 @@ for-each:
 		printf '%s $$ %s\n' "$$dir" "$(COMMAND)"; \
 		(cd $$dir && $(COMMAND)); \
 	done
+
+.PHONY: gen
+gen:
+	@./scripts/gen.sh
 
 .PHONY: install
 install:
