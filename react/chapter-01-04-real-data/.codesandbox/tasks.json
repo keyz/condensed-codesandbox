@@ -1,4 +1,5 @@
 {
+  "$schema": "https://codesandbox.io/schemas/tasks.json",
   "setupTasks": [
     {
       "name": "Install dependencies",
