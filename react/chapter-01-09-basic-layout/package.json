@@ -1,6 +1,7 @@
 {
   "name": "@condensed/chapter-01-09-basic-layout",
   "private": true,
+  "license": "Apache-2.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

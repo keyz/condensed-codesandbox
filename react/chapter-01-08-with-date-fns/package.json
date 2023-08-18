@@ -1,6 +1,7 @@
 {
   "name": "@condensed/chapter-01-08-with-date-fns",
   "private": true,
+  "license": "Apache-2.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
