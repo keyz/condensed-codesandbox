@@ -8,11 +8,11 @@ REACT_ROOT="$REPO_ROOT/react"
 cd "$REACT_ROOT"
 
 read -rep "Template to use? " template
-template=${template%/}
+template=${template%/} # remove trailing slash
 echo ""
 
 read -rep "Path for the new module? " target
-target=${target%/} # remove trailing slash
+target=${target%/}
 echo ""
 
 read -rep "Create new project \`$target\` from template \`$template\`? [y/N] " response

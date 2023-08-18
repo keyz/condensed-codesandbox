@@ -3,6 +3,10 @@ include $(REPO_ROOT)/shared.mk
 
 REACT_SUBDIR_LIST := $(wildcard react/*)
 
+.PHONY: copy
+copy:
+	@./scripts/copy.sh
+
 .PHONY: diff
 diff:
 	@./scripts/diff.sh
