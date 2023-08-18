@@ -25,9 +25,9 @@
         "files": ["./package.json"]
       }
     },
-    "reset": {
-      "name": "Reset sandbox state",
-      "command": "rm -rf ./.next ./node_modules"
+    "reboot": {
+      "name": "Reboot sandbox container",
+      "command": "rm -rf ./node_modules/ ./.next/ && echo '' >> ./.codesandbox/Dockerfile"
     }
   }
 }
