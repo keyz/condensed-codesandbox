@@ -1,5 +1,5 @@
 {
-  "name": "@condensed/chapter-01-09-basic-styling",
+  "name": "@condensed/chapter-01-09-basic-layout",
   "private": true,
   "scripts": {
     "dev": "next dev",

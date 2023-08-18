@@ -1,8 +1,8 @@
 <!--
-- CodeSandbox https://codesandbox.io/p/sandbox/github/keyz/condensed-codesandbox/tree/main/react/chapter-01-09-basic-styling?file=/src/root.tsx
-- StackBlitz WebContainer https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-01-09-basic-styling?file=src/root.tsx
-- StackBlitz Embedded https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-01-09-basic-styling?embed=1&file=src/root.tsx&hideNavigation=1
-- StackBlitz Codeflow https://stackblitz.com/~/github.com/keyz/condensed-codesandbox/tree/main/react/chapter-01-09-basic-styling
+- CodeSandbox https://codesandbox.io/p/sandbox/github/keyz/condensed-codesandbox/tree/main/react/chapter-01-09-basic-layout?file=/src/root.tsx
+- StackBlitz WebContainer https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-01-09-basic-layout?file=src/root.tsx
+- StackBlitz Embedded https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-01-09-basic-layout?embed=1&file=src/root.tsx&hideNavigation=1
+- StackBlitz Codeflow https://stackblitz.com/~/github.com/keyz/condensed-codesandbox/tree/main/react/chapter-01-09-basic-layout
 -->
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
