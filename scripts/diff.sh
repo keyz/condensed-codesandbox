@@ -17,7 +17,7 @@ do
 
   if [[ "$previous_dir" != "" ]]
   then
-    printf '\n%*s\n\n' "${COLUMNS:-$(tput cols)}" "" | tr " " "─" # divider
+    printf "\n%*s\n\n" "${COLUMNS:-$(tput cols)}" "" | tr " " "─" # divider
 
     previous="$previous_dir/src/root.tsx"
     current="$current_dir/src/root.tsx"

@@ -8,10 +8,10 @@ REACT_ROOT="$REPO_ROOT/react"
 cd "$REACT_ROOT"
 
 read -rep "File source? " template
-from=${template%/}
+source_path=${template%/}
 echo ""
 
-read -rep "Replicate file \`$from\` to all modules? [y/N] " response
+read -rep "Replicate file \`$source_path\` to all modules? [y/N] " response
 echo ""
 
 if ! [[ "$response" =~ ^[Yy]$ ]]
@@ -20,18 +20,21 @@ then
   exit 1
 fi
 
-source_dir=$(echo "$from" | cut -d/ -f1)
+source_name=$(echo "$source_path" | cut -d/ -f1)
 
-for current_dir in *
+for target_name in *
 do
-  if [[ "$current_dir" == "$source_dir" ]]
+  if [[ "$target_name" == "$source_name" ]]
   then
     continue
   fi
 
-  target=$(echo "$from" | sed "s/$source_dir\//$current_dir\//")
+  target_path=$(echo "$source_path" | sed "s/$source_name\//$target_name\//")
 
-  command="cp $from $target"
+  command="cp $source_path $target_path"
   echo "$ $command"
   eval "$command"
+
+  sed -i "" "s/$source_name/$target_name/g" "$target_path"
+  echo "Updated generated files"
 done
