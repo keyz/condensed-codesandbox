@@ -9,10 +9,7 @@ diff:
 
 .PHONY: embed
 embed:
-	@for dir in $(REACT_SUBDIR_LIST); do \
-		printf '%s\n' "$$dir"; \
-		printf '\thttps://codesandbox.io/p/sandbox/github/keyz/condensed-codesandbox/tree/main/%s?file=/src/root.tsx\n\n' $$dir; \
-	done
+	@./scripts/embed.sh
 
 .PHONY: for-each
 for-each:
