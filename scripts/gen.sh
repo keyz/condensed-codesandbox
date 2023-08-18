@@ -22,16 +22,16 @@ if ! [[ "$response" =~ ^[Yy]$ ]]
 then
   echo "Skipped."
   exit 1
-else
-  npx create-next-app@latest --example "https://github.com/keyz/condensed-codesandbox/tree/main/react/$template" "$target"
-
-  echo "Updating generated files..."
-
-  cd "$target"
-  for file in *.{json,md}
-  do
-    sed -i "" "s/$template/$target/g" "$file"
-  done
-
-  echo "Done!"
 fi
+
+npx create-next-app@latest --example "https://github.com/keyz/condensed-codesandbox/tree/main/react/$template" "$target"
+
+echo "Updating generated files..."
+
+cd "$target"
+for file in *.{json,md}
+do
+  sed -i "" "s/$template/$target/g" "$file"
+done
+
+echo "Done!"
