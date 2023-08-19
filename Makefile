@@ -7,6 +7,10 @@ REACT_SUBDIR_LIST := $(wildcard react/*)
 copy:
 	@./scripts/copy.sh
 
+.PHONY: dev
+dev:
+	@./scripts/dev.sh
+
 .PHONY: diff
 diff:
 	@./scripts/diff.sh
