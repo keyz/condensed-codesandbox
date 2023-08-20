@@ -30,6 +30,9 @@
     "files.associations": {
       "*.css": "tailwindcss"
     },
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
     "prettier.documentSelectors": ["**/*.svg"],
     "typescript.enablePromptUseWorkspaceTsdk": true,
     "typescript.preferences.importModuleSpecifier": "non-relative"

@@ -35,6 +35,11 @@ install:
 	npm install
 	@$(MAKE) for-each COMMAND="npm install"
 
+.PHONY: outdated
+outdated:
+	npm outdated
+	@$(MAKE) for-each COMMAND="npm outdated"
+
 .PHONY: upgrade
 upgrade:
 	npm upgrade --save
