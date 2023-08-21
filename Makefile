@@ -40,6 +40,11 @@ outdated:
 	npm outdated
 	@$(MAKE) for-each COMMAND="npm outdated"
 
+.PHONY: reset
+reset:
+	rm -rf ./node_modules/ ./.next/
+	@$(MAKE) for-each COMMAND="rm -rf ./node_modules/ ./.next/"
+
 .PHONY: upgrade
 upgrade:
 	npm upgrade --save
