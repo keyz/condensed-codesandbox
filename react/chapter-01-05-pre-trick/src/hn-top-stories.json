@@ -55,7 +55,6 @@
       37142016, 37141349
     ],
     "score": 179,
-    "text": "Hi, I&#x27;m Evan and I developed Modern CSV. Last year, the beta version of version 2 was posted here on Hacker News. As a follow-up, I&#x27;m letting you guys know that the beta period is over and Modern CSV 2 is now available.<p>Modern CSV is a tabular file editor&#x2F;viewer for Windows, Mac, and Linux. I developed it out of frustration with how spreadsheet programs handle CSV files. Plain text editors, on the other job, do a poor job of handling columns. With Modern CSV, I attempt to combine the best of both worlds.<p>With version 2, you can expect to see an improved UI&#x2F;UX, better performance, more useful features, updated documentation, and for Mac users, native Apple Silicon support.<p>If you haven&#x27;t tried it yet, give it a shot and let me know what you think!",
     "time": 1692138909,
     "title": "Modern CSV version 2",
     "type": "story",
@@ -192,7 +191,6 @@
       37141825, 37140191, 37142329, 37134423, 37140939, 37141996
     ],
     "score": 91,
-    "text": "Hi HN! Today we are releasing Lottielab, a web-based animation tool, to the public as an open beta. The main tool for editing and exporting Lottie animations today is Adobe After Effects, a 30-year-old visual effects tool that’s not fit for this purpose, has a steep learning curve, and requires a patchwork of error-prone plugins. With Lottielab, we are aiming to reduce the friction of creating and editing product animations by providing an easy-to-use editor with out-of-the-box support for import and export of the Lottie format and many others. Feel free to play around with the tool and let me know what you think - I&#x27;m here to answer your questions. Happy animating!",
     "time": 1692102500,
     "title": "Show HN: Lottielab – Create product animations in the browser easily",
     "type": "story",
@@ -266,7 +264,6 @@
       37136724, 37142007
     ],
     "score": 98,
-    "text": "Hi HN, we&#x27;re Lucas and Lucas, the authors of Layerform (https:&#x2F;&#x2F;github.com&#x2F;ergomake&#x2F;layerform). Layerform is an open-source tool for setting up development environments using plain .tf files. We allow each engineer to create their own &quot;staging&quot; environment and reuse infrastructure.<p>Whenever engineers run layerform spawn, we use plain .tf files to give them their own &quot;staging&quot; environment that looks just like production.<p>Many teams have a single (or too few) staging environments, which developers have to queue to use. This is particularly a problem when a system is large, because then engineers can&#x27;t run it on their machines and cannot easily test their changes in a production-like environment. Often they end up with a cluttered Slack channel in which engineers wait for their turn to use staging. Sometimes, they don&#x27;t even have that clunky channel and end up merging broken code or shipping bugs to production. Lucas and I decided to solve this because we previously suffered with shared staging environments.<p>Layerform gives each developer their own production-like environment.This eliminates the bottleneck, increasing the number of deploys engineers make. Additionally, it reduces the amount of bugs and rework because developers have a production-like environment to develop and test against. They can just run &quot;layerform spawn&quot; and get their own staging.<p>We wrap the MPL-licensed Terraform and allow engineers to encapsulate each part of their infrastructure into layers. They can then create multiple instances of a particular layer to create a development environment.The benefit of using layers instead of raw Terraform modules is that they&#x27;re much easier to write and reuse, meaning multiple development environments can run on top of the same infrastructure.<p>Layerform&#x27;s environments are quick and cheap to spin up because they share core pieces of infrastructure. Additionally, Layerform can automatically tag components in each layer, making it easier for FinOps teams to manage costs and do chargebacks.<p>For example: with Layerform, a product developer can spin up their own lambdas and pods for staging while still using a shared Kubernetes cluster and Kafka instance. That way, development environments are quicker to spin up and cheaper to maintain. Each developer&#x27;s layer also gets a tag, meaning FinOps teams know how much each team&#x27;s environments cost.<p>For the sake of transparency, the way we intend to make money is by providing a managed service with governance, management, and cost-control features, including turning off environments automatically on inactivity or after business hours. The Layerform CLI itself will remain free and open (GPL).<p>You can download the Layerform CLI right now and use it for free. Currently, all the state, permissions, and layer definitions stay in your cloud, under your control.<p>After the whole license change thing, I think it&#x27;s also worth mentioning we&#x27;ll be building on top of the community&#x27;s fork and will consider adding support for Pulumi too.<p>We&#x27;d love your feedback on our solution to eliminate “the staging bottleneck&quot;. What do you think?",
     "time": 1692108951,
     "title": "Show HN: Layerform – Open-source development environments using Terraform files",
     "type": "story",
@@ -306,7 +303,6 @@
     "id": 37130200,
     "kids": [37130607, 37143044, 37131012, 37141193, 37142010],
     "score": 54,
-    "text": "I started this project many years ago when I was coming up with ideas for immutable data structures for the PHP data structures extension [1]. I wanted to support access by position in a sorted set, which led to the idea of using binary search trees for both lists and sets. However, I did not expect the scope of this project to increase as much as it did.<p>The more I read about binary search trees, the more I thought about them, and so down the rabbit hole I went. \nWhen you read everything you can find about a topic for several years, eventually you develop a deep enough understanding to compose new ideas from different sources.<p>This project is the result of many rejected ideas and countless experiments. \nI tried my best to distill everything I consider important enough to keep, and will continue to develop other ideas as they come along.\nI had no intention to implement anything other than weight-balanced strategies to support positional access, but when I read about rank-balanced trees I knew I had to take on the challenge to implement them.<p>I&#x27;ve been in contact with various authors along the way, specifically Bob Tarjan and Salvador Roura, but have otherwise not received any feedback yet.\nImplementing all the algorithms was incredibly hard work, by far the hardest work I&#x27;ve ever done, so I hope that others may find value in their presentation.<p>There is still so much work that could be done, but there comes a time when working on something alone begins to yield diminishing returns. I hope to continue this project as an open-source collaborative effort, so please feel free to ask questions or suggest changes, however small.<p>[1] <a href=\"https:&#x2F;&#x2F;github.com&#x2F;php-ds&#x2F;ext-ds\">https:&#x2F;&#x2F;github.com&#x2F;php-ds&#x2F;ext-ds</a>",
     "time": 1692073723,
     "title": "Exploring the design space of binary search trees",
     "type": "story",
@@ -362,15 +358,6 @@
     "url": "https://nautil.us/why-darwin-admired-the-humble-earthworm-361515/"
   },
   {
-    "by": "__sy__",
-    "id": 37136340,
-    "score": 1,
-    "time": 1692118832,
-    "title": "Seam (YC S20), API for IoT, Is Hiring a Founding PM",
-    "type": "job",
-    "url": "https://www.ycombinator.com/companies/seam/jobs/9VKC412-product-manager"
-  },
-  {
     "by": "ingve",
     "descendants": 12,
     "id": 37131027,
@@ -404,6 +391,7 @@
     "by": "LinuxBender",
     "descendants": 0,
     "id": 37142415,
+    "kids": [],
     "score": 21,
     "time": 1692155069,
     "title": "SpaceX takes another step toward launching Starship again",
@@ -445,6 +433,7 @@
     "by": "thunderbong",
     "descendants": 0,
     "id": 37143159,
+    "kids": [],
     "score": 5,
     "time": 1692163689,
     "title": "Carl Sagan testifying before Congress in 1985 on climate change [video]",
@@ -504,16 +493,6 @@
     "title": "Five Years of LLM Progress",
     "type": "story",
     "url": "https://finbarr.ca/five-years-of-gpt-progress/"
-  },
-  {
-    "by": "PaywallBuster",
-    "descendants": 0,
-    "id": 37142878,
-    "score": 5,
-    "text": "[received by email]<p>We are writing to let you know that starting October 1, 2023, all existing and new Standard Tier Egress customers will avail their first 200 GB for free in every region that they choose to operate, after which Standard Tier will be billed at current rates.<p>What do you need to know?\nThe 200 GB meter will reset every month. We’re introducing this offer to make it frictionless for customers to start using Standard Tier egress with their Virtual Machines.<p>Today, there is no free usage tier for Standard Tier Egress. With this MSA, we are introducing a free tier of egress to our Standard tier customers.<p>What do you need to do?\nNo action is required on your part. However, if you currently consume Standard Tier Egress, you will notice a slight reduction in the billed amount starting October 1, 2023. You can also review our standard billing rates.<p>Thanks for choosing Standard Tier Egress",
-    "time": 1692159963,
-    "title": "GCP offering 200Gb free egress on their Standard Tier",
-    "type": "story"
   },
   {
     "by": "thunderbong",
@@ -639,28 +618,10 @@
       37137183, 37134411, 37133203, 37139497
     ],
     "score": 161,
-    "text": "Author here. I just wanted a quick and easy way to easily submit strings to a REST API and get back the embedding vectors in JSON using Llama2 and other similar LLMs, so I put this together over the past couple days. It&#x27;s very quick and easy to set up and totally self-contained and self-hosted. You can easily add new models to it by simply adding the HuggingFace URL to the GGML format model weights. Two models are included by default, and these are automatically downloaded the first time it&#x27;s run.<p>It lets you not only submit text strings and get back the embeddings, but also to compare two strings and get back their similarity score (i.e., the cosine similarity of their embedding vectors). You can also upload a plaintext file or PDF and get back all the embeddings for every sentence in the file as a zipped JSON file (and you can specify the layout of this JSON file).<p>Each time an embedding is computed for a given string with a given LLM, that vector is stored in the SQlite database and can be returned immediately. You can also search across all stored vectors easily using a query string; this uses FAISS which is integrated.<p>There are lots of nice performance enhancements, including parallel inference, db write queue, fully async everything, and even a RAM Disk feature to speed up model loading.<p>I’m working now on adding additional API endpoints for easily generating sentiment scores using presets for different focus areas, but that’s still work-in-progress (the code for this so far is in the repo though).",
     "time": 1692102687,
     "title": "Show HN: Llama2 Embeddings FastAPI Server",
     "type": "story",
     "url": "https://github.com/Dicklesworthstone/llama_embeddings_fastapi_service"
-  },
-  {
-    "by": "Alanhlwang",
-    "descendants": 79,
-    "id": 37119311,
-    "kids": [
-      37124278, 37120437, 37128732, 37120014, 37120760, 37122274, 37129687,
-      37120353, 37121543, 37121121, 37124286, 37128499, 37119648, 37120689,
-      37131606, 37126538, 37122979, 37130134, 37130219, 37120650, 37138193,
-      37120124, 37134470, 37133631, 37134466, 37120252, 37129856, 37120865,
-      37142064
-    ],
-    "score": 138,
-    "text": "Hey HN! Alan and Albert here, cofounders of Serra. Serra is end-to-end dbt—we make building reliable, scalable ELT&#x2F;ETL easy by replacing brittle SQL scripts with object-oriented Python. It’s open core: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;Serra-Technologies&#x2F;serra\">https:&#x2F;&#x2F;github.com&#x2F;Serra-Technologies&#x2F;serra</a>, and our docs are here: <a href=\"https:&#x2F;&#x2F;docs.serra.io&#x2F;documentation&#x2F;\">https:&#x2F;&#x2F;docs.serra.io&#x2F;documentation&#x2F;</a>.<p>I stumbled into this idea as a data engineer for Disney+’s subscriptions team. We were “firefighters for data,” ready to debug huge pipelines that always crashed and burned. The worst part of my job at Disney+ was the graveyard on-call rotations, where pagers from 12am to 5am were guaranteed, and you&#x27;d have to dig through thousands of lines of someone else’s SQL. \nSQL is long-winded—1000 lines of SQL can often be summarized with 10 key transforms. We take this SQL and summarize those transforms with reusable, testable, scalable Spark objects.<p>Serra is written in PySpark and modularizes every component of ETL through Spark objects. Similar to dbt, we apply software engineering best practices to data, but we aim to do it not just with transformations, but with data connectors as well.\nWe accomplish this with a configuration YAML file—the idea is if we have a pipeline with said 1000 line SQL script that is using third-party connectors, we can summarize all of this into a 12-block config file that gives easy high-level overhead and debugging capabilities—10 blocks for the transforms and 2 for the in-house connectors. Then, we can add tests and custom alerts to each of these objects&#x2F;blocks so that we know where exactly the pipeline breaks and why.<p>We are open-source to make it easy to customize Serra to whatever flavor you like with custom transformers&#x2F;connectors. The connectors we support OOB are Snowflake, AWS, BigQuery, and Databricks and are adding more based on feedback. The transforms we support include mapping, pivoting, joining, truncating, imputing, and more. \nWe’re doing our best to make Serra as easy to use as possible. If you have docker installed, you can run this docker command to instantly get setup with a Serra environment to create modular pipelines.<p>We wrap up our functionality with a command line tool that lets you: - create your ETL pipelines, test them locally with a subset of your data, and deploy them to the cloud (currently we only support Databricks, but will soon support others and plan to host our own clusters too). It also has an experimental “translate” feature which is still a bit finicky, but the idea is to take your existing SQL script and get suggestions on how you can chunk up and modularize your job with our config. It’s still just a super early suggestion feature that is definitely not fleshed out, but we think it’s a cool approach.<p>Here’s a quick demo going through retooling a long-winded SQL script to an easily maintainable, scalable ETL job: <a href=\"https:&#x2F;&#x2F;www.loom.com&#x2F;share&#x2F;acc633c0ec03455e9e8837f5c3db3165?sid=341c529c-1c4a-41b2-85c4-ca8589ff965a\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;www.loom.com&#x2F;share&#x2F;acc633c0ec03455e9e8837f5c3db3165?...</a>. (docker command: docker run --mount type=bind,source=&quot;$(pwd)&quot;,target=&#x2F;app -it serraio&#x2F;serra &#x2F;bin&#x2F;bash)<p>We don’t see or store any of your data—we’re a transit layer that helps you write ETL jobs that you can send to your warehouse of choice with your actual data. Right now we are helping customers retool their messy data pipelines and plan to monetize by hosting Serra on the cloud, charging if you run the job on our own clusters, and per API call on our translate feature (once it’s mature).<p>We’re super excited to launch this to Hacker News. We’d love to hear what you think. Thanks in advance!",
-    "time": 1692007996,
-    "title": "Launch HN: Serra (YC S23) – Open-core, Python-based dbt alternative",
-    "type": "story"
   },
   {
     "by": "hammock",
@@ -753,6 +714,7 @@
     "by": "LinuxBender",
     "descendants": 0,
     "id": 37140583,
+    "kids": [],
     "score": 19,
     "time": 1692141429,
     "title": "Pioneering study links cancer among military personnel to ‘forever chemicals’",
@@ -776,7 +738,6 @@
       37130724
     ],
     "score": 821,
-    "text": "Outlines is a Python library that focuses on text generation with large language models. Brandon and I are not LLM experts and started the project a few months ago because we wanted to understand better how the generation process works. Our original background is probabilistic, relational and symbolic programming.<p>Recently we came up with a fast way to generate text that matches a regex (<a href=\"https:&#x2F;&#x2F;blog.normalcomputing.ai&#x2F;posts&#x2F;2023-07-27-regex-guided-generation&#x2F;regex-guided-generation.html\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;blog.normalcomputing.ai&#x2F;posts&#x2F;2023-07-27-regex-guide...</a>). The basic idea is simple: regular expressions have an equivalent Deterministic-Finite Automaton (DFA) representation. We can transform this DFA into a generative model: in each state we get a list of symbols which correspond to completions that partially match the regular expression. We mask the other symbols in the logits returned by a large language model, sample a new symbol and move to the next state. The subtelty is that language models work with tokens, not symbols, so we derive a new FSM whose alphabet is the model&#x27;s vocabulary. We can do this in only one pass over the vocabulary.<p>Generating the token masks thus only requires a dictionary lookup at each state. Our method blows other libraries like Microsoft&#x27;s guidance out of the water.<p>From there it was only a small leap to be able to generate text that follows a JSON schema (<a href=\"https:&#x2F;&#x2F;json-schema.org&#x2F;\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;json-schema.org&#x2F;</a>), or is parseable into a Pydantic model (<a href=\"https:&#x2F;&#x2F;docs.pydantic.dev&#x2F;latest&#x2F;usage&#x2F;models&#x2F;\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;docs.pydantic.dev&#x2F;latest&#x2F;usage&#x2F;models&#x2F;</a>). The method works with union types, optional types, nested schemas, arrays, everything. It is guaranteed that the output is parseable.<p>I think it&#x27;s cool, and I&#x27;ve spent a lot of time watching even tiny models output valid JSON over the weekend. Hope you will too.<p>I look forward to feedback, bug reports, feature requests and discussions!<p>Edit: Link to our pre-print explaining the method and how this can be extended to generate text that follows a Context-Free Grammar <a href=\"https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2307.09702\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2307.09702</a>",
     "time": 1692039174,
     "title": "Show HN: LLMs can generate valid JSON 100% of the time",
     "type": "story",
@@ -811,7 +772,6 @@
       37128784, 37130262
     ],
     "score": 417,
-    "text": "Hi HN community! We want to share AI-town, a deployable starter kit for building and customizing your own version of AI simulation - a virtual town where AI characters live, chat and socialize.<p>Inspired by great work from the Stanford Generative Agent paper (<a href=\"https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2304.03442\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;arxiv.org&#x2F;abs&#x2F;2304.03442</a>).<p>A few features:\n- Includes a convex.dev backed server-side game engine that handles global state\n- Multiplayer ready. Deployment ready\n- 100% Typescript \n- Easily customizable. You can fork it, change character memories, add new sprites&#x2F;tiles and you have a custom AI simulation<p>The goal is to democratize building your own simulation environment with AI agents. Would love to see the community build more complex interactions on top of this. Let us know what you think!<p>Demo: <a href=\"https:&#x2F;&#x2F;www.convex.dev&#x2F;ai-town\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;www.convex.dev&#x2F;ai-town</a><p>I made a world Cat Town to demonstrate how to customize AI town. Using C(h)atGPT :)<p>Demo: <a href=\"https:&#x2F;&#x2F;cat-town.fly.dev&#x2F;\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;cat-town.fly.dev&#x2F;</a>\nCode: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;ykhli&#x2F;cat-town\">https:&#x2F;&#x2F;github.com&#x2F;ykhli&#x2F;cat-town</a>",
     "time": 1692056762,
     "title": "Show HN: AI-town, run your own custom AI world SIM with JavaScript",
     "type": "story",
@@ -926,6 +886,7 @@
     "by": "kosasbest",
     "descendants": 0,
     "id": 37136103,
+    "kids": [],
     "score": 11,
     "time": 1692117668,
     "title": "Weak Cryptographic Parameters in LUKS1",
@@ -1024,7 +985,6 @@
       37122804, 37128348, 37122704, 37127073, 37122087, 37122723, 37122927
     ],
     "score": 534,
-    "text": "Hi HN<p>I needed a way to monitor network calls made by chrome extensions so I made a small extension.<p>You can install it by dropping the zip or crx into the extensions page. It&#x27;ll be on the chrome store whenever&#x2F;if it gets through the review.<p>Hopefully it&#x27;s useful to others.<p><a href=\"https:&#x2F;&#x2F;github.com&#x2F;dnakov&#x2F;little-rat\">https:&#x2F;&#x2F;github.com&#x2F;dnakov&#x2F;little-rat</a><p><a href=\"https:&#x2F;&#x2F;twitter.com&#x2F;dnak0v\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;twitter.com&#x2F;dnak0v</a>",
     "time": 1692013799,
     "title": "Show HN: Little Rat – Chrome extension monitors network calls of all extensions",
     "type": "story",
@@ -1132,20 +1092,6 @@
     "title": "A C parser for CREATE and ALTER TABLE SQLite statements",
     "type": "story",
     "url": "https://github.com/marcobambini/sqlite-createtable-parser"
-  },
-  {
-    "by": "simonmesmith",
-    "descendants": 25,
-    "id": 37139641,
-    "kids": [
-      37141277, 37142754, 37140757, 37140130, 37140550, 37141257, 37140223,
-      37139959, 37142600, 37139988, 37142067
-    ],
-    "score": 13,
-    "text": "I’ve found it interesting that ChatGPT sparked fresh concern about AI’s impact on jobs and yet many months later we have historically low unemployment in the US.<p>Obviously, such impact wouldn’t be instantaneous, but I’ve wondered how companies are thinking about this in terms of headcount planning.<p>From conversations with friends it seems that a common approach is attrition with non-replacement. Companies are using ChatGPT and similar tools to increase productivity, but don’t want to fire a lot of people due to the negative impact on morale on those that remain—and the fact, I assume, it’s not yet clear how much of a productivity gain will occur where, so they don’t even know exactly who to fire yet.<p>I was wondering what others on HN are seeing. How are your companies approaching this? Is attrition with non-replacement a common strategy? If so, what might that mean for the future job market and unemployment rate?",
-    "time": 1692135758,
-    "title": "Ask HN: ChatGPT’s Impact on Headcount – What’s Your Experience?",
-    "type": "story"
   },
   {
     "by": "kamaraju",
@@ -1357,6 +1303,7 @@
     "by": "freedude",
     "descendants": 0,
     "id": 37138992,
+    "kids": [],
     "score": 4,
     "time": 1692131608,
     "title": "Add AWS CLI to Windows Terminal",
@@ -1389,6 +1336,7 @@
     "by": "aduffy",
     "descendants": 0,
     "id": 37138731,
+    "kids": [],
     "score": 7,
     "time": 1692130144,
     "title": "Umbra Manages Satellites with CesiumJS",
@@ -1563,7 +1511,6 @@
       37137078, 37134549, 37134196, 37137502, 37135242, 37142078
     ],
     "score": 144,
-    "text": "Servicer is a CLI to create and manage services on systemd. I have used pm2 in production and find it easy to use. However a lot of its functionality is specific to node.js, and I would prefer not to run my rust server as a fork of a node process. Systemd on the other hand has most of the things I need, but I found it cumbersome to use. There are a bunch of different commands and configurations- the .service file, systemctl to view status, journald to view logs which make systemd more complex to setup. I had to google for the a template and commands every time.<p>Servicer abstracts this setup behind an easy to use CLI, for instance you can use `ser create index.js --interpreter node --enable --start` to create a `.service` file, enable it on boot and start it. Servicer will also help if you wish to write your own custom `.service` files. Run `ser edit foo --editor vi` to create a service file in Vim. Servicer will provide a starting template so you don&#x27;t need to google it. There are additional utilities like `ser which index.js` to view the path of the service and unit file.<p>```\nPaths for index.js.ser.service:\n+--------------+-----------------------------------------------------------+\n| name         | path                                                      |\n+--------------+-----------------------------------------------------------+\n| Service file | &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;index.js.ser.service                  |\n+--------------+-----------------------------------------------------------+\n| Unit file    | &#x2F;org&#x2F;freedesktop&#x2F;systemd1&#x2F;unit&#x2F;index_2ejs_2eser_2eservice |\n+--------------+-----------------------------------------------------------+\n```<p>Servicer is daemonless and does not run in the background. It simply sets up systemd and gets out of the way. There are no forked services, everything is natively set up on systemd. You don&#x27;t need to worry about resource consumption or servicer going down which will cause your app to stop.<p>Do give it a spin and review the codebase. The code is open source and MIT licensed- <a href=\"https:&#x2F;&#x2F;github.com&#x2F;servicer-labs&#x2F;servicer\">https:&#x2F;&#x2F;github.com&#x2F;servicer-labs&#x2F;servicer</a>",
     "time": 1692099266,
     "title": "Show HN: Servicer, pm2 alternative built on Rust and systemd",
     "type": "story",
@@ -1631,20 +1578,6 @@
     "url": "https://electrek.co/2023/08/13/why-e-bike-companies-dont-want-right-of-repair/"
   },
   {
-    "by": "manofmanysmiles",
-    "descendants": 21,
-    "id": 37136390,
-    "kids": [
-      37137154, 37136548, 37137412, 37142492, 37136752, 37137240, 37136669,
-      37137245, 37136575, 37136630
-    ],
-    "score": 42,
-    "text": "I’ve been looking and can only find “Learn Vimscript The Hard Way”.<p>The website I remember had a man in front of some control panel, maybe wearing a space suite, and started with a section named something like “Learn to Crawl”.<p>Does anyone know what I’m talking about?",
-    "time": 1692119003,
-    "title": "Does the “Learn Vim the Hard Way” website still exist?",
-    "type": "story"
-  },
-  {
     "by": "claytonwramsey",
     "descendants": 139,
     "id": 37120967,
@@ -1658,17 +1591,6 @@
     "title": "I built a garbage collector for a language that doesn’t need one",
     "type": "story",
     "url": "https://claytonwramsey.github.io/2023/08/14/dumpster.html"
-  },
-  {
-    "by": "justasking7000",
-    "descendants": 13,
-    "id": 37141273,
-    "kids": [37141832, 37141440, 37141411, 37141713, 37142062],
-    "score": 40,
-    "text": "Why do they keep doing this?<p>I noticed users of my product (https:&#x2F;&#x2F;clonedub.com) were complaining that they couldn&#x27;t upgrade plans. I also noticed there were no new subscriptions all day which was unusual.<p>So I log into firebase to figure out what&#x27;s wrong.<p>Lo and behold it reads &quot;Firebase no longer supports stripe extension. This has been moved to invertase&quot;.<p>The only mention of this is here:\nhttps:&#x2F;&#x2F;github.com&#x2F;invertase&#x2F;stripe-firebase-extensions&#x2F;issues&#x2F;542<p>Checking this out further I realised it was a barely supported open source alternative that didnt even work.<p>What a joke?!!<p>I genuinely don&#x27;t understand why they have such contempt for businesses on their platforms.<p>Why do they keep doing this?!!!",
-    "time": 1692146180,
-    "title": "Google just killed the Firebase stripe extension – zero warning",
-    "type": "story"
   },
   {
     "by": "Fraterkes",
@@ -1755,6 +1677,7 @@
     "by": "PaulHoule",
     "descendants": 0,
     "id": 37141541,
+    "kids": [],
     "score": 3,
     "time": 1692148200,
     "title": "Genetic Engineering and Biosynthesis: Unlocking the Chains of Phage Therapy",
@@ -1792,29 +1715,10 @@
       37124499, 37127884, 37127483, 37127887
     ],
     "score": 108,
-    "text": "Hey HN! We are building Epsilla (<a href=\"https:&#x2F;&#x2F;github.com&#x2F;epsilla-cloud&#x2F;vectordb\">https:&#x2F;&#x2F;github.com&#x2F;epsilla-cloud&#x2F;vectordb</a>), an open-source, self-hostable vector database for semantic similarity search that specializes in low query latency.<p>When do we need a vector database? For example, GPT-3.5 has a 16k context window limit. If we want to let it answer a question about a 300 page book, we cannot put the whole book content into the context. We have to choose the sections of the book that are most relevant to the question. Vector database is specialized at ranking and picking the most relevant content from a large pool of documents based on their semantic similarity.<p>Most vector databases utilize hierarchical navigational small world (HNSW) for indexing the vectors for high precision vector search, and its latency significantly degrades when the precision target is higher than 95%.<p>At a previous company, we worked on building the parallel graph traversal engine. We realized that the bottleneck of HNSW performance is because there are too many sequential traversal steps that don&#x27;t fully leverage multi-core CPU computation resources. After some research, we found that there are algorithms such as SpeedANN that are targeting this problem, which is not leveraged by industry yet. So we built the Epsilla vector database to turn the research into a production system.<p>With Epsilla, we shoot for 10x lower vector search latency compared to HNSW based vector databases. We did an initial benchmark against the top open source vector databases: <a href=\"https:&#x2F;&#x2F;medium.com&#x2F;@richard_50832&#x2F;benchmarking-epsilla-with-some-of-the-top-vector-databases-543e2b7708e5\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;medium.com&#x2F;@richard_50832&#x2F;benchmarking-epsilla-with-...</a><p>We provide a Docker image for you to install Epsilla backend locally, and provide a Python client and a JavaScript client to connect and interact with it.<p>Quickstart:<p><pre><code>      docker pull epsilla&#x2F;vectordb\n\n      docker run --pull=always -d -p 8888:8888 epsilla&#x2F;vectordb\n\n      pip install pyepsilla\n\n      git clone https:&#x2F;&#x2F;github.com&#x2F;epsilla-cloud&#x2F;epsilla-python-client.git\n\n      cd examples\n\n      python hello_epsilla.py\n\n</code></pre>\nWe just started a month ago. We&#x27;d love to hear what you think, and more importantly, what you wish to see in the future. We are thinking about a serverless vector database on cloud with a consumption based pricing model, and we are eager to get your feedback.",
     "time": 1692026500,
     "title": "Show HN: Epsilla – Open-source vector database with low query latency",
     "type": "story",
     "url": "https://github.com/epsilla-cloud/vectordb"
-  },
-  {
-    "by": "xslowzone",
-    "descendants": 339,
-    "id": 37130060,
-    "kids": [
-      37137383, 37130982, 37130129, 37138170, 37136776, 37130143, 37130078,
-      37130099, 37130568, 37142809, 37130584, 37130550, 37130102, 37130111,
-      37138822, 37133120, 37130799, 37131561, 37138752, 37130392, 37132390,
-      37130119, 37131831, 37130856, 37130381, 37130873, 37131082, 37137439,
-      37130097, 37137163, 37130073, 37130137, 37130125, 37130641, 37130159,
-      37137902, 37130179
-    ],
-    "score": 632,
-    "text": "Go to Twitter and click on a link going to any url on &quot;NYTimes.com&quot; or &quot;threads.net&quot; and you&#x27;ll see about a ~5 second delay before t.co forwards you to the right address.<p>Twitter won&#x27;t ban domains they don&#x27;t like but will waste your time if you visit them.<p>I&#x27;ve been tracking the NYT delay ever since it was added (8&#x2F;4, roughly noon Pacific time), and the delay is so consistent it&#x27;s obviously deliberate.",
-    "time": 1692072543,
-    "title": "Tell HN: t.co is adding a five-second delay to some domains",
-    "type": "story"
   },
   {
     "by": "YeGoblynQueenne",
@@ -1892,7 +1796,6 @@
       37116151, 37119779, 37115652, 37114941, 37120576, 37114532
     ],
     "score": 367,
-    "text": "I wrote a relational database management system (RDBMS) (sqlite clone) from scratch in pure Python.",
     "time": 1691958731,
     "title": "Show HN: I wrote a RDBMS (SQLite clone) from scratch in pure Python",
     "type": "story",
@@ -2077,6 +1980,7 @@
     "by": "jjmacky",
     "descendants": 0,
     "id": 37134500,
+    "kids": [],
     "score": 18,
     "time": 1692110076,
     "title": "Guide to Generative AI and Political Misinformation",
@@ -2087,6 +1991,7 @@
     "by": "LinuxBender",
     "descendants": 0,
     "id": 37139126,
+    "kids": [],
     "score": 9,
     "time": 1692132600,
     "title": "‘Defender Pretender’ turns Windows’ malware protections against itself",
@@ -2163,7 +2068,6 @@
       37121162, 37121673, 37127076
     ],
     "score": 46,
-    "text": "Hi!\n&quot;Another chatbot for your content&quot; you may ask? Not really! Let me explain.<p>I have realized that there&#x27;s an untapped potential for ChatGPT plugins: why leave them locked up in the OpenAI store? Let&#x27;s embed them on websites or share using links!<p>Let&#x27;s make chatbots ~ do stuff ~, not just talk about what they know.<p>That&#x27;s how Chatwith was born. It is a chat widget, it scrapes your website, knowledge page, notion etc - but more importantly, it also understands your API. It can interact with that API on your or your visitors&#x27; behalf.<p>Some use cases &amp; ideas:<p>- Shopify bot - ask it for order status and invoice<p>- Realtor - ask for budget, provide listings<p>- Survey - ask questions, collect answers, submit to Typeform<p>- Airline service - get your boarding pass<p>- Mixpanel - talk to your analytics<p>In other words:<p>- Talk to APIs &amp; hot data<p>- ChatGPT plugin on every website<p>- Your SaaS can be a chatbot<p>- APIs made accessible (they were reserved for devs until now)<p>- Create an API, use chat as the interface - skip the frontend<p>I am trying to envision a future where website visitors are empowered to just say what they want from the business - instead of navigating endless dashboards and documentation.<p>I&#x27;m looking for some feedback about my product! lmk<p>Rafal",
     "time": 1692014926,
     "title": "Show HN: A website chatbot that also uses APIs",
     "type": "story",
@@ -2182,25 +2086,6 @@
     "title": "What coal and Jevons’ paradox tell us about AI and data",
     "type": "story",
     "url": "https://hex.tech/blog/jevons-paradox-demand-for-insight/"
-  },
-  {
-    "by": "inconfident2021",
-    "descendants": 88,
-    "id": 37130531,
-    "kids": [
-      37130817, 37134480, 37131039, 37133126, 37135289, 37130763, 37132203,
-      37131022, 37130940, 37131327, 37131057, 37130781, 37131158, 37130984,
-      37131218, 37130904, 37132022, 37130564, 37130795, 37132159, 37138802,
-      37137807, 37130976, 37131853, 37130857, 37133961, 37131013, 37133606,
-      37130870, 37131800, 37136274, 37130928, 37131243, 37130563, 37131221,
-      37134660, 37131371, 37131044, 37131214, 37130827, 37131267, 37134231,
-      37133441, 37131098, 37130757, 37131034, 37139087
-    ],
-    "score": 73,
-    "text": "I consider myself to be a pretty good prompter. Been using the LLMs for a long time now. Most of the time I manage to get the desired results out of LLM models. Do you think this skill is anywhere useful?<p>So far it has saved me some time on my work, but I don&#x27;t think promoting will be any relevant in the near future. People can and will build models that follow the same mode of thought.",
-    "time": 1692077370,
-    "title": "Ask HN: I learned useless skill of prompt engineering, how relevant will it be?",
-    "type": "story"
   },
   {
     "by": "signa11",
@@ -2319,6 +2204,7 @@
     "by": "rc00",
     "descendants": 0,
     "id": 37140379,
+    "kids": [],
     "score": 5,
     "time": 1692140253,
     "title": "LinkedIn accounts hacked in widespread hijacking campaign",
@@ -2394,26 +2280,6 @@
     "title": "Cruise vehicle gets stuck in wet concrete while driving in San Francisco",
     "type": "story",
     "url": "https://www.sfgate.com/tech/article/cruise-stuck-wet-concrete-sf-18297946.php"
-  },
-  {
-    "by": "smdz",
-    "descendants": 185,
-    "id": 37126182,
-    "kids": [
-      37126744, 37126994, 37143286, 37126583, 37126549, 37129547, 37126946,
-      37126665, 37126845, 37128354, 37128089, 37126818, 37126825, 37126470,
-      37128938, 37128409, 37127131, 37131181, 37127011, 37127277, 37126748,
-      37128300, 37135640, 37130067, 37126678, 37129623, 37128630, 37132543,
-      37131299, 37135600, 37127980, 37127478, 37133466, 37126868, 37129898,
-      37127278, 37130349, 37128250, 37127326, 37128456, 37127017, 37129206,
-      37128439, 37129863, 37135634, 37129128, 37128533, 37131496, 37126852,
-      37126715, 37131919, 37133084, 37126805
-    ],
-    "score": 154,
-    "text": "TL;DR (summarised by ChatGPT) - I&#x27;m experiencing increased productivity and independence with ChatGPT but grappling with challenges such as lack of work-life boundaries and overwhelming information, leading to stress and burnout.<p>Long story...<p>I have been using ChatGPT for a while, and moved to the Plus subscription for their GPT-4 model, which I must say, is quite good.<p>1. ChatGPT makes us very productive. Personally, in my early 40s, I feel my brain is back in 20s.<p>2. I no longer feel the need to hire juniors. This is a short-term positive and maybe a long-term negative.\n[[EDIT: I may have implied a wrong meaning. To clarify - nobody&#x27;s going yet because of ChatGPT. It is just raising the bar high and higher. What took me years to learn, this thing can do already and much more. And I cannot predict the financial future of OpenAI or the markets in general.]]<p>A lot of stuff I used to delegate to fellow humans are now being delegated to ChatGPT. And I can get the results immediately and at any time I want. I agree that it cannot operate on its own. I still need to review and correct things. I have do that even when working with other humans. The only difference is that I can start trusting a human to improve, but I cannot expect ChatGPT to do so. Not that it is incapable, but because it is restricted by OpenAI.<p>And I have gotten better at using it. Calling myself a prompt-engineer sounds weird.<p>With all the good, I am now experiencing the cons, stress and burnout:<p>1. Humans work 9-5 (or some schedule), but ChatGPT is available always and works instantly. Now, when I have some idea I want to try out - I start working on it immediately with the help of AI. Earlier I just used to put a note in the todo-list and stash it for the next day.<p>2. The outputs with ChatGPT are so fast, that my &quot;review load&quot; is too high. At times it feels like we are working for ChatGPT and not the other way around.<p>3. ChatGPT has the habit of throwing new knowledge back at you. Google does that too, but this feels 10x of Google. Sometimes it is overwhelming. Good thing is we learn a lot, bad thing is that if often slows down our decision making.<p>4. I tried to put a schedule to use it - but when everybody has access to this tech, I have a genuine fear of missing out.<p>5. I have zero doubt that AI is setting the bar high, and it is going to take away a ton of average-joe desk jobs. GPT-4 itself is quite capable and organisations are yet to embrace it.<p>And not the least, it makes me worry - what lies with the future models. I am not a layman when it comes to AI&#x2F;ML - have worked with it until the past few years in the pre-GPT era.<p>Has anybody experienced these issues? And how do you deal with those?<p>* I could not resist asking ChatGPT the above - couple of strategies it told me were to &quot;Seek Support from Others&quot; and &quot;Participating in discussions or groups focused on ethical AI&quot;. *",
-    "time": 1692043851,
-    "title": "Ask HN: Burnout because of ChatGPT?",
-    "type": "story"
   },
   {
     "by": "ibobev",
@@ -2563,6 +2429,7 @@
     "by": "my123",
     "descendants": 0,
     "id": 37140035,
+    "kids": [],
     "score": 3,
     "time": 1692138011,
     "title": "New – Amazon EC2 M7a General Purpose Instances Powered by 4th Gen AMD EPYC",
@@ -2682,17 +2549,6 @@
     "url": "https://www.pcmag.com/news/chatgpt-isnt-good-at-coding"
   },
   {
-    "by": "thatcherthorn",
-    "descendants": 5,
-    "id": 37137878,
-    "kids": [37141416, 37139496, 37138959, 37138226],
-    "score": 4,
-    "text": "I&#x27;ve seen discussion on the various bad actors seeking to acquire extensions for access to their user base.<p>My question is, what are the other paths to monetization? How much reliable income can one earn on an extension with a few thousand users?",
-    "time": 1692126199,
-    "title": "What are the paths to monetize a browser extension?",
-    "type": "story"
-  },
-  {
     "by": "jyunwai",
     "descendants": 25,
     "id": 37127003,
@@ -2779,19 +2635,6 @@
     "title": "Testing on production",
     "type": "story",
     "url": "https://marcochiappetta.medium.com/yes-you-should-test-on-production-61f6dc61908b"
-  },
-  {
-    "by": "nantersand",
-    "descendants": 11,
-    "id": 37133985,
-    "kids": [
-      37137201, 37134863, 37138774, 37136926, 37134381, 37136369, 37134099
-    ],
-    "score": 8,
-    "text": "So I have 10,000 paragraphs I want to individually process with a prompt.<p>Any packages that would handle running things async, doing retries, handling the occasional hung connection, and logging performance?<p>Tried helicone, but I don&#x27;t think it handles the hung connections.<p>Just doing it manually for now, but there must be an existing solution?",
-    "time": 1692107406,
-    "title": "Ask HN: Batch Processing with OpenAI",
-    "type": "story"
   },
   {
     "by": "ignoramous",
@@ -2979,6 +2822,7 @@
     "by": "pseudolus",
     "descendants": 0,
     "id": 37135028,
+    "kids": [],
     "score": 6,
     "time": 1692112645,
     "title": "Drug makers have tripled the prices of top Medicare drugs",
@@ -2989,6 +2833,7 @@
     "by": "asaiacai",
     "descendants": 0,
     "id": 37126004,
+    "kids": [],
     "score": 11,
     "time": 1692042898,
     "title": "Show HN: OSS tool to finetune and serve LLMs on different clouds",
@@ -3014,6 +2859,7 @@
     "by": "mfiguiere",
     "descendants": 0,
     "id": 37139121,
+    "kids": [],
     "score": 4,
     "time": 1692132578,
     "title": "Chrome 116 Released with Document Picture-in-Picture API",
@@ -3034,17 +2880,6 @@
     "title": "I’ll never be an astronaut",
     "type": "story",
     "url": "https://shaunoconnell.com/2023/08/10/ill-never-be-an-astronaut/"
-  },
-  {
-    "by": "noweducational",
-    "descendants": 5,
-    "id": 37133010,
-    "kids": [37136047, 37138997, 37137122, 37139911, 37140419],
-    "score": 9,
-    "text": "My daughter is about to turn three, and she&#x27;s interested in computers, especially a raspberry pi that was sitting on my desk. In her own words: she wants to use &quot;the little computer to do work like dad&quot;. So far, she is fairly entertained by just being able to open an editor and type words, but I&#x27;d like to provide some extra things to play with on there. Does anyone have any recommendations for educational software I could add? Or other activities I could add to get her interested in computing?",
-    "time": 1692101660,
-    "title": "Ask HN: How to setup a raspberrypi for a three year old?",
-    "type": "story"
   },
   {
     "by": "rmason",
@@ -3103,6 +2938,7 @@
     "by": "interestica",
     "descendants": 0,
     "id": 37137305,
+    "kids": [],
     "score": 6,
     "time": 1692123054,
     "title": "The mine that built the atomic bomb: Shinkolobwe mine, DRC",
@@ -3138,6 +2974,7 @@
     "by": "sohkamyung",
     "descendants": 0,
     "id": 37134362,
+    "kids": [],
     "score": 6,
     "time": 1692109382,
     "title": "Talking with Webb Using the Deep Space Network",
@@ -3213,6 +3050,7 @@
     "by": "ikue",
     "descendants": 0,
     "id": 37132454,
+    "kids": [],
     "score": 13,
     "time": 1692097702,
     "title": "Microsoft Discloses Codesys Flaws Allowing Shutdown of Industrial Operations",
@@ -3313,7 +3151,6 @@
     "id": 37124639,
     "kids": [37124659, 37129349, 37129237],
     "score": 8,
-    "text": "OneView was first posted to HN in 2017, but died sometime around late 2019. Using the web archive I cobbled together something that works.<p>Open to hearing people&#x27;s thoughts on whether this is ethical or not...",
     "time": 1692037472,
     "title": "Show HN: I resurrected one of the top dead Show HNs",
     "type": "story",
@@ -3337,6 +3174,7 @@
     "by": "gmays",
     "descendants": 0,
     "id": 37137921,
+    "kids": [],
     "score": 3,
     "time": 1692126396,
     "title": "Netflix finally streams video games",
@@ -3353,7 +3191,6 @@
       37125178, 37124636, 37125104
     ],
     "score": 45,
-    "text": "I wrote a small Chrome extension that allows the user to replace all usernames on Hacker News with either the string `anonymous` or a deterministic hashed value.",
     "time": 1692034560,
     "title": "Show HN: Anonymize HN – a Chrome extension to anonymize Hacker News users",
     "type": "story",
@@ -3445,20 +3282,6 @@
     "url": "https://cool-readme.vercel.app/"
   },
   {
-    "by": "dkindler",
-    "descendants": 20,
-    "id": 37120194,
-    "kids": [
-      37120293, 37121928, 37128330, 37129316, 37124375, 37121614, 37135133,
-      37122234, 37125585, 37125085, 37120269, 37124279
-    ],
-    "score": 39,
-    "text": "I&#x27;ve noticed that many of the startups in the YC S23 batch are open source. Is that correct? If so, why has this become a trend?",
-    "time": 1692015660,
-    "title": "Ask HN: Is it me, or are more and more YC companies open source?",
-    "type": "story"
-  },
-  {
     "by": "not_makerbox",
     "descendants": 49,
     "id": 37119786,
@@ -3468,7 +3291,6 @@
       37120476, 37120556, 37120297
     ],
     "score": 67,
-    "text": "I hate talking to people.<p>So I made ChatGPT do it for me.",
     "time": 1692012576,
     "title": "Show HN: User Persona Generator",
     "type": "story",
@@ -3517,6 +3339,7 @@
     "by": "thund",
     "descendants": 0,
     "id": 37137328,
+    "kids": [],
     "score": 5,
     "time": 1692123203,
     "title": "Missing US crypto king found dead",
@@ -3633,6 +3456,7 @@
     "by": "phemartin",
     "descendants": 0,
     "id": 37136777,
+    "kids": [],
     "score": 5,
     "time": 1692120511,
     "title": "Show HN: I wrote 100 book summaries",
@@ -3844,6 +3668,7 @@
     "by": "mepian",
     "descendants": 0,
     "id": 37135977,
+    "kids": [],
     "score": 16,
     "time": 1692117047,
     "title": "At least 3 Russian journalists and activists poisoned abroad since fall 2022",
@@ -3914,6 +3739,7 @@
     "by": "tosh",
     "descendants": 0,
     "id": 37125844,
+    "kids": [],
     "score": 5,
     "time": 1692042203,
     "title": "Enhancing Whisper transcriptions: pre- & post-processing techniques",
@@ -3924,6 +3750,7 @@
     "by": "latchkey",
     "descendants": 0,
     "id": 37126049,
+    "kids": [],
     "score": 23,
     "time": 1692043153,
     "title": "Argentina devalues peso, raises rates after shock primary vote",
@@ -3944,24 +3771,6 @@
     "title": "The complex simplicity of my static websites",
     "type": "story",
     "url": "https://alinpanaitiu.com/blog/complex-simplicity-of-static-websites/"
-  },
-  {
-    "by": "yu3zhou4",
-    "descendants": 71,
-    "id": 37112991,
-    "kids": [
-      37119557, 37122246, 37117166, 37117808, 37119020, 37115825, 37118876,
-      37121467, 37119071, 37129708, 37123077, 37115660, 37126302, 37129387,
-      37116418, 37114184, 37128998, 37116501, 37113925, 37117364, 37117599,
-      37129629, 37129307, 37118525, 37118454, 37114963, 37117464, 37118584,
-      37118455, 37117903, 37139135, 37125334, 37116176, 37113553, 37125340,
-      37125564, 37118812, 37117296, 37116421
-    ],
-    "score": 69,
-    "text": "Hi, I&#x27;d like to ask what are the shell scripts you enjoy using or find useful?<p>It might be something  you incorporated to your terminal-based workflow. Or maybe some specific scripts that you often reuse. Or you have used it once, but it might be useful to other people. Or maybe you just have a script that is fun to use? Please share<p>My (not anymore) hidden intention is to gather your recommendations to build an open-source shell script registry https:&#x2F;&#x2F;spellbook.maczan.pl&#x2F; Source code is here for you if you want to self host or fork it https:&#x2F;&#x2F;github.com&#x2F;jmaczan&#x2F;spellbook<p>A script I sometimes use is a commands repeater https:&#x2F;&#x2F;registry.spellbook.maczan.pl&#x2F;repeat-sh&#x2F;spell.sh You can specify an interval and a flag to reset&#x2F;keep the terminal&#x27;s content after a script invocation<p>Thanks!",
-    "time": 1691953025,
-    "title": "Ask HN: Share a shell script you like",
-    "type": "story"
   },
   {
     "by": "kiyanwang",
@@ -4012,6 +3821,7 @@
     "by": "rntn",
     "descendants": 0,
     "id": 37132671,
+    "kids": [],
     "score": 5,
     "time": 1692099445,
     "title": "Real estate markets scramble following cyberattack on listings provider",
@@ -4022,6 +3832,7 @@
     "by": "fn42",
     "descendants": 0,
     "id": 37119959,
+    "kids": [],
     "score": 4,
     "time": 1692013869,
     "title": "The Virtual Blender Camera",
@@ -4043,29 +3854,10 @@
     "url": "https://www.m31coding.com/blog/semantic-reviews.html"
   },
   {
-    "by": "charxyz",
-    "descendants": 293,
-    "id": 37111256,
-    "kids": [
-      37111560, 37111438, 37111820, 37113954, 37111789, 37113197, 37111468,
-      37112926, 37111965, 37112070, 37111405, 37112962, 37129515, 37113782,
-      37111960, 37111580, 37112827, 37111974, 37113203, 37111546, 37113950,
-      37113071, 37113488, 37111383, 37112898, 37112986, 37114025, 37113322,
-      37113878, 37115562, 37111674, 37112511, 37111932, 37127498, 37112781,
-      37118493, 37121388, 37111585, 37113076, 37114411, 37111937, 37112354,
-      37118243, 37128156, 37111777, 37139994, 37123210, 37112972, 37121400,
-      37117727
-    ],
-    "score": 233,
-    "text": "I’m steadily looking for new opportunities, but am increasingly annoyed by the LinkedIn &#x2F; Indeed grind. I feel like half the jobs are recruiting firms or very bloated positions with &gt;500 applicants.<p>I love the monthly “Who is hiring?” thread — these positions almost always yield more responses and suffer less from false advertising.<p>Are there other sites I’m not considering? Methods I’m not using? How do you find <i>good</i> (defined as not bloated and optimized for LI) job opportunities in the current market?",
-    "time": 1691943232,
-    "title": "Ask HN: How do you look for jobs in 2023?",
-    "type": "story"
-  },
-  {
     "by": "bookofjoe",
     "descendants": 0,
     "id": 37134295,
+    "kids": [],
     "score": 4,
     "time": 1692108955,
     "title": "Estimating association between Facebook adoption and well-being in 72 countries",
@@ -4294,6 +4086,7 @@
     "by": "thunderbong",
     "descendants": 0,
     "id": 37117754,
+    "kids": [],
     "score": 5,
     "time": 1691990715,
     "title": "Disney invented two colors (2022)",
@@ -4398,6 +4191,7 @@
     "by": "karencarits",
     "descendants": 0,
     "id": 37108110,
+    "kids": [],
     "score": 9,
     "time": 1691918009,
     "title": "Bishop Iyakov raised giant cross at Svalbard without Norway’s knowledge",
@@ -4408,21 +4202,12 @@
     "by": "thunderbong",
     "descendants": 0,
     "id": 37129056,
+    "kids": [],
     "score": 7,
     "time": 1692062908,
     "title": "Nescafé Harajuku is offering the opportunity to nap like a giraffe",
     "type": "story",
     "url": "https://soranews24.com/2023/08/02/standing-sleeping-pods-coming-to-tokyo-cafe-promise-to-relieve-fatigue-and-stress%e3%80%90pics%e3%80%91/"
-  },
-  {
-    "by": "debo_",
-    "descendants": 0,
-    "id": 37126036,
-    "score": 8,
-    "text": "Hi folks,<p>I&#x27;m just starting on an Airflow-powered project for what I imagine is a pretty standard ETL setup. The &quot;L&quot; is to an 3rd party service for analytics, rather than just to another database table.<p>Regardless of how you may feel about that, I&#x27;d like to end up with something sane a year from now.<p>Do you have any good public examples of good Airflow practices? I&#x27;ve read a lot of the docs and watched some more &quot;advanced&quot; Udemy coursework, but I&#x27;m particularly looking to get a feel for stuff like:<p>Where do you put large intermediate results between tasks? How do you organize your DAGs? How much of your work is just blitting CSVs around? :)<p>Any pointers would be welcomed, thanks.",
-    "time": 1692043079,
-    "title": "Ask HN: Favorite examples of publicly available Airflow repos?",
-    "type": "story"
   },
   {
     "by": "jaboutboul",
@@ -4437,17 +4222,6 @@
     "title": "Private jet came ‘within 100 feet’ of colliding with Southwest plane, NTSB says",
     "type": "story",
     "url": "https://www.dallasnews.com/business/airlines/2023/08/14/ntsb-probes-near-collision-of-southwest-airlines-business-jets-in-san-diego/"
-  },
-  {
-    "by": "xNeil",
-    "descendants": 7,
-    "id": 37130464,
-    "kids": [37131051, 37132107, 37141891, 37140696, 37130759, 37130485],
-    "score": 9,
-    "text": "For HNers that worked in companies that went under during the Dotcom Bubble - what are you doing now? What were your thoughts at the time? Could you tell whether the company was about to go under? How&#x27;d you move on?",
-    "time": 1692076650,
-    "title": "Ask HN: People who worked through the Dotcom Bubble – what are you doing now?",
-    "type": "story"
   },
   {
     "by": "fortran77",
@@ -4489,6 +4263,7 @@
     "by": "HieronymusBosch",
     "descendants": 0,
     "id": 37131125,
+    "kids": [],
     "score": 7,
     "time": 1692083561,
     "title": "Changes from before it was curl",
@@ -4521,20 +4296,6 @@
     "url": "https://fortune.com/2023/08/14/bosses-regretting-return-to-office-mandates/"
   },
   {
-    "by": "andrewstuart",
-    "descendants": 50,
-    "id": 37108328,
-    "kids": [
-      37130941, 37132399, 37108890, 37108888, 37108430, 37110751, 37135238,
-      37131265, 37131233, 37131519, 37128045, 37109998, 37130969
-    ],
-    "score": 53,
-    "text": "Listening to the audiobook of “The Innovators” (highly recommend) today and the story tells of how Bill Gates wrote Basic for the Altair <i>on an 8080 emulator written by Paul Allen in 1974</i>.<p>How is this feat of computer programming not a major legend in computing history? Surely Paul Allen writing this emulator is even more impressive than Bill writing basic?",
-    "time": 1691920354,
-    "title": "Ask HN: How did Paul Allen write an 8080 emulator in 1974?",
-    "type": "story"
-  },
-  {
     "by": "bratgpttamer",
     "descendants": 143,
     "id": 37120350,
@@ -4554,6 +4315,7 @@
     "by": "lyricalkooky",
     "descendants": 0,
     "id": 37129870,
+    "kids": [],
     "score": 9,
     "time": 1692070455,
     "title": "You Could Be Wrong About Probability",
@@ -4600,6 +4362,7 @@
     "by": "kristianp",
     "descendants": 0,
     "id": 37126807,
+    "kids": [],
     "score": 11,
     "time": 1692047247,
     "title": "The New York Times Updates Terms of Service to Prevent AI Scraping Its Content",
@@ -4655,21 +4418,6 @@
     "url": "https://donatstudios.com/License-Grumbles"
   },
   {
-    "by": "yxgao",
-    "descendants": 26,
-    "id": 37118166,
-    "kids": [
-      37118827, 37118931, 37118327, 37118648, 37120820, 37135148, 37119747,
-      37118610, 37119748, 37128792, 37118393, 37122387, 37119771, 37119592,
-      37122345, 37122504, 37133947, 37118214, 37122206, 37118231, 37119947
-    ],
-    "score": 34,
-    "text": "This is probably a weird question, but I am in a uniquely weird situation. So I think it would&#x27;t hurt to ask.<p>For the last year, I have worked in a startup. There are five people in the core team: the founder, the CTO, two domain experts, and I. I developed the core technology along with the domain experts. I know the founder from grad school, but nowadays I mainly work with our CTO.<p>So our team works relatively well, but our CEO has becoming more and more a headache for all of us. He is constantly changing directions without consulting the rest of us, and is very opaque and autocratic about the whole thing. Many of the team members have left or developed serious mental health issues because of him. Recently, he even hired his girlfriend as the sales director (who is totally unqualified), and she is starting to bypass the product manager and directly influence the development process, which as expected, results in absolute chaos.<p>I have talked with the whole team and the CTO, and we unanimously felt that the product works, and the team is amazing, and the sole problem really IS the founder. We have dedicated lots of efforts into this product, and we want to try to atleaset preserve some of our hard-work. And now we are thinking about going directly to the investors and have him removed, but we are not very optimistic about it.<p>Has anyone ever been in a similar situation? What would you do if your are in my situation?",
-    "time": 1691995262,
-    "title": "Ask HN: Getting Rid of the Founder?",
-    "type": "story"
-  },
-  {
     "by": "smcleod",
     "descendants": 84,
     "id": 37115540,
@@ -4687,6 +4435,7 @@
     "by": "dslowell",
     "descendants": 0,
     "id": 37129214,
+    "kids": [],
     "score": 6,
     "time": 1692064404,
     "title": "Google X: Waiting for a Moonshot (2016)",
@@ -4831,6 +4580,7 @@
     "by": "rbanffy",
     "descendants": 0,
     "id": 37123150,
+    "kids": [],
     "score": 8,
     "time": 1692031426,
     "title": "Alto System Project: Dan Ingalls Demonstrates Smalltalk [video]",
@@ -4841,6 +4591,7 @@
     "by": "sgustard",
     "descendants": 0,
     "id": 37125837,
+    "kids": [],
     "score": 10,
     "time": 1692042154,
     "title": "Apple malware-flagging tool is “trivially” easy to bypass",
@@ -4886,6 +4637,7 @@
     "by": "thunderbong",
     "descendants": 0,
     "id": 37132182,
+    "kids": [],
     "score": 5,
     "time": 1692095196,
     "title": "Breaking change during Rails upgrade introduced by David Heinemeier Hansson",
@@ -4918,25 +4670,12 @@
     "by": "drekipus",
     "descendants": 0,
     "id": 37131144,
+    "kids": [],
     "score": 3,
     "time": 1692083802,
     "title": "Portrait of a N00B (2002)",
     "type": "story",
     "url": "https://steve-yegge.blogspot.com/2008/02/portrait-of-n00b.html"
-  },
-  {
-    "by": "moongloow",
-    "descendants": 13,
-    "id": 37123798,
-    "kids": [
-      37140991, 37140582, 37129538, 37125892, 37134050, 37138519, 37124924,
-      37126991, 37133998, 37128701
-    ],
-    "score": 8,
-    "text": "Anecdotally, I&#x27;ve observed that when discussing Scrum the people who will defend it tend to be POs, Scrum Masters, managers and the like. I can certainly understand why even a poorly implemented Scrum would be a positive thing in their world given their responsibilities. What I rarely observe are developers, engineers, QA, and other actual &quot;boots on the ground&quot; workers providing a defense of the methodology. It doesn&#x27;t necessarily follow that just because I haven&#x27;t seen it that there aren&#x27;t developers, and adjacent peers, who feel Scrum benefits them.<p>Are there individual contributors here who have had positive experiences? What were the conditions that allowed it to function well, or what proactive things did you do to make it work?",
-    "time": 1692033991,
-    "title": "Ask HN: Do developers have positive experiences with Scrum?",
-    "type": "story"
   },
   {
     "by": "mrzool",
@@ -5001,6 +4740,7 @@
     "by": "thunderbong",
     "descendants": 0,
     "id": 37109884,
+    "kids": [],
     "score": 4,
     "time": 1691933524,
     "title": "Dolphin: Emulator for two Nintendo video game consoles – GameCube and Wii",
@@ -5081,22 +4821,12 @@
     "by": "7ep",
     "descendants": 0,
     "id": 37114584,
+    "kids": [],
     "score": 5,
-    "text": "I have written a from-scratch minimalist Java web framework, called Minum.    I&#x27;d like to get your thoughts.<p>The driving goal has been achieving characterics of plainness, frugality, performance, maintainability, testability, and ease of use. It has zero dependencies other than Java&#x27;s SDK, yet provides a web server, routing, authentication, testing, logging, templating, HTML parsing, and a database, in 3800 lines of code, compiling to a 150k binary.<p>It currently supports a web application in production. There are also example projects demonstrating its use, linked in the documentation.<p>As the framework itself has no dependencies, it is built using GNU Make.  The example applications that depend on it, however, use Maven as their build tool. Because Minum is still in beta, it is not yet published to Maven - but there are instructions for a workaround.<p>The framework and example apps require Java 20.",
     "time": 1691961303,
     "title": "Show HN: Zero-dependency minimal Java web framework",
     "type": "story",
     "url": "https://github.com/byronka/minum"
-  },
-  {
-    "by": "antuan00",
-    "descendants": 2,
-    "id": 37133002,
-    "kids": [37134015],
-    "score": 9,
-    "time": 1692101603,
-    "title": "Best web pages to find a part-time developer job?",
-    "type": "story"
   },
   {
     "by": "donutshop",
@@ -5113,6 +4843,7 @@
     "by": "CoBE10",
     "descendants": 0,
     "id": 37130171,
+    "kids": [],
     "score": 3,
     "time": 1692073512,
     "title": "Author finds fake AI-generated books written under her name",
@@ -5224,8 +4955,8 @@
     "by": "djzin",
     "descendants": 0,
     "id": 37111809,
+    "kids": [],
     "score": 4,
-    "text": "Source code: <a href=\"https:&#x2F;&#x2F;git.pointlesshacks.com&#x2F;?p=pokerwave.git;a=tree\" rel=\"nofollow noreferrer\">https:&#x2F;&#x2F;git.pointlesshacks.com&#x2F;?p=pokerwave.git;a=tree</a>",
     "time": 1691946305,
     "title": "Show HN: PokerWave – Retro PvP Card Games in Rust and Redis and VanillaJS",
     "type": "story",
@@ -5246,6 +4977,7 @@
     "by": "gmays",
     "descendants": 0,
     "id": 37135264,
+    "kids": [],
     "score": 5,
     "time": 1692113785,
     "title": "Russia Launches Luna-25, Its First Moon Mission in 47 Years",
@@ -5382,17 +5114,6 @@
     "url": "https://www.wsj.com/articles/amazons-leader-on-alexa-echo-and-other-devices-plans-to-leave-cde4f689"
   },
   {
-    "by": "kordlessagain",
-    "descendants": 1,
-    "id": 37121384,
-    "kids": [37125839],
-    "score": 9,
-    "text": "I have been researching methods and projects built around training and running LLMs locally. I&#x27;m interested in what others have been using on this front (including straight up Pytorch&#x2F;Transformers). Here&#x27;s what I&#x27;ve gathered so far:<p>Engines&#x2F;APIs:<p><pre><code>  - vllm: Inference and serving engine for LLMs (none quantized models only?) [1]\n  - ollama: Go project to run, create and share LLMs [2]\n  - llama.cpp: Inference of LLaMA models in C&#x2F;C++ w&#x2F;UI (including quantized models) [3]\n  - llama-cpp-python: run OpenAI compatible API bindings for llama.cpp  [4]\n  - llm-engine: engine for fine-tuning and serving LLMs [5]\n  - Lamini: hosted? closed source? solution for training LLMs [6]\n  - GPT4All: free, locally run chatbot [7]\n  - SkyPilot: framework for running LLMs, AI, and batch jobs [8]\n  - HuggingFace Transformers: APIs and tools to download and train models (via Pytorch) [9]\n  - RAGStack: Deploy a private ChatGPT alternative hosted within your VPC [14]\n</code></pre>\nUI&#x2F;Interface:<p><pre><code>  - Simon&#x27;s `llm` tool [15]\n</code></pre>\nQuantization Bits:<p><pre><code>  - AutoGPTQ: GPTQ algorithm based quantization package [10]\n  - QLoRA: finetuning of quantized LLMs [11]\n  - bitsandbytes: CUDA functions for PyTorch [12]\n  - SkyPilot QLoRA [13]\n</code></pre>\nVideo Guides:<p><pre><code>  - https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=eeM6V5aPjhk\n  - https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=TYgtG2Th6fI (jawerty&#x27;s example)\n</code></pre>\nReference:<p><pre><code>  - [1] https:&#x2F;&#x2F;github.com&#x2F;vllm-project&#x2F;vllm\n  - [2] https:&#x2F;&#x2F;github.com&#x2F;jmorganca&#x2F;ollama\n  - [3] https:&#x2F;&#x2F;github.com&#x2F;ggerganov&#x2F;llama.cpp\n  - [4] https:&#x2F;&#x2F;github.com&#x2F;abetlen&#x2F;llama-cpp-python\n  - [5] https:&#x2F;&#x2F;github.com&#x2F;scaleapi&#x2F;llm-engine\n  - [6] https:&#x2F;&#x2F;www.lamini.ai&#x2F;\n  - [7] https:&#x2F;&#x2F;github.com&#x2F;nomic-ai&#x2F;gpt4all\n  - [8] https:&#x2F;&#x2F;github.com&#x2F;skypilot-org&#x2F;skypilot\n  - [9] https:&#x2F;&#x2F;github.com&#x2F;huggingface&#x2F;transformers&#x2F;releases\n  - [10] https:&#x2F;&#x2F;github.com&#x2F;PanQiWei&#x2F;AutoGPTQ\n  - [11] https:&#x2F;&#x2F;github.com&#x2F;artidoro&#x2F;qlora\n  - [12] https:&#x2F;&#x2F;github.com&#x2F;TimDettmers&#x2F;bitsandbytes\n  - [13] https:&#x2F;&#x2F;github.com&#x2F;artidoro&#x2F;qlora&#x2F;pull&#x2F;132\n  - [14] https:&#x2F;&#x2F;github.com&#x2F;psychic-api&#x2F;rag-stack\n  - [15] https:&#x2F;&#x2F;simonwillison.net&#x2F;2023&#x2F;Aug&#x2F;1&#x2F;llama-2-mac&#x2F;</code></pre>",
-    "time": 1692023098,
-    "title": "Ask HN: Are you training and running custom LLMs and how are you doing it?",
-    "type": "story"
-  },
-  {
     "by": "AndrewKemendo",
     "descendants": 16,
     "id": 37116331,
@@ -5454,6 +5175,7 @@
     "by": "kimburgess",
     "descendants": 0,
     "id": 37107559,
+    "kids": [],
     "score": 4,
     "time": 1691912190,
     "title": "Nano Gems – Tiny Demoscene",
@@ -5494,6 +5216,7 @@
     "by": "alextttty",
     "descendants": 0,
     "id": 37121912,
+    "kids": [],
     "score": 8,
     "time": 1692025750,
     "title": "Show HN: Open-source model to chat with your documents/data",
@@ -5526,6 +5249,7 @@
     "by": "birriel",
     "descendants": 0,
     "id": 37120948,
+    "kids": [],
     "score": 5,
     "time": 1692020787,
     "title": "How Old Can Humans Get?",
@@ -5627,6 +5351,7 @@
     "by": "mikhael",
     "descendants": 0,
     "id": 37123311,
+    "kids": [],
     "score": 10,
     "time": 1692031975,
     "title": "New variant EG.5 is on the rise as Covid-19 cases and hospitalizations go up",
@@ -5690,7 +5415,6 @@
       37111020, 37116083, 37112708, 37110788, 37115478, 37116552
     ],
     "score": 31,
-    "text": "I made a GPT-based AI Chatbot based on Carl Roger&#x27;s philosophy of radical self-acceptance. Broken Bear is designed to be a kind, comforting, and quietly encouraging friend.",
     "time": 1691920020,
     "title": "Show HN: Broken Bear, the AI teddy bear that loves your broken self",
     "type": "story",
@@ -5714,6 +5438,7 @@
     "by": "tosh",
     "descendants": 0,
     "id": 37113572,
+    "kids": [],
     "score": 7,
     "time": 1691955701,
     "title": "Mise En Place",
@@ -5724,6 +5449,7 @@
     "by": "jdmark",
     "descendants": 0,
     "id": 37116371,
+    "kids": [],
     "score": 7,
     "time": 1691975902,
     "title": "Scientists reverse hearing loss in mice",
@@ -5748,6 +5474,7 @@
     "by": "rdli",
     "descendants": 0,
     "id": 37116010,
+    "kids": [],
     "score": 6,
     "time": 1691972089,
     "title": "Why lasers could help make the electric grid greener",
@@ -5769,6 +5496,7 @@
     "by": "mariuz",
     "descendants": 0,
     "id": 37118117,
+    "kids": [],
     "score": 5,
     "time": 1691994706,
     "title": "Curated C++ Weekly playlist for learning C++",
@@ -5818,6 +5546,7 @@
     "by": "MilnerRoute",
     "descendants": 0,
     "id": 37117787,
+    "kids": [],
     "score": 5,
     "time": 1691990991,
     "title": "Cruise cars, Outside Lands crowds make for traffic mess in SF",
@@ -5852,6 +5581,7 @@
     "by": "mikece",
     "descendants": 0,
     "id": 37114047,
+    "kids": [],
     "score": 12,
     "time": 1691958240,
     "title": "Linux Systemd Deep Dive",
@@ -5898,6 +5628,7 @@
     "by": "illyism",
     "descendants": 0,
     "id": 37116358,
+    "kids": [],
     "score": 7,
     "time": 1691975761,
     "title": "How the 'Need to Finish' Can Transform Your UX Design",
@@ -5922,6 +5653,7 @@
     "by": "mensetmanusman",
     "descendants": 0,
     "id": 37128218,
+    "kids": [],
     "score": 8,
     "time": 1692056107,
     "title": "Contagion fears spread as China property sector cash crunch intensifies",
@@ -5959,6 +5691,7 @@
     "by": "pr337h4m",
     "descendants": 0,
     "id": 37118396,
+    "kids": [],
     "score": 3,
     "time": 1691998316,
     "title": "Cyborg Art",
@@ -6015,6 +5748,7 @@
     "by": "momirlan",
     "descendants": 0,
     "id": 37112660,
+    "kids": [],
     "score": 4,
     "time": 1691951225,
     "title": "Supermassive black holes may solve mystery of universe's gravitational-wave 'hum",
@@ -6025,6 +5759,7 @@
     "by": "navaneethpk",
     "descendants": 0,
     "id": 37117316,
+    "kids": [],
     "score": 4,
     "time": 1691985557,
     "title": "How the FBI goes after DDoS cyberattackers",
@@ -6046,16 +5781,6 @@
     "title": "US inflation means families are spending $709 more per month than two years ago",
     "type": "story",
     "url": "https://www.cnn.com/2023/08/11/economy/inflation-rate-spending/index.html"
-  },
-  {
-    "by": "childintime",
-    "descendants": 0,
-    "id": 37108999,
-    "score": 5,
-    "text": "I&#x27;d like to know about stories of how chatgpt or even LLM&#x27;s have impacted and helped better cope persons with a disability. It seems the potential is immense.<p>I&#x27;m interested in successes and failures. Maybe you&#x27;ve tried to integrate chatgpt into your routine, but there were obstacles that would need to be resolved before it could become a daily driver.<p>This is a broad question, feel free to share anything related, like new tools&#x2F;apps you already use. Thank you.",
-    "time": 1691927170,
-    "title": "Ask HN: Impact of LLM's/ChatGPT on Accessibility",
-    "type": "story"
   },
   {
     "by": "the_mitsuhiko",
@@ -6121,6 +5846,7 @@
     "by": "clouddrover",
     "descendants": 0,
     "id": 37106998,
+    "kids": [],
     "score": 10,
     "time": 1691904925,
     "title": "F-35 Crash Report Includes Sonar Image of It on Seafloor",
@@ -6157,6 +5883,7 @@
     "by": "keiferski",
     "descendants": 0,
     "id": 37109799,
+    "kids": [],
     "score": 5,
     "time": 1691932982,
     "title": "The great teddy bear shipwreck mystery",
@@ -6183,6 +5910,7 @@
     "by": "paulpauper",
     "descendants": 0,
     "id": 37115834,
+    "kids": [],
     "score": 5,
     "time": 1691970716,
     "title": "Parental Selection in Human Evolution",
@@ -6204,6 +5932,7 @@
     "by": "beardyw",
     "descendants": 0,
     "id": 37109040,
+    "kids": [],
     "score": 5,
     "time": 1691927699,
     "title": "Britain has felt the shift to home working more than most countries",
@@ -6228,6 +5957,7 @@
     "by": "whack",
     "descendants": 0,
     "id": 37115164,
+    "kids": [],
     "score": 3,
     "time": 1691965223,
     "title": "The End of Boredom",
@@ -6307,6 +6037,7 @@
     "by": "thunderbong",
     "descendants": 0,
     "id": 37113669,
+    "kids": [],
     "score": 4,
     "time": 1691956196,
     "title": "Tail Sailing",
@@ -6339,6 +6070,7 @@
     "by": "momirlan",
     "descendants": 0,
     "id": 37107060,
+    "kids": [],
     "score": 6,
     "time": 1691905695,
     "title": "Google Chrome to shield encryption keys from promised quantum computers",
