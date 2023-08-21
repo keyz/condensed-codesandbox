@@ -1,13 +1,18 @@
 import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
+import { enUS as localeEnUs } from "date-fns/locale";
 import data from "./hn-top-stories.json";
 
 export function HackerNews() {
   return (
     <div className="flex flex-col gap-6 p-8">
       {data.map((item) => {
+        // See https://date-fns.org/v2.30.0/docs/formatDistanceToNowStrict
         const formattedTime = formatDistanceToNowStrict(
           item.time * 1000, // seconds -> milliseconds
-          { addSuffix: true }, // add "ago"
+          {
+            addSuffix: true, // add "ago"
+            locale: localeEnUs,
+          },
         );
 
         return (
