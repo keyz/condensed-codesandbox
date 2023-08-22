@@ -7,8 +7,10 @@ import { storyList, type TStoryItem } from "./data";
 const PAGE_SIZE = 10;
 
 export function HackerNews() {
-  const [hiddenIdSet, setHiddenIdSet] = React.useState<Set<number>>(new Set());
   const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
+  const [likeCountMap, setLikeCountMap] = React.useState<Map<number, number>>(
+    new Map(),
+  );
 
   const totalItemCount = storyList.length;
   const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
@@ -25,18 +27,17 @@ export function HackerNews() {
     <div className="p-8">
       <div className="flex flex-col gap-6">
         {visibleWindow.map((item) => {
-          if (hiddenIdSet.has(item.id)) {
-            return null;
-          }
-
           return (
             <NewsItem
               key={item.id}
               data={item}
-              onHideClick={() => {
-                setHiddenIdSet((currentState) => {
-                  const copy = new Set(currentState);
-                  copy.add(item.id);
+              likeCount={likeCountMap.get(item.id) ?? 0}
+              onLikeClick={() => {
+                setLikeCountMap((map) => {
+                  const copy = new Map(map);
+                  const currentLikeCount = copy.get(item.id) ?? 0;
+
+                  copy.set(item.id, currentLikeCount + 1);
                   return copy;
                 });
               }}
@@ -80,8 +81,12 @@ export function HackerNews() {
   );
 }
 
-function NewsItem(props: { data: TStoryItem; onHideClick: () => void }) {
-  const { data, onHideClick } = props;
+function NewsItem(props: {
+  data: TStoryItem;
+  likeCount: number;
+  onLikeClick: () => void;
+}) {
+  const { data, likeCount, onLikeClick } = props;
 
   // See https://date-fns.org/v2.30.0/docs/formatDistanceToNowStrict
   const formattedTime = formatDistanceToNowStrict(
@@ -102,21 +107,21 @@ function NewsItem(props: { data: TStoryItem; onHideClick: () => void }) {
       <p className="text-sm text-gray-600">
         {data.score} points by {data.by} {formattedTime}
         {" | "}
-        <button
-          className="hover:underline"
-          onClick={() => {
-            onHideClick();
-          }}
-        >
-          hide
-        </button>
-        {" | "}
         <a
           className="hover:underline"
           href={`https://news.ycombinator.com/item?id=${data.id}`}
         >
           {data.descendants} comments
         </a>
+        {" | "}
+        <button
+          className="hover:underline"
+          onClick={() => {
+            onLikeClick();
+          }}
+        >
+          like ({likeCount})
+        </button>
       </p>
     </div>
   );
