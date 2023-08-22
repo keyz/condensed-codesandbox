@@ -1,0 +1,14 @@
+#!/usr/bin/env sh
+[ -n "$CI" ] && exit 0
+
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "Checking diff snapshot..."
+make snapshot
+
+if [ -z "$( git status --porcelain ./diff/ )" ]; then
+  echo "Nothing changed."
+else
+  echo "🚧 Snapshot updated."
+  git add ./diff/
+fi

@@ -3,10 +3,12 @@
   "private": true,
   "license": "Apache-2.0",
   "scripts": {
+    "prepare": "node ./scripts/install-husky.js",
     "prettier:check": "prettier --check \"**/*.{css,html,js,json,md,mdx,svg,ts,tsx,yaml,yml}\" --ignore-path ./.prettierignore",
     "prettier:write": "prettier --write \"**/*.{css,html,js,json,md,mdx,svg,ts,tsx,yaml,yml}\" --ignore-path ./.prettierignore"
   },
   "devDependencies": {
+    "husky": "^8.0.3",
     "prettier": "^3.0.2",
     "prettier-plugin-tailwindcss": "^0.5.3"
   }
