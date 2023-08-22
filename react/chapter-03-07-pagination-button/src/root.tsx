@@ -54,11 +54,7 @@ export function HackerNews() {
 function NewsItem(props: { data: TStoryItem }) {
   const { data } = props;
 
-  const [isHidden, setIsHidden] = React.useState<boolean>(false);
-
-  if (isHidden) {
-    return null;
-  }
+  const [likeCount, setLikeCount] = React.useState<number>(0);
 
   // See https://date-fns.org/v2.30.0/docs/formatDistanceToNowStrict
   const formattedTime = formatDistanceToNowStrict(
@@ -79,21 +75,21 @@ function NewsItem(props: { data: TStoryItem }) {
       <p className="text-sm text-gray-600">
         {data.score} points by {data.by} {formattedTime}
         {" | "}
-        <button
-          className="hover:underline"
-          onClick={() => {
-            setIsHidden(true);
-          }}
-        >
-          hide
-        </button>
-        {" | "}
         <a
           className="hover:underline"
           href={`https://news.ycombinator.com/item?id=${data.id}`}
         >
           {data.descendants} comments
         </a>
+        {" | "}
+        <button
+          className="hover:underline"
+          onClick={() => {
+            setLikeCount((num) => num + 1);
+          }}
+        >
+          like ({likeCount})
+        </button>
       </p>
     </div>
   );
