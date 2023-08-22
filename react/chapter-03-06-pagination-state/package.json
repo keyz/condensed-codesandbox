@@ -1,5 +1,5 @@
 {
-  "name": "@condensed/chapter-03-06-derived-value",
+  "name": "@condensed/chapter-03-06-pagination-state",
   "private": true,
   "license": "Apache-2.0",
   "scripts": {

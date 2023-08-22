@@ -1,5 +1,5 @@
 {
-  "name": "@condensed/chapter-03-05-pagination-button",
+  "name": "@condensed/chapter-03-10-lift-state-up",
   "private": true,
   "license": "Apache-2.0",
   "scripts": {
