@@ -10,7 +10,11 @@ export function HackerNews() {
   const [hiddenIdSet, setHiddenIdSet] = React.useState<Set<number>>(new Set());
   const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
 
-  const totalItemCount = storyList.length;
+  const visibleStoryList = storyList.filter(
+    (item) => !hiddenIdSet.has(item.id),
+  );
+
+  const totalItemCount = visibleStoryList.length;
   const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
 
   const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
@@ -19,9 +23,7 @@ export function HackerNews() {
   const canGoBack = startIndex > 0;
   const canGoNext = endIndex < totalItemCount;
 
-  const visibleWindow = storyList
-    .filter((item) => !hiddenIdSet.has(item.id))
-    .slice(startIndex, endIndex);
+  const visibleWindow = visibleStoryList.slice(startIndex, endIndex);
 
   return (
     <div className="p-8">

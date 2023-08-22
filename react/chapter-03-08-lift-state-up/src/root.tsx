@@ -8,7 +8,6 @@ const PAGE_SIZE = 10;
 
 export function HackerNews() {
   const [hiddenIdSet, setHiddenIdSet] = React.useState<Set<number>>(new Set());
-
   const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
 
   const totalItemCount = storyList.length;
