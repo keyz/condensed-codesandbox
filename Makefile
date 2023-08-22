@@ -40,6 +40,10 @@ outdated:
 	npm outdated
 	@$(MAKE) for-each COMMAND="npm outdated"
 
+.PHONY: rename
+rename:
+	@./scripts/rename.sh
+
 .PHONY: reset
 reset:
 	rm -rf ./node_modules/ ./.next/

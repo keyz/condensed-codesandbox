@@ -15,7 +15,7 @@ read -rep "Path for the new module? " target
 target=${target%/}
 echo ""
 
-read -rep "Create new project \`$target\` from template \`$template\`? [y/N] " response
+read -rep "Create new module \`$target\` from template \`$template\`? [y/N] " response
 echo ""
 
 if ! [[ "$response" =~ ^[Yy]$ ]]

@@ -7,7 +7,7 @@ REACT_ROOT="$REPO_ROOT/react"
 
 cd "$REACT_ROOT"
 
-read -rep "Package to run? " target
+read -rep "Module to run? " target
 echo ""
 
 cd "$target"
