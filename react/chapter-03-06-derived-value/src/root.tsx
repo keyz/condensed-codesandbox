@@ -30,7 +30,7 @@ export function HackerNews() {
       <div className="mt-12">
         <button
           disabled={!canGoBack}
-          className="hover:underline disabled:text-gray-300"
+          className="hover:underline"
           onClick={() => {
             setCurrentPageNumber((n) => n - 1);
           }}
@@ -44,7 +44,7 @@ export function HackerNews() {
 
         <button
           disabled={!canGoNext}
-          className="hover:underline disabled:text-gray-300"
+          className="hover:underline"
           onClick={() => {
             setCurrentPageNumber((n) => n + 1);
           }}
