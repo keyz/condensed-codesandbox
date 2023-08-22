@@ -34,7 +34,8 @@ function NewsItem(props: { data: TStoryItem }) {
         </a>
       </p>
       <p className="text-sm text-gray-600">
-        {data.score} points by {data.by} {formattedTime} |{" "}
+        {data.score} points by {data.by} {formattedTime}
+        {" | "}
         <a
           className="hover:underline"
           href={`https://news.ycombinator.com/item?id=${data.id}`}

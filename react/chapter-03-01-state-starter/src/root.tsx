@@ -24,7 +24,8 @@ export function HackerNews() {
                 </a>
               </p>
               <p className="text-sm text-gray-600">
-                {item.score} points by {item.by} {formattedTime} |{" "}
+                {item.score} points by {item.by} {formattedTime}
+                {" | "}
                 <a
                   className="hover:underline"
                   href={`https://news.ycombinator.com/item?id=${item.id}`}
