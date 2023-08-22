@@ -14,6 +14,12 @@
     }
   ],
   "settings": {
+    "[diff]": {
+      "editor.formatOnSave": false,
+      "files.insertFinalNewline": false,
+      "files.trimFinalNewlines": false,
+      "files.trimTrailingWhitespace": false
+    },
     "[typescriptreact]": {
       "editor.quickSuggestions": {
         "strings": true

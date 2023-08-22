@@ -49,6 +49,10 @@ reset:
 	rm -rf ./node_modules/ ./.next/
 	@$(MAKE) for-each COMMAND="rm -rf ./node_modules/ ./.next/"
 
+.PHONY: snapshot
+snapshot:
+	@${MAKE} diff > ./diff/react.diff
+
 .PHONY: upgrade
 upgrade:
 	npm upgrade --save
