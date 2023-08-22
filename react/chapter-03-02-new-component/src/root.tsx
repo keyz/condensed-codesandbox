@@ -4,10 +4,12 @@ import { storyList, type TStoryItem } from "./data";
 
 export function HackerNews() {
   return (
-    <div className="flex flex-col gap-6 p-8">
-      {storyList.map((item) => {
-        return <NewsItem key={item.id} data={item} />;
-      })}
+    <div className="p-8">
+      <div className="flex flex-col gap-6">
+        {storyList.map((item) => {
+          return <NewsItem key={item.id} data={item} />;
+        })}
+      </div>
     </div>
   );
 }

@@ -14,10 +14,12 @@ export function HackerNews() {
   const visibleWindow = storyList.slice(startIndex, endIndex);
 
   return (
-    <div className="flex flex-col gap-6 p-8">
-      {visibleWindow.map((item) => {
-        return <NewsItem key={item.id} data={item} />;
-      })}
+    <div className="p-8">
+      <div className="flex flex-col gap-6">
+        {visibleWindow.map((item) => {
+          return <NewsItem key={item.id} data={item} />;
+        })}
+      </div>
     </div>
   );
 }
