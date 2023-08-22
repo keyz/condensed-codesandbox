@@ -15,6 +15,7 @@ export function HackerNews() {
                   {item.title}
                 </a>
               </p>
+
               <p className="text-sm text-gray-600">
                 {item.score} points by {item.by} {formattedTime}
                 {" | "}

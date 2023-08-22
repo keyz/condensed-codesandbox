@@ -76,6 +76,7 @@ function NewsItem(props: { data: TStoryItem }) {
           {data.title}
         </a>
       </p>
+
       <p className="text-sm text-gray-600">
         {data.score} points by {data.by} {formattedTime}
         {" | "}
