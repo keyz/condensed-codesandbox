@@ -1,5 +1,5 @@
 {
-  "name": "@condensed/chapter-03-10-lift-state-up",
+  "name": "@condensed/chapter-03-09-derived-value",
   "private": true,
   "license": "Apache-2.0",
   "scripts": {

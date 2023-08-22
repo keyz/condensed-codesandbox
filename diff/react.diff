@@ -573,10 +573,10 @@ index 6a018e6..1794356 100644
 
 ────────────────────────────────────────────────────────────────────────────────
 
-diff --git a/chapter-03-07-pagination-button/src/root.tsx b/chapter-03-08-derived-value/src/root.tsx
+diff --git a/chapter-03-07-pagination-button/src/root.tsx b/chapter-03-09-derived-value/src/root.tsx
 index 1794356..b15873e 100644
 --- a/chapter-03-07-pagination-button/src/root.tsx
-+++ b/chapter-03-08-derived-value/src/root.tsx
++++ b/chapter-03-09-derived-value/src/root.tsx
 @@ -13,6 +13,9 @@ export function HackerNews() {
    const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
    const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // exclusive
@@ -606,10 +606,10 @@ index 1794356..b15873e 100644
 
 ────────────────────────────────────────────────────────────────────────────────
 
-diff --git a/chapter-03-08-derived-value/src/root.tsx b/chapter-03-09-bonus-conditional-styles/src/root.tsx
+diff --git a/chapter-03-09-derived-value/src/root.tsx b/chapter-03-10-bonus-conditional-styles/src/root.tsx
 index b15873e..e316b7a 100644
---- a/chapter-03-08-derived-value/src/root.tsx
-+++ b/chapter-03-09-bonus-conditional-styles/src/root.tsx
+--- a/chapter-03-09-derived-value/src/root.tsx
++++ b/chapter-03-10-bonus-conditional-styles/src/root.tsx
 @@ -1,4 +1,5 @@
  import * as React from "react";
 +import cx from "classnames";
@@ -643,10 +643,10 @@ index b15873e..e316b7a 100644
 
 ────────────────────────────────────────────────────────────────────────────────
 
-diff --git a/chapter-03-09-bonus-conditional-styles/src/root.tsx b/chapter-03-10-lift-state-up/src/root.tsx
+diff --git a/chapter-03-10-bonus-conditional-styles/src/root.tsx b/chapter-03-11-lift-state-up/src/root.tsx
 index e316b7a..b05c375 100644
---- a/chapter-03-09-bonus-conditional-styles/src/root.tsx
-+++ b/chapter-03-10-lift-state-up/src/root.tsx
+--- a/chapter-03-10-bonus-conditional-styles/src/root.tsx
++++ b/chapter-03-11-lift-state-up/src/root.tsx
 @@ -7,6 +7,9 @@ const PAGE_SIZE = 10;
  
  export function HackerNews() {

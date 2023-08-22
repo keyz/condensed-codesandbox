@@ -1,8 +1,8 @@
 <!--
-- CodeSandbox https://codesandbox.io/p/sandbox/github/keyz/condensed-codesandbox/tree/main/react/chapter-03-08-derived-value?file=/src/root.tsx
-- StackBlitz WebContainer https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-03-08-derived-value?file=src/root.tsx
-- StackBlitz Embedded https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-03-08-derived-value?embed=1&file=src/root.tsx&hideNavigation=1
-- StackBlitz Codeflow https://stackblitz.com/~/github.com/keyz/condensed-codesandbox/tree/main/react/chapter-03-08-derived-value
+- CodeSandbox https://codesandbox.io/p/sandbox/github/keyz/condensed-codesandbox/tree/main/react/chapter-03-10-bonus-conditional-styles?file=/src/root.tsx
+- StackBlitz WebContainer https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-03-10-bonus-conditional-styles?file=src/root.tsx
+- StackBlitz Embedded https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-03-10-bonus-conditional-styles?embed=1&file=src/root.tsx&hideNavigation=1
+- StackBlitz Codeflow https://stackblitz.com/~/github.com/keyz/condensed-codesandbox/tree/main/react/chapter-03-10-bonus-conditional-styles
 -->
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
