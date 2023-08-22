@@ -8,10 +8,11 @@ const PAGE_SIZE = 10;
 export function HackerNews() {
   const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
 
-  const startIndex = currentPageNumber * PAGE_SIZE;
-  const endIndex = (currentPageNumber + 1) * PAGE_SIZE;
+  const totalItemCount = storyList.length;
+  const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
 
-  const totalPageCount = Math.ceil(storyList.length / PAGE_SIZE);
+  const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
+  const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // exclusive
 
   const visibleWindow = storyList.slice(startIndex, endIndex);
 
