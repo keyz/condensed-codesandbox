@@ -1,6 +1,5 @@
-import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
-import { enUS as localeEnUs } from "date-fns/locale";
 import { storyList, type TStoryItem } from "./data";
+import { formatRelativeTime } from "./helpers/time";
 
 export function HackerNews() {
   return (
@@ -17,14 +16,7 @@ export function HackerNews() {
 function NewsItem(props: { data: TStoryItem }) {
   const { data } = props;
 
-  // See https://date-fns.org/v2.30.0/docs/formatDistanceToNowStrict
-  const formattedTime = formatDistanceToNowStrict(
-    data.time * 1000, // seconds -> milliseconds
-    {
-      addSuffix: true, // add "ago"
-      locale: localeEnUs,
-    },
-  );
+  const formattedTime = formatRelativeTime(data.time);
 
   return (
     <div>

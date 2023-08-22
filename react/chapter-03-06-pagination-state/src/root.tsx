@@ -1,7 +1,6 @@
 import * as React from "react";
-import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
-import { enUS as localeEnUs } from "date-fns/locale";
 import { storyList, type TStoryItem } from "./data";
+import { formatRelativeTime } from "./helpers/time";
 
 const PAGE_SIZE = 10;
 
@@ -29,14 +28,7 @@ function NewsItem(props: { data: TStoryItem }) {
 
   const [likeCount, setLikeCount] = React.useState<number>(0);
 
-  // See https://date-fns.org/v2.30.0/docs/formatDistanceToNowStrict
-  const formattedTime = formatDistanceToNowStrict(
-    data.time * 1000, // seconds -> milliseconds
-    {
-      addSuffix: true, // add "ago"
-      locale: localeEnUs,
-    },
-  );
+  const formattedTime = formatRelativeTime(data.time);
 
   return (
     <div>
