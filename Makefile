@@ -57,3 +57,7 @@ snapshot:
 upgrade:
 	npm upgrade --save
 	@$(MAKE) for-each COMMAND="npm upgrade --save"
+
+.PHONY: warmup
+warmup:
+	@WARMUP=1 ./scripts/embed.sh

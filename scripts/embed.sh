@@ -18,4 +18,9 @@ do
 
   echo "$dir"
   echo -e "\t$url\n"
+
+  if [[ "${WARMUP:-0}" == "1" ]]
+  then
+    curl --fail --silent --show-error --output /dev/null "$url"
+  fi
 done
