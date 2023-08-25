@@ -17,7 +17,7 @@ do
 
   if [[ "$previous_dir" != "" ]]
   then
-    printf "\n%*s\n\n" 80 "" | tr " " "─" # divider
+    printf "\n%*s\n\n" 80 "" | tr " " "=" # divider
 
     previous="$previous_dir/src/root.tsx"
     current="$current_dir/src/root.tsx"

@@ -21,7 +21,8 @@ embed:
 
 .PHONY: for-each
 for-each:
-	@for dir in $(REACT_SUBDIR_LIST); do \
+	@set -e; \
+	for dir in $(REACT_SUBDIR_LIST); do \
 		printf '%s $$ %s\n' "$$dir" "$(COMMAND)"; \
 		(cd $$dir && $(COMMAND)); \
 	done
@@ -33,12 +34,14 @@ gen:
 .PHONY: install
 install:
 	npm install
-	@$(MAKE) for-each COMMAND="npm install"
+
+.PHONY: install-ci
+install-ci:
+	npm ci
 
 .PHONY: outdated
 outdated:
 	npm outdated
-	@$(MAKE) for-each COMMAND="npm outdated"
 
 .PHONY: rename
 rename:
@@ -51,12 +54,11 @@ reset:
 
 .PHONY: snapshot
 snapshot:
-	@${MAKE} diff > ./diff/react.diff
+	@${MAKE} -s diff > ./diff/react.diff
 
 .PHONY: upgrade
 upgrade:
 	npm upgrade --save
-	@$(MAKE) for-each COMMAND="npm upgrade --save"
 
 .PHONY: warmup
 warmup:
