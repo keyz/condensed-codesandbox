@@ -1,0 +1,31 @@
+name: "Setup JS"
+
+runs:
+  using: "composite"
+
+  steps:
+    - name: Install Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version-file: "./.nvmrc"
+
+    - name: Activate corepack
+      run: corepack enable
+      shell: bash
+
+    - name: Get npm store directory (for caching)
+      id: npm-cache-dir
+      run: echo "data=$(npm config get cache)" >> "$GITHUB_OUTPUT"
+      shell: bash
+
+    - name: Cache npm store
+      uses: actions/cache@v3
+      with:
+        path: ${{ steps.npm-cache-dir.outputs.data }}
+        key: ${{ runner.os }}-npm-store-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-npm-store-
+
+    - name: Install dependencies
+      run: make install-ci
+      shell: bash

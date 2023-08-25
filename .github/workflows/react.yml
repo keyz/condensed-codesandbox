@@ -1,4 +1,4 @@
-name: js
+name: react
 
 on:
   push:
@@ -11,24 +11,16 @@ env:
   NEXT_TELEMETRY_DISABLED: 1
 
 jobs:
-  build:
+  chore:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 5
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version-file: "./.nvmrc"
-
-      - name: Activate corepack
-        run: corepack enable
-
-      - name: Install dependencies
-        run: make install-ci
+      - name: Setup JS
+        uses: ./.github/actions/js-setup
 
       - name: Prettier
         run: npm run prettier:check
@@ -36,8 +28,48 @@ jobs:
       - name: Snapshot
         run: make snapshot
 
+      - name: Check Git
+        uses: ./.github/actions/git-check
+
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    needs:
+      - matrixize
+
+    strategy:
+      matrix:
+        module: ${{ fromJSON(needs.matrixize.outputs.data) }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup JS
+        uses: ./.github/actions/js-setup
+
       - name: Build
-        run: make for-each COMMAND="npm run build"
+        run: npm run build
+        working-directory: "./${{ matrix.module }}"
 
       - name: Check Git
         uses: ./.github/actions/git-check
+
+  matrixize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    outputs:
+      data: "${{ steps.matrixize.outputs.data }}"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Matrixize
+        id: matrixize
+        run: |
+          data=$( make matrixize )
+          echo "$data"
+          echo "data=$data" >> "$GITHUB_OUTPUT"

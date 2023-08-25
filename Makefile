@@ -39,6 +39,10 @@ install:
 install-ci:
 	npm ci
 
+.PHONY: matrixize
+matrixize:
+	@echo "$(REACT_SUBDIR_LIST)" | jq -cR 'split(" ")'
+
 .PHONY: outdated
 outdated:
 	npm outdated
