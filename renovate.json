@@ -1,0 +1,14 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", ":semanticCommitsDisabled"],
+  "packageRules": [
+    {
+      "description": "Skip granular engine updates",
+      "matchDepTypes": ["engines"],
+      "rangeStrategy": "in-range-only"
+    }
+  ],
+  "postUpdateOptions": ["npmDedupe"],
+  "rangeStrategy": "bump",
+  "timezone": "America/Los_Angeles"
+}
