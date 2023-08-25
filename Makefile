@@ -46,8 +46,8 @@ rename:
 
 .PHONY: reset
 reset:
-	rm -rf ./node_modules/ ./.next/
-	@$(MAKE) for-each COMMAND="rm -rf ./node_modules/ ./.next/"
+	rm -rf ./node_modules/ ./.next/ ./.cache/
+	@$(MAKE) for-each COMMAND="rm -rf ./node_modules/ ./.next/ ./.cache/"
 
 .PHONY: snapshot
 snapshot:

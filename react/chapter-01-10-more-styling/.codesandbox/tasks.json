@@ -27,7 +27,7 @@
     },
     "reboot": {
       "name": "Reboot sandbox container",
-      "command": "rm -rf ./node_modules/ ./.next/ && echo '' >> ./.codesandbox/Dockerfile"
+      "command": "rm -rf ./node_modules/ ./.next/ ./.cache/ && echo '' >> ./.codesandbox/Dockerfile"
     }
   }
 }
