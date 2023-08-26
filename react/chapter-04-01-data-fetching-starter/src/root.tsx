@@ -1,6 +1,7 @@
 import * as React from "react";
-import { NewsItem, PaginationControl } from "./components";
-import { storyList } from "./data";
+import { PaginationControl } from "./components/pagination";
+import { storyList, type TStoryItem } from "./data";
+import { formatRelativeTime } from "./helpers/time";
 
 const PAGE_SIZE = 10;
 
@@ -58,6 +59,41 @@ export function HackerNews() {
         }}
         totalPageCount={totalPageCount}
       />
+    </div>
+  );
+}
+
+function NewsItem(props: {
+  data: TStoryItem;
+  likeCount: number;
+  onLikeClick: () => void;
+}) {
+  const { data, likeCount, onLikeClick } = props;
+
+  const formattedTime = formatRelativeTime(data.time);
+
+  return (
+    <div>
+      <p>
+        <a className="hover:underline" href={data.url}>
+          {data.title}
+        </a>
+      </p>
+
+      <p className="text-sm text-gray-600">
+        {data.score} points by {data.by} {formattedTime}
+        {" | "}
+        <a
+          className="hover:underline"
+          href={`https://news.ycombinator.com/item?id=${data.id}`}
+        >
+          {data.descendants} comments
+        </a>
+        {" | "}
+        <button className="hover:underline" onClick={onLikeClick}>
+          like ({likeCount})
+        </button>
+      </p>
     </div>
   );
 }
