@@ -1,0 +1,64 @@
+diff --git a/chapter-03-10-bonus-conditional-styles/src/root.tsx b/chapter-03-11-lift-state-up/src/root.tsx
+index e316b7a..b05c375 100644
+--- a/chapter-03-10-bonus-conditional-styles/src/root.tsx
++++ b/chapter-03-11-lift-state-up/src/root.tsx
+@@ -7,6 +7,9 @@ const PAGE_SIZE = 10;
+ 
+ export function HackerNews() {
+   const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
++  const [likeCountMap, setLikeCountMap] = React.useState<Map<number, number>>(
++    new Map(),
++  );
+ 
+   const totalItemCount = storyList.length;
+   const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
+@@ -23,7 +26,22 @@ export function HackerNews() {
+     <div className="p-8">
+       <div className="flex flex-col gap-6">
+         {visibleWindow.map((item) => {
+-          return <NewsItem key={item.id} data={item} />;
++          return (
++            <NewsItem
++              key={item.id}
++              data={item}
++              likeCount={likeCountMap.get(item.id) ?? 0}
++              onLikeClick={() => {
++                setLikeCountMap((map) => {
++                  const copy = new Map(map);
++                  const currentLikeCount = copy.get(item.id) ?? 0;
++
++                  copy.set(item.id, currentLikeCount + 1);
++                  return copy;
++                });
++              }}
++            />
++          );
+         })}
+       </div>
+ 
+@@ -62,10 +80,12 @@ export function HackerNews() {
+   );
+ }
+ 
+-function NewsItem(props: { data: TStoryItem }) {
+-  const { data } = props;
+-
+-  const [likeCount, setLikeCount] = React.useState<number>(0);
++function NewsItem(props: {
++  data: TStoryItem;
++  likeCount: number;
++  onLikeClick: () => void;
++}) {
++  const { data, likeCount, onLikeClick } = props;
+ 
+   const formattedTime = formatRelativeTime(data.time);
+ 
+@@ -90,7 +110,7 @@ function NewsItem(props: { data: TStoryItem }) {
+         <button
+           className="hover:underline"
+           onClick={() => {
+-            setLikeCount((num) => num + 1);
++            onLikeClick();
+           }}
+         >
+           like ({likeCount})

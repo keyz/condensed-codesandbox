@@ -1,0 +1,37 @@
+diff --git a/chapter-03-08-remember-unique-key/src/root.tsx b/chapter-03-09-derived-value/src/root.tsx
+index 3b7e5f0..b15873e 100644
+--- a/chapter-03-08-remember-unique-key/src/root.tsx
++++ b/chapter-03-09-derived-value/src/root.tsx
+@@ -13,18 +13,22 @@ export function HackerNews() {
+   const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
+   const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // exclusive
+ 
++  const canGoBack = startIndex > 0;
++  const canGoNext = endIndex < totalItemCount;
++
+   const visibleWindow = storyList.slice(startIndex, endIndex);
+ 
+   return (
+     <div className="p-8">
+       <div className="flex flex-col gap-6">
+-        {visibleWindow.map((item, index) => {
+-          return <NewsItem key={index} data={item} />;
++        {visibleWindow.map((item) => {
++          return <NewsItem key={item.id} data={item} />;
+         })}
+       </div>
+ 
+       <div className="mt-12">
+         <button
++          disabled={!canGoBack}
+           className="hover:underline"
+           onClick={() => {
+             setCurrentPageNumber((n) => n - 1);
+@@ -38,6 +42,7 @@ export function HackerNews() {
+         </span>
+ 
+         <button
++          disabled={!canGoNext}
+           className="hover:underline"
+           onClick={() => {
+             setCurrentPageNumber((n) => n + 1);

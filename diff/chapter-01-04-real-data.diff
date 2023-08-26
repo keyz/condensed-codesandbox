@@ -1,0 +1,35 @@
+diff --git a/chapter-01-03-first-map/src/root.tsx b/chapter-01-04-real-data/src/root.tsx
+index af3b799..d2e06d0 100644
+--- a/chapter-01-03-first-map/src/root.tsx
++++ b/chapter-01-04-real-data/src/root.tsx
+@@ -1,29 +1,4 @@
+-const data = [
+-  {
+-    id: 37140013,
+-    title: "How Is LLaMa.cpp Possible?",
+-  },
+-  {
+-    id: 37142388,
+-    title: "NetMaker: Connect Everything with a WireGuard VPN",
+-  },
+-  {
+-    id: 37136898,
+-    title: "Opendream: A layer-based UI for Stable Diffusion",
+-  },
+-  {
+-    id: 37140159,
+-    title: "Modern CSV version 2",
+-  },
+-  {
+-    id: 37142426,
+-    title: "Diligere, Equity-Invest Are New Firms of U.K. Con Man",
+-  },
+-  {
+-    id: 37138807,
+-    title: "How should I read type system notation?",
+-  },
+-];
++import data from "./hn-top-stories.json";
+ 
+ export function HackerNews() {
+   return (

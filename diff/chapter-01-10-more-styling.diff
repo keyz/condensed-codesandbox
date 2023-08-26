@@ -1,0 +1,13 @@
+diff --git a/chapter-01-09-basic-layout/src/root.tsx b/chapter-01-10-more-styling/src/root.tsx
+index 20d8157..e703ff3 100644
+--- a/chapter-01-09-basic-layout/src/root.tsx
++++ b/chapter-01-10-more-styling/src/root.tsx
+@@ -20,7 +20,7 @@ export function HackerNews() {
+             <p>
+               <a href={item.url}>{item.title}</a>
+             </p>
+-            <p>
++            <p className="text-sm text-gray-600">
+               {item.score} points by {item.by} {formattedTime} |{" "}
+               {item.descendants} comments
+             </p>

@@ -1,0 +1,25 @@
+diff --git a/chapter-01-10-more-styling/src/root.tsx b/chapter-01-11-quiz-answers/src/root.tsx
+index e703ff3..6ca8350 100644
+--- a/chapter-01-10-more-styling/src/root.tsx
++++ b/chapter-01-11-quiz-answers/src/root.tsx
+@@ -18,11 +18,18 @@ export function HackerNews() {
+         return (
+           <div key={item.id}>
+             <p>
+-              <a href={item.url}>{item.title}</a>
++              <a className="hover:underline" href={item.url}>
++                {item.title}
++              </a>
+             </p>
+             <p className="text-sm text-gray-600">
+               {item.score} points by {item.by} {formattedTime} |{" "}
+-              {item.descendants} comments
++              <a
++                className="hover:underline"
++                href={`https://news.ycombinator.com/item?id=${item.id}`}
++              >
++                {item.descendants} comments
++              </a>
+             </p>
+           </div>
+         );

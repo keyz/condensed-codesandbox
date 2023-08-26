@@ -1,0 +1,45 @@
+diff --git a/chapter-03-06-pagination-state/src/root.tsx b/chapter-03-07-pagination-button/src/root.tsx
+index 6a018e6..1794356 100644
+--- a/chapter-03-06-pagination-state/src/root.tsx
++++ b/chapter-03-07-pagination-button/src/root.tsx
+@@ -7,6 +7,9 @@ const PAGE_SIZE = 10;
+ export function HackerNews() {
+   const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
+ 
++  const totalItemCount = storyList.length;
++  const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
++
+   const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
+   const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // exclusive
+ 
+@@ -19,6 +22,30 @@ export function HackerNews() {
+           return <NewsItem key={item.id} data={item} />;
+         })}
+       </div>
++
++      <div className="mt-12">
++        <button
++          className="hover:underline"
++          onClick={() => {
++            setCurrentPageNumber((n) => n - 1);
++          }}
++        >
++          Prev
++        </button>
++
++        <span className="mx-8">
++          {currentPageNumber + 1} / {totalPageCount}
++        </span>
++
++        <button
++          className="hover:underline"
++          onClick={() => {
++            setCurrentPageNumber((n) => n + 1);
++          }}
++        >
++          Next
++        </button>
++      </div>
+     </div>
+   );
+ }

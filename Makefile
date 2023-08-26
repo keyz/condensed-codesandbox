@@ -11,10 +11,6 @@ copy:
 dev:
 	@./scripts/dev.sh
 
-.PHONY: diff
-diff:
-	@./scripts/diff.sh
-
 .PHONY: embed
 embed:
 	@./scripts/embed.sh
@@ -58,7 +54,7 @@ reset:
 
 .PHONY: snapshot
 snapshot:
-	@${MAKE} -s diff > ./diff/react.diff
+	@./scripts/snapshot.sh
 
 .PHONY: upgrade
 upgrade:

@@ -4,6 +4,10 @@ set -euo pipefail
 
 REPO_ROOT=$(git rev-parse --show-toplevel)
 REACT_ROOT="$REPO_ROOT/react"
+DIFF_ROOT="$REPO_ROOT/diff"
+
+rm -rf "$DIFF_ROOT"
+mkdir -p "$DIFF_ROOT"
 
 cd "$REACT_ROOT"
 
@@ -17,12 +21,10 @@ do
 
   if [[ "$previous_dir" != "" ]]
   then
-    printf "\n%*s\n\n" 80 "" | tr " " "=" # divider
-
     previous="$previous_dir/src/root.tsx"
     current="$current_dir/src/root.tsx"
 
-    git --no-pager diff --no-index "$previous" "$current" || true
+    (git --no-pager diff --no-index "$previous" "$current" || true) > "$DIFF_ROOT/$current_dir.diff"
   fi
 
   previous_dir="$current_dir"

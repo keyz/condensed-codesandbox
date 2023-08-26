@@ -1,0 +1,35 @@
+diff --git a/chapter-03-05-state-functional-updater/src/root.tsx b/chapter-03-06-pagination-state/src/root.tsx
+index c17108f..6a018e6 100644
+--- a/chapter-03-05-state-functional-updater/src/root.tsx
++++ b/chapter-03-06-pagination-state/src/root.tsx
+@@ -2,11 +2,20 @@ import * as React from "react";
+ import { storyList, type TStoryItem } from "./data";
+ import { formatRelativeTime } from "./helpers/time";
+ 
++const PAGE_SIZE = 10;
++
+ export function HackerNews() {
++  const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
++
++  const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
++  const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // exclusive
++
++  const visibleWindow = storyList.slice(startIndex, endIndex);
++
+   return (
+     <div className="p-8">
+       <div className="flex flex-col gap-6">
+-        {storyList.map((item) => {
++        {visibleWindow.map((item) => {
+           return <NewsItem key={item.id} data={item} />;
+         })}
+       </div>
+@@ -43,8 +52,6 @@ function NewsItem(props: { data: TStoryItem }) {
+           className="hover:underline"
+           onClick={() => {
+             setLikeCount((num) => num + 1);
+-            setLikeCount((num) => num + 1);
+-            setLikeCount((num) => num + 1);
+           }}
+         >
+           like ({likeCount})
