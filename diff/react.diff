@@ -811,10 +811,17 @@ index b05c375..db77fa6 100644
 ================================================================================
 
 diff --git a/chapter-03-12-quiz-answers/src/root.tsx b/chapter-04-01-data-fetching-starter/src/root.tsx
-index db77fa6..d00ddb8 100644
+index db77fa6..1c292ef 100644
 --- a/chapter-03-12-quiz-answers/src/root.tsx
 +++ b/chapter-04-01-data-fetching-starter/src/root.tsx
-@@ -6,19 +6,14 @@ import { formatRelativeTime } from "./helpers/time";
+@@ -1,24 +1,18 @@
+ import * as React from "react";
+-import cx from "classnames";
+-import { storyList, type TStoryItem } from "./data";
+-import { formatRelativeTime } from "./helpers/time";
++import { NewsItem, PaginationControl } from "./components";
++import { storyList } from "./data";
+ 
  const PAGE_SIZE = 10;
  
  export function HackerNews() {
@@ -837,7 +844,7 @@ index db77fa6..d00ddb8 100644
    const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
  
    const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
-@@ -27,7 +22,7 @@ export function HackerNews() {
+@@ -27,7 +21,7 @@ export function HackerNews() {
    const canGoBack = startIndex > 0;
    const canGoNext = endIndex < totalItemCount;
  
@@ -846,7 +853,7 @@ index db77fa6..d00ddb8 100644
  
    return (
      <div className="p-8">
-@@ -38,13 +33,6 @@ export function HackerNews() {
+@@ -38,13 +32,6 @@ export function HackerNews() {
                key={item.id}
                data={item}
                likeCount={likeCountMap.get(item.id) ?? 0}
@@ -860,7 +867,7 @@ index db77fa6..d00ddb8 100644
                onLikeClick={() => {
                  setLikeCountMap((map) => {
                    const copy = new Map(map);
-@@ -59,37 +47,18 @@ export function HackerNews() {
+@@ -59,87 +46,18 @@ export function HackerNews() {
          })}
        </div>
  
@@ -895,6 +902,56 @@ index db77fa6..d00ddb8 100644
 -          Next
 -        </button>
 -      </div>
+-    </div>
+-  );
+-}
+-
+-function NewsItem(props: {
+-  data: TStoryItem;
+-  likeCount: number;
+-  onHideClick: () => void;
+-  onLikeClick: () => void;
+-}) {
+-  const { data, likeCount, onHideClick, onLikeClick } = props;
+-
+-  const formattedTime = formatRelativeTime(data.time);
+-
+-  return (
+-    <div>
+-      <p>
+-        <a className="hover:underline" href={data.url}>
+-          {data.title}
+-        </a>
+-      </p>
+-
+-      <p className="text-sm text-gray-600">
+-        {data.score} points by {data.by} {formattedTime}
+-        {" | "}
+-        <button
+-          className="hover:underline"
+-          onClick={() => {
+-            onHideClick();
+-          }}
+-        >
+-          hide
+-        </button>
+-        {" | "}
+-        <a
+-          className="hover:underline"
+-          href={`https://news.ycombinator.com/item?id=${data.id}`}
+-        >
+-          {data.descendants} comments
+-        </a>
+-        {" | "}
+-        <button
+-          className="hover:underline"
+-          onClick={() => {
+-            onLikeClick();
+-          }}
+-        >
+-          like ({likeCount})
+-        </button>
+-      </p>
 +      <PaginationControl
 +        canGoBack={canGoBack}
 +        canGoNext={canGoNext}
@@ -910,83 +967,3 @@ index db77fa6..d00ddb8 100644
      </div>
    );
  }
-@@ -97,10 +66,9 @@ export function HackerNews() {
- function NewsItem(props: {
-   data: TStoryItem;
-   likeCount: number;
--  onHideClick: () => void;
-   onLikeClick: () => void;
- }) {
--  const { data, likeCount, onHideClick, onLikeClick } = props;
-+  const { data, likeCount, onLikeClick } = props;
- 
-   const formattedTime = formatRelativeTime(data.time);
- 
-@@ -115,15 +83,6 @@ function NewsItem(props: {
-       <p className="text-sm text-gray-600">
-         {data.score} points by {data.by} {formattedTime}
-         {" | "}
--        <button
--          className="hover:underline"
--          onClick={() => {
--            onHideClick();
--          }}
--        >
--          hide
--        </button>
--        {" | "}
-         <a
-           className="hover:underline"
-           href={`https://news.ycombinator.com/item?id=${data.id}`}
-@@ -143,3 +102,51 @@ function NewsItem(props: {
-     </div>
-   );
- }
-+
-+function PaginationControl(props: {
-+  canGoBack: boolean;
-+  canGoNext: boolean;
-+  currentPageNumber: number;
-+  onNextClick: () => void;
-+  onPrevClick: () => void;
-+  totalPageCount: number;
-+}) {
-+  const {
-+    canGoBack,
-+    canGoNext,
-+    currentPageNumber,
-+    onNextClick,
-+    onPrevClick,
-+    totalPageCount,
-+  } = props;
-+
-+  return (
-+    <div className="mt-12">
-+      <button
-+        disabled={!canGoBack}
-+        className={cx({
-+          "hover:underline": canGoBack,
-+          "text-gray-300": !canGoBack,
-+        })}
-+        onClick={onPrevClick}
-+      >
-+        Prev
-+      </button>
-+
-+      <span className="mx-8">
-+        {currentPageNumber + 1} / {totalPageCount}
-+      </span>
-+
-+      <button
-+        disabled={!canGoNext}
-+        className={cx({
-+          "hover:underline": canGoNext,
-+          "text-gray-300": !canGoNext,
-+        })}
-+        onClick={onNextClick}
-+      >
-+        Next
-+      </button>
-+    </div>
-+  );
-+}
