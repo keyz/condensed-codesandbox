@@ -24,7 +24,9 @@ then
   exit 1
 fi
 
-npx create-next-app@latest --example "https://github.com/keyz/condensed-codesandbox/tree/main/react/$template" "$target"
+echo "Copying files..."
+
+rsync -vhra --exclude-from=../.gitignore "$template/" "$target/"
 
 echo "Updating generated files..."
 
@@ -34,4 +36,6 @@ do
   sed -i "" "s/$template/$target/g" "$file"
 done
 
-echo "Done!"
+echo "Installing..."
+cd "$REPO_ROOT"
+npm install

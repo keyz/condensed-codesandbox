@@ -11,5 +11,4 @@ read -rep "Module to run? " target
 echo ""
 
 cd "$target"
-npm install
 npm run dev
