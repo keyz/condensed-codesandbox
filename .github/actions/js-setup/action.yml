@@ -20,6 +20,9 @@ runs:
 
     - name: Cache npm store
       uses: actions/cache@v3
+      continue-on-error: true
+      env:
+        SEGMENT_DOWNLOAD_TIMEOUT_MINS: 1
       with:
         path: ${{ steps.npm-cache-dir.outputs.data }}
         key: ${{ runner.os }}-npm-store-${{ hashFiles('**/package-lock.json') }}
