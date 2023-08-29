@@ -49,6 +49,10 @@ jobs:
       - name: Setup JS
         uses: ./.github/actions/js-setup
 
+      - name: Lint
+        run: npm run lint
+        working-directory: "./${{ matrix.module }}"
+
       - name: Build
         run: npm run build
         working-directory: "./${{ matrix.module }}"
