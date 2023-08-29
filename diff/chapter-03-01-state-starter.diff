@@ -1,11 +1,11 @@
 diff --git a/chapter-01-11-quiz-answers/src/root.tsx b/chapter-03-01-state-starter/src/root.tsx
-index f90f19e..5ec9b60 100644
+index 8c3914e..5ec9b60 100644
 --- a/chapter-01-11-quiz-answers/src/root.tsx
 +++ b/chapter-03-01-state-starter/src/root.tsx
 @@ -1,39 +1,35 @@
 -import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
 -import { enUS as localeEnUs } from "date-fns/locale";
--import data from "./hn-top-stories.json";
+-import data from "./data.json";
 +import { storyList } from "./data";
 +import { formatRelativeTime } from "./helpers/time";
  

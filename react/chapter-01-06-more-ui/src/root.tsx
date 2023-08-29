@@ -1,4 +1,4 @@
-import data from "./hn-top-stories.json";
+import data from "./data.json";
 
 export function GitHubRoot() {
   return (

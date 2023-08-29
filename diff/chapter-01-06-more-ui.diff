@@ -1,5 +1,5 @@
 diff --git a/chapter-01-05-pre-trick/src/root.tsx b/chapter-01-06-more-ui/src/root.tsx
-index 5d76737..1a382dd 100644
+index 5f0880e..bac01ee 100644
 --- a/chapter-01-05-pre-trick/src/root.tsx
 +++ b/chapter-01-06-more-ui/src/root.tsx
 @@ -4,7 +4,14 @@ export function GitHubRoot() {

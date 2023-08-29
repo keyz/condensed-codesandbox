@@ -1,11 +1,11 @@
 diff --git a/chapter-01-07-adding-links/src/root.tsx b/chapter-01-08-with-date-fns/src/root.tsx
-index a0b2141..865a106 100644
+index bff0b9b..2f8b7f8 100644
 --- a/chapter-01-07-adding-links/src/root.tsx
 +++ b/chapter-01-08-with-date-fns/src/root.tsx
 @@ -1,16 +1,28 @@
 +import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
 +import { enUS as localeEnUs } from "date-fns/locale";
- import data from "./hn-top-stories.json";
+ import data from "./data.json";
  
  export function GitHubRoot() {
    return (

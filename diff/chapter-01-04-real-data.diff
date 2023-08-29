@@ -1,5 +1,5 @@
 diff --git a/chapter-01-03-first-map/src/root.tsx b/chapter-01-04-real-data/src/root.tsx
-index 0ce581a..be5b9d1 100644
+index 0ce581a..1d7e964 100644
 --- a/chapter-01-03-first-map/src/root.tsx
 +++ b/chapter-01-04-real-data/src/root.tsx
 @@ -1,29 +1,4 @@
@@ -29,7 +29,7 @@ index 0ce581a..be5b9d1 100644
 -    title: "How should I read type system notation?",
 -  },
 -];
-+import data from "./hn-top-stories.json";
++import data from "./data.json";
  
  export function GitHubRoot() {
    return (

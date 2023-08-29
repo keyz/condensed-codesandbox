@@ -1,6 +1,6 @@
 import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
 import { enUS as localeEnUs } from "date-fns/locale";
-import data from "./hn-top-stories.json";
+import data from "./data.json";
 
 export function GitHubRoot() {
   return (

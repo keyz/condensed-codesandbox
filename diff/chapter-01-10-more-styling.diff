@@ -1,5 +1,5 @@
 diff --git a/chapter-01-09-basic-layout/src/root.tsx b/chapter-01-10-more-styling/src/root.tsx
-index f4e632e..cda7777 100644
+index 8d818e8..0c07d64 100644
 --- a/chapter-01-09-basic-layout/src/root.tsx
 +++ b/chapter-01-10-more-styling/src/root.tsx
 @@ -20,7 +20,7 @@ export function GitHubRoot() {
