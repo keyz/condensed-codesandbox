@@ -1,5 +1,4 @@
 diff --git a/chapter-01-01-hello-world/src/root.tsx b/chapter-01-02-just-titles/src/root.tsx
-index 14eb748..616613d 100644
 --- a/chapter-01-01-hello-world/src/root.tsx
 +++ b/chapter-01-02-just-titles/src/root.tsx
 @@ -1,3 +1,13 @@

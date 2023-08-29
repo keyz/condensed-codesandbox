@@ -1,5 +1,4 @@
 diff --git a/chapter-01-08-with-date-fns/src/root.tsx b/chapter-01-09-basic-layout/src/root.tsx
-index 2f8b7f8..8d818e8 100644
 --- a/chapter-01-08-with-date-fns/src/root.tsx
 +++ b/chapter-01-09-basic-layout/src/root.tsx
 @@ -4,7 +4,7 @@ import data from "./data.json";

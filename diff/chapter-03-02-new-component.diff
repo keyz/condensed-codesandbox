@@ -1,5 +1,4 @@
 diff --git a/chapter-03-01-state-starter/src/root.tsx b/chapter-03-02-new-component/src/root.tsx
-index 5ec9b60..9076a64 100644
 --- a/chapter-03-01-state-starter/src/root.tsx
 +++ b/chapter-03-02-new-component/src/root.tsx
 @@ -1,4 +1,4 @@

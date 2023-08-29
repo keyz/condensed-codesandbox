@@ -1,5 +1,4 @@
 diff --git a/chapter-03-09-derived-value/src/root.tsx b/chapter-03-10-bonus-conditional-styles/src/root.tsx
-index 28b25da..73f640c 100644
 --- a/chapter-03-09-derived-value/src/root.tsx
 +++ b/chapter-03-10-bonus-conditional-styles/src/root.tsx
 @@ -1,4 +1,5 @@

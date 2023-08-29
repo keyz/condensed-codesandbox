@@ -1,5 +1,4 @@
 diff --git a/chapter-01-03-first-map/src/root.tsx b/chapter-01-04-real-data/src/root.tsx
-index 0ce581a..1d7e964 100644
 --- a/chapter-01-03-first-map/src/root.tsx
 +++ b/chapter-01-04-real-data/src/root.tsx
 @@ -1,29 +1,4 @@

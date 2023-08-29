@@ -1,5 +1,4 @@
 diff --git a/chapter-03-12-quiz-answers/src/root.tsx b/chapter-04-01-data-fetching-starter/src/root.tsx
-index eac45d1..cf099a8 100644
 --- a/chapter-03-12-quiz-answers/src/root.tsx
 +++ b/chapter-04-01-data-fetching-starter/src/root.tsx
 @@ -1,24 +1,19 @@

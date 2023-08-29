@@ -1,5 +1,4 @@
 diff --git a/chapter-01-04-real-data/src/root.tsx b/chapter-01-05-pre-trick/src/root.tsx
-index 1d7e964..5f0880e 100644
 --- a/chapter-01-04-real-data/src/root.tsx
 +++ b/chapter-01-05-pre-trick/src/root.tsx
 @@ -4,7 +4,7 @@ export function GitHubRoot() {

@@ -1,5 +1,4 @@
 diff --git a/chapter-01-11-quiz-answers/src/root.tsx b/chapter-03-01-state-starter/src/root.tsx
-index 8c3914e..5ec9b60 100644
 --- a/chapter-01-11-quiz-answers/src/root.tsx
 +++ b/chapter-03-01-state-starter/src/root.tsx
 @@ -1,39 +1,35 @@

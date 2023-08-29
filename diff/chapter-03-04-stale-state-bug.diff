@@ -1,5 +1,4 @@
 diff --git a/chapter-03-03-first-state/src/root.tsx b/chapter-03-04-stale-state-bug/src/root.tsx
-index 2111f49..3d04997 100644
 --- a/chapter-03-03-first-state/src/root.tsx
 +++ b/chapter-03-04-stale-state-bug/src/root.tsx
 @@ -43,6 +43,8 @@ function NewsItem(props: { data: TStoryItem }) {

@@ -1,5 +1,4 @@
 diff --git a/chapter-01-02-just-titles/src/root.tsx b/chapter-01-03-first-map/src/root.tsx
-index 616613d..0ce581a 100644
 --- a/chapter-01-02-just-titles/src/root.tsx
 +++ b/chapter-01-03-first-map/src/root.tsx
 @@ -1,13 +1,36 @@

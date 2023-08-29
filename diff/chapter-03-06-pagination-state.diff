@@ -1,5 +1,4 @@
 diff --git a/chapter-03-05-state-functional-updater/src/root.tsx b/chapter-03-06-pagination-state/src/root.tsx
-index 1ed1858..11cc5f8 100644
 --- a/chapter-03-05-state-functional-updater/src/root.tsx
 +++ b/chapter-03-06-pagination-state/src/root.tsx
 @@ -2,11 +2,20 @@ import * as React from "react";

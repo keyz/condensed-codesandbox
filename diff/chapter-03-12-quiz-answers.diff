@@ -1,5 +1,4 @@
 diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-03-12-quiz-answers/src/root.tsx
-index 05ea9b6..eac45d1 100644
 --- a/chapter-03-11-lift-state-up/src/root.tsx
 +++ b/chapter-03-12-quiz-answers/src/root.tsx
 @@ -10,8 +10,15 @@ export function GitHubRoot() {

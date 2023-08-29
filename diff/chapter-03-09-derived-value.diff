@@ -1,5 +1,4 @@
 diff --git a/chapter-03-08-remember-unique-key/src/root.tsx b/chapter-03-09-derived-value/src/root.tsx
-index ffa38df..28b25da 100644
 --- a/chapter-03-08-remember-unique-key/src/root.tsx
 +++ b/chapter-03-09-derived-value/src/root.tsx
 @@ -13,18 +13,22 @@ export function GitHubRoot() {

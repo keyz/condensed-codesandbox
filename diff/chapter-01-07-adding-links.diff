@@ -1,5 +1,4 @@
 diff --git a/chapter-01-06-more-ui/src/root.tsx b/chapter-01-07-adding-links/src/root.tsx
-index bac01ee..bff0b9b 100644
 --- a/chapter-01-06-more-ui/src/root.tsx
 +++ b/chapter-01-07-adding-links/src/root.tsx
 @@ -6,7 +6,9 @@ export function GitHubRoot() {

@@ -1,5 +1,4 @@
 diff --git a/chapter-03-07-pagination-button/src/root.tsx b/chapter-03-08-remember-unique-key/src/root.tsx
-index 05b7374..ffa38df 100644
 --- a/chapter-03-07-pagination-button/src/root.tsx
 +++ b/chapter-03-08-remember-unique-key/src/root.tsx
 @@ -18,8 +18,8 @@ export function GitHubRoot() {

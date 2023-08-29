@@ -24,7 +24,18 @@ do
     previous="$previous_dir/src/root.tsx"
     current="$current_dir/src/root.tsx"
 
-    (git --no-pager diff --no-index "$previous" "$current" || true) > "$DIFF_ROOT/$current_dir.diff"
+    target_path="$DIFF_ROOT/$current_dir.diff"
+
+    (git --no-pager diff --no-index "$previous" "$current" || true) > "$target_path"
+
+    sed_pattern="/^index [a-f0-9]{7}\.\.[a-f0-9]{7} [0-9]{6}$/d"
+
+    if [[ "$OSTYPE" == "darwin"* ]]
+    then
+      sed -E -i "" "$sed_pattern" "$target_path"
+    else
+      sed -E -i -e "$sed_pattern" "$target_path"
+    fi
   fi
 
   previous_dir="$current_dir"

@@ -1,5 +1,4 @@
 diff --git a/chapter-03-10-bonus-conditional-styles/src/root.tsx b/chapter-03-11-lift-state-up/src/root.tsx
-index 73f640c..05ea9b6 100644
 --- a/chapter-03-10-bonus-conditional-styles/src/root.tsx
 +++ b/chapter-03-11-lift-state-up/src/root.tsx
 @@ -7,6 +7,9 @@ const PAGE_SIZE = 10;
