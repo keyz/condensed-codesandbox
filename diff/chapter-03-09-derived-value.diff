@@ -1,8 +1,8 @@
 diff --git a/chapter-03-08-remember-unique-key/src/root.tsx b/chapter-03-09-derived-value/src/root.tsx
-index 3b7e5f0..b15873e 100644
+index ffa38df..28b25da 100644
 --- a/chapter-03-08-remember-unique-key/src/root.tsx
 +++ b/chapter-03-09-derived-value/src/root.tsx
-@@ -13,18 +13,22 @@ export function HackerNews() {
+@@ -13,18 +13,22 @@ export function GitHubRoot() {
    const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
    const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // exclusive
  
@@ -27,7 +27,7 @@ index 3b7e5f0..b15873e 100644
            className="hover:underline"
            onClick={() => {
              setCurrentPageNumber((n) => n - 1);
-@@ -38,6 +42,7 @@ export function HackerNews() {
+@@ -38,6 +42,7 @@ export function GitHubRoot() {
          </span>
  
          <button

@@ -1,8 +1,8 @@
 diff --git a/chapter-03-07-pagination-button/src/root.tsx b/chapter-03-08-remember-unique-key/src/root.tsx
-index 1794356..3b7e5f0 100644
+index 05b7374..ffa38df 100644
 --- a/chapter-03-07-pagination-button/src/root.tsx
 +++ b/chapter-03-08-remember-unique-key/src/root.tsx
-@@ -18,8 +18,8 @@ export function HackerNews() {
+@@ -18,8 +18,8 @@ export function GitHubRoot() {
    return (
      <div className="p-8">
        <div className="flex flex-col gap-6">

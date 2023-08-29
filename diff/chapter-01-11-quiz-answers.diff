@@ -1,8 +1,8 @@
 diff --git a/chapter-01-10-more-styling/src/root.tsx b/chapter-01-11-quiz-answers/src/root.tsx
-index e703ff3..6ca8350 100644
+index cda7777..f90f19e 100644
 --- a/chapter-01-10-more-styling/src/root.tsx
 +++ b/chapter-01-11-quiz-answers/src/root.tsx
-@@ -18,11 +18,18 @@ export function HackerNews() {
+@@ -18,11 +18,18 @@ export function GitHubRoot() {
          return (
            <div key={item.id}>
              <p>

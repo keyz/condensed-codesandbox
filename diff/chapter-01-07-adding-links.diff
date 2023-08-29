@@ -1,8 +1,8 @@
 diff --git a/chapter-01-06-more-ui/src/root.tsx b/chapter-01-07-adding-links/src/root.tsx
-index c2522d9..6726a51 100644
+index 1a382dd..a0b2141 100644
 --- a/chapter-01-06-more-ui/src/root.tsx
 +++ b/chapter-01-07-adding-links/src/root.tsx
-@@ -6,7 +6,9 @@ export function HackerNews() {
+@@ -6,7 +6,9 @@ export function GitHubRoot() {
        {data.map((item) => {
          return (
            <div key={item.id}>

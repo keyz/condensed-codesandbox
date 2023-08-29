@@ -1,8 +1,8 @@
 diff --git a/chapter-01-04-real-data/src/root.tsx b/chapter-01-05-pre-trick/src/root.tsx
-index d2e06d0..d62fc88 100644
+index be5b9d1..5d76737 100644
 --- a/chapter-01-04-real-data/src/root.tsx
 +++ b/chapter-01-05-pre-trick/src/root.tsx
-@@ -4,7 +4,7 @@ export function HackerNews() {
+@@ -4,7 +4,7 @@ export function GitHubRoot() {
    return (
      <div>
        {data.map((item) => {

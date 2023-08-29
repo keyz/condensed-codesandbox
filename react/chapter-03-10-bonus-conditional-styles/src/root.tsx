@@ -5,7 +5,7 @@ import { formatRelativeTime } from "./helpers/time";
 
 const PAGE_SIZE = 10;
 
-export function HackerNews() {
+export function GitHubRoot() {
   const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
 
   const totalItemCount = storyList.length;

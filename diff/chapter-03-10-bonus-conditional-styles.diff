@@ -1,5 +1,5 @@
 diff --git a/chapter-03-09-derived-value/src/root.tsx b/chapter-03-10-bonus-conditional-styles/src/root.tsx
-index b15873e..e316b7a 100644
+index 28b25da..73f640c 100644
 --- a/chapter-03-09-derived-value/src/root.tsx
 +++ b/chapter-03-10-bonus-conditional-styles/src/root.tsx
 @@ -1,4 +1,5 @@
@@ -8,7 +8,7 @@ index b15873e..e316b7a 100644
  import { storyList, type TStoryItem } from "./data";
  import { formatRelativeTime } from "./helpers/time";
  
-@@ -29,7 +30,10 @@ export function HackerNews() {
+@@ -29,7 +30,10 @@ export function GitHubRoot() {
        <div className="mt-12">
          <button
            disabled={!canGoBack}
@@ -20,7 +20,7 @@ index b15873e..e316b7a 100644
            onClick={() => {
              setCurrentPageNumber((n) => n - 1);
            }}
-@@ -43,7 +47,10 @@ export function HackerNews() {
+@@ -43,7 +47,10 @@ export function GitHubRoot() {
  
          <button
            disabled={!canGoNext}

@@ -2,7 +2,7 @@ import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
 import { enUS as localeEnUs } from "date-fns/locale";
 import data from "./hn-top-stories.json";
 
-export function HackerNews() {
+export function GitHubRoot() {
   return (
     <div className="flex flex-col gap-6 p-8">
       {data.map((item) => {

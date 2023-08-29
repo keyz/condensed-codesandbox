@@ -1,5 +1,5 @@
 diff --git a/chapter-03-05-state-functional-updater/src/root.tsx b/chapter-03-06-pagination-state/src/root.tsx
-index c17108f..6a018e6 100644
+index 1ed1858..11cc5f8 100644
 --- a/chapter-03-05-state-functional-updater/src/root.tsx
 +++ b/chapter-03-06-pagination-state/src/root.tsx
 @@ -2,11 +2,20 @@ import * as React from "react";
@@ -8,7 +8,7 @@ index c17108f..6a018e6 100644
  
 +const PAGE_SIZE = 10;
 +
- export function HackerNews() {
+ export function GitHubRoot() {
 +  const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
 +
 +  const startIndex = currentPageNumber * PAGE_SIZE; // inclusive

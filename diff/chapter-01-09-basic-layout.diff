@@ -1,10 +1,10 @@
 diff --git a/chapter-01-08-with-date-fns/src/root.tsx b/chapter-01-09-basic-layout/src/root.tsx
-index f9c2b25..20d8157 100644
+index 865a106..f4e632e 100644
 --- a/chapter-01-08-with-date-fns/src/root.tsx
 +++ b/chapter-01-09-basic-layout/src/root.tsx
 @@ -4,7 +4,7 @@ import data from "./hn-top-stories.json";
  
- export function HackerNews() {
+ export function GitHubRoot() {
    return (
 -    <div>
 +    <div className="flex flex-col gap-6 p-8">

@@ -1,8 +1,8 @@
 diff --git a/chapter-01-09-basic-layout/src/root.tsx b/chapter-01-10-more-styling/src/root.tsx
-index 20d8157..e703ff3 100644
+index f4e632e..cda7777 100644
 --- a/chapter-01-09-basic-layout/src/root.tsx
 +++ b/chapter-01-10-more-styling/src/root.tsx
-@@ -20,7 +20,7 @@ export function HackerNews() {
+@@ -20,7 +20,7 @@ export function GitHubRoot() {
              <p>
                <a href={item.url}>{item.title}</a>
              </p>

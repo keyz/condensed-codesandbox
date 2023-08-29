@@ -1,5 +1,5 @@
 diff --git a/chapter-01-11-quiz-answers/src/root.tsx b/chapter-03-01-state-starter/src/root.tsx
-index 6ca8350..269d012 100644
+index f90f19e..5ec9b60 100644
 --- a/chapter-01-11-quiz-answers/src/root.tsx
 +++ b/chapter-03-01-state-starter/src/root.tsx
 @@ -1,39 +1,35 @@
@@ -9,7 +9,7 @@ index 6ca8350..269d012 100644
 +import { storyList } from "./data";
 +import { formatRelativeTime } from "./helpers/time";
  
- export function HackerNews() {
+ export function GitHubRoot() {
    return (
 -    <div className="flex flex-col gap-6 p-8">
 -      {data.map((item) => {

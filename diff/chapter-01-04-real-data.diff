@@ -1,5 +1,5 @@
 diff --git a/chapter-01-03-first-map/src/root.tsx b/chapter-01-04-real-data/src/root.tsx
-index af3b799..d2e06d0 100644
+index 0ce581a..be5b9d1 100644
 --- a/chapter-01-03-first-map/src/root.tsx
 +++ b/chapter-01-04-real-data/src/root.tsx
 @@ -1,29 +1,4 @@
@@ -31,5 +31,5 @@ index af3b799..d2e06d0 100644
 -];
 +import data from "./hn-top-stories.json";
  
- export function HackerNews() {
+ export function GitHubRoot() {
    return (

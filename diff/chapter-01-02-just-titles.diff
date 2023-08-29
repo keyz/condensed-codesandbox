@@ -1,11 +1,11 @@
 diff --git a/chapter-01-01-hello-world/src/root.tsx b/chapter-01-02-just-titles/src/root.tsx
-index 14eb748..08cc71e 100644
+index 14eb748..616613d 100644
 --- a/chapter-01-01-hello-world/src/root.tsx
 +++ b/chapter-01-02-just-titles/src/root.tsx
 @@ -1,3 +1,13 @@
 -export function Hello() {
 -  return <p>Hello Condensed!</p>;
-+export function HackerNews() {
++export function GitHubRoot() {
 +  const title1 = "How Is LLaMa.cpp Possible?";
 +  const title2 = "NetMaker: Connect Everything with a WireGuard VPN";
 +  const title3 = "Opendream: A layer-based UI for Stable Diffusion";

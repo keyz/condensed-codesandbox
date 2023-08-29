@@ -1,5 +1,5 @@
-import { HackerNews } from "../root";
+import { GitHubRoot } from "../root";
 
 export default function HomePage() {
-  return <HackerNews />;
+  return <GitHubRoot />;
 }

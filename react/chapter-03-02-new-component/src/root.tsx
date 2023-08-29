@@ -1,7 +1,7 @@
 import { storyList, type TStoryItem } from "./data";
 import { formatRelativeTime } from "./helpers/time";
 
-export function HackerNews() {
+export function GitHubRoot() {
   return (
     <div className="p-8">
       <div className="flex flex-col gap-6">
