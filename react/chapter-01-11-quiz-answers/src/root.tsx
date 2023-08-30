@@ -7,8 +7,8 @@ export function GitHubRoot() {
     <div className="flex flex-col gap-6 p-8">
       {data.map((item) => {
         // See https://date-fns.org/v2.30.0/docs/formatDistanceToNowStrict
-        const formattedTime = formatDistanceToNowStrict(
-          item.time * 1000, // seconds -> milliseconds
+        const formattedCreatedAt = formatDistanceToNowStrict(
+          new Date(item.created_at), // parse ISO 8601 date time string
           {
             addSuffix: true, // add "ago"
             locale: localeEnUs,
@@ -17,19 +17,15 @@ export function GitHubRoot() {
 
         return (
           <div key={item.id}>
-            <p>
-              <a className="hover:underline" href={item.url}>
-                {item.title}
+            <p className="font-medium">
+              <a className="hover:underline" href={item.html_url}>
+                {item.full_name}
               </a>
             </p>
+            <p>{item.description}</p>
             <p className="text-sm text-gray-600">
-              {item.score} points by {item.by} {formattedTime} |{" "}
-              <a
-                className="hover:underline"
-                href={`https://news.ycombinator.com/item?id=${item.id}`}
-              >
-                {item.descendants} comments
-              </a>
+              {item.stargazers_count.toLocaleString("en-US")} stars | created{" "}
+              {formattedCreatedAt}
             </p>
           </div>
         );
