@@ -1,7 +1,7 @@
-diff --git a/chapter-03-08-remember-unique-key/src/root.tsx b/chapter-03-09-derived-value/src/root.tsx
---- a/chapter-03-08-remember-unique-key/src/root.tsx
+diff --git a/chapter-03-07-pagination-button/src/root.tsx b/chapter-03-09-derived-value/src/root.tsx
+--- a/chapter-03-07-pagination-button/src/root.tsx
 +++ b/chapter-03-09-derived-value/src/root.tsx
-@@ -13,18 +13,22 @@ export function GitHubRoot() {
+@@ -13,6 +13,9 @@ export function GitHubRoot() {
    const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
    const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // exclusive
  
@@ -11,14 +11,7 @@ diff --git a/chapter-03-08-remember-unique-key/src/root.tsx b/chapter-03-09-deri
    const visibleWindow = repoList.slice(startIndex, endIndex);
  
    return (
-     <div className="p-8">
-       <div className="flex flex-col gap-6">
--        {visibleWindow.map((item, index) => {
--          return <RepoItem key={index} data={item} />;
-+        {visibleWindow.map((item) => {
-+          return <RepoItem key={item.id} data={item} />;
-         })}
-       </div>
+@@ -25,6 +28,7 @@ export function GitHubRoot() {
  
        <div className="mt-12">
          <button

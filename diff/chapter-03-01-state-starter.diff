@@ -1,7 +1,7 @@
-diff --git a/chapter-01-11-quiz-answers/src/root.tsx b/chapter-03-01-state-starter/src/root.tsx
---- a/chapter-01-11-quiz-answers/src/root.tsx
+diff --git a/chapter-01-10-more-styling/src/root.tsx b/chapter-03-01-state-starter/src/root.tsx
+--- a/chapter-01-10-more-styling/src/root.tsx
 +++ b/chapter-03-01-state-starter/src/root.tsx
-@@ -1,41 +1,29 @@
+@@ -1,32 +1,29 @@
 -import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
 -import { enUS as localeEnUs } from "date-fns/locale";
 -import data from "./data.json";
@@ -28,20 +28,11 @@ diff --git a/chapter-01-11-quiz-answers/src/root.tsx b/chapter-03-01-state-start
 -        return (
 -          <div key={item.id}>
 -            <p className="font-medium">
--              <a className="hover:underline" href={item.html_url}>
--                {item.full_name}
--              </a>
+-              <a href={item.html_url}>{item.full_name}</a>
 -            </p>
 -            <p>{item.description}</p>
 -            <p className="text-sm text-gray-600">
--              <a
--                className="hover:underline"
--                href={`https://github.com/${item.full_name}/stargazers`}
--              >
--                {item.stargazers_count.toLocaleString("en-US")} stars
--              </a>
--              {" | "}
--              created {formattedCreatedAt}
+-              {item.stargazers_count} stars | created {formattedCreatedAt}
 -            </p>
 -          </div>
 -        );
