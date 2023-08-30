@@ -4,12 +4,12 @@ diff --git a/chapter-01-10-more-styling/src/root.tsx b/chapter-01-11-quiz-answer
 @@ -18,11 +18,20 @@ export function GitHubRoot() {
          return (
            <div key={item.id}>
-             <p className="font-medium">
+             <h2 className="font-medium">
 -              <a href={item.html_url}>{item.full_name}</a>
 +              <a className="hover:underline" href={item.html_url}>
 +                {item.full_name}
 +              </a>
-             </p>
+             </h2>
              <p>{item.description}</p>
              <p className="text-sm text-gray-600">
 -              {item.stargazers_count} stars | created {formattedCreatedAt}

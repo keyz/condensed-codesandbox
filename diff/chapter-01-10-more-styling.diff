@@ -5,10 +5,10 @@ diff --git a/chapter-01-09-basic-layout/src/root.tsx b/chapter-01-10-more-stylin
  
          return (
            <div key={item.id}>
--            <p>
-+            <p className="font-medium">
+-            <h2>
++            <h2 className="font-medium">
                <a href={item.html_url}>{item.full_name}</a>
-             </p>
+             </h2>
              <p>{item.description}</p>
 -            <p>
 +            <p className="text-sm text-gray-600">

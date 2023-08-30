@@ -64,11 +64,11 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
 
   return (
     <div>
-      <p className="font-medium">
+      <h2 className="font-medium">
         <a className="hover:underline" href={data.html_url}>
           {data.full_name}
         </a>
-      </p>
+      </h2>
       <p>{data.description}</p>
       <p className="text-sm text-gray-600">
         {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}

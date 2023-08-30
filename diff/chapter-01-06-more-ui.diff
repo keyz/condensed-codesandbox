@@ -5,10 +5,10 @@ diff --git a/chapter-01-04-real-data/src/root.tsx b/chapter-01-06-more-ui/src/ro
    return (
      <div>
        {repoList.map((item) => {
--        return <p key={item.id}>{item.full_name}</p>;
+-        return <h2 key={item.id}>{item.full_name}</h2>;
 +        return (
 +          <div key={item.id}>
-+            <p>{item.full_name}</p>
++            <h2>{item.full_name}</h2>
 +            <p>{item.description}</p>
 +            <p>{item.stargazers_count} stars</p>
 +          </div>

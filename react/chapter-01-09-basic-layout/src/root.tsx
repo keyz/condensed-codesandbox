@@ -17,9 +17,9 @@ export function GitHubRoot() {
 
         return (
           <div key={item.id}>
-            <p>
+            <h2>
               <a href={item.html_url}>{item.full_name}</a>
-            </p>
+            </h2>
             <p>{item.description}</p>
             <p>
               {item.stargazers_count} stars | created {formattedCreatedAt}

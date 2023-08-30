@@ -16,8 +16,8 @@ diff --git a/chapter-01-03-first-map/src/root.tsx b/chapter-01-04-real-data/src/
    return (
      <div>
        {repoList.map((item) => {
--        return <p key={item.id}>{item.name}</p>;
-+        return <p key={item.id}>{item.full_name}</p>;
+-        return <h2 key={item.id}>{item.name}</h2>;
++        return <h2 key={item.id}>{item.full_name}</h2>;
        })}
      </div>
    );

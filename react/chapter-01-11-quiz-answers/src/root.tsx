@@ -17,11 +17,11 @@ export function GitHubRoot() {
 
         return (
           <div key={item.id}>
-            <p className="font-medium">
+            <h2 className="font-medium">
               <a className="hover:underline" href={item.html_url}>
                 {item.full_name}
               </a>
-            </p>
+            </h2>
             <p>{item.description}</p>
             <p className="text-sm text-gray-600">
               <a

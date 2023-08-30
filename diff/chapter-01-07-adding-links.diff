@@ -5,10 +5,10 @@ diff --git a/chapter-01-06-more-ui/src/root.tsx b/chapter-01-07-adding-links/src
        {repoList.map((item) => {
          return (
            <div key={item.id}>
--            <p>{item.full_name}</p>
-+            <p>
+-            <h2>{item.full_name}</h2>
++            <h2>
 +              <a href={item.html_url}>{item.full_name}</a>
-+            </p>
++            </h2>
              <p>{item.description}</p>
              <p>{item.stargazers_count} stars</p>
            </div>

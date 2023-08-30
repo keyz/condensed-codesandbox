@@ -5,9 +5,9 @@ export function GitHubRoot() {
 
   return (
     <div>
-      <p>{name1}</p>
-      <p>{name2}</p>
-      <p>{name3}</p>
+      <h2>{name1}</h2>
+      <h2>{name2}</h2>
+      <h2>{name3}</h2>
     </div>
   );
 }

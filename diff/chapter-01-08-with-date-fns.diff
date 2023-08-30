@@ -21,9 +21,9 @@ diff --git a/chapter-01-07-adding-links/src/root.tsx b/chapter-01-08-with-date-f
 +
          return (
            <div key={item.id}>
-             <p>
+             <h2>
                <a href={item.html_url}>{item.full_name}</a>
-             </p>
+             </h2>
              <p>{item.description}</p>
 -            <p>{item.stargazers_count} stars</p>
 +            <p>
