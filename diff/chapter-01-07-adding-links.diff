@@ -5,10 +5,10 @@ diff --git a/chapter-01-06-more-ui/src/root.tsx b/chapter-01-07-adding-links/src
        {data.map((item) => {
          return (
            <div key={item.id}>
--            <p>{item.title}</p>
+-            <p>{item.full_name}</p>
 +            <p>
-+              <a href={item.url}>{item.title}</a>
++              <a href={item.html_url}>{item.full_name}</a>
 +            </p>
-             <p>
-               {item.score} points by {item.by} | {item.descendants} comments
-             </p>
+             <p>{item.description}</p>
+             <p>{item.stargazers_count} stars</p>
+           </div>

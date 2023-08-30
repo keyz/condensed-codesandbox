@@ -1,17 +1,16 @@
 diff --git a/chapter-01-05-pre-trick/src/root.tsx b/chapter-01-06-more-ui/src/root.tsx
 --- a/chapter-01-05-pre-trick/src/root.tsx
 +++ b/chapter-01-06-more-ui/src/root.tsx
-@@ -4,7 +4,14 @@ export function GitHubRoot() {
+@@ -4,7 +4,13 @@ export function GitHubRoot() {
    return (
      <div>
        {data.map((item) => {
 -        return <pre key={item.id}>{JSON.stringify(item, null, 2)}</pre>;
 +        return (
 +          <div key={item.id}>
-+            <p>{item.title}</p>
-+            <p>
-+              {item.score} points by {item.by} | {item.descendants} comments
-+            </p>
++            <p>{item.full_name}</p>
++            <p>{item.description}</p>
++            <p>{item.stargazers_count} stars</p>
 +          </div>
 +        );
        })}

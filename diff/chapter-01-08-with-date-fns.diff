@@ -1,7 +1,7 @@
 diff --git a/chapter-01-07-adding-links/src/root.tsx b/chapter-01-08-with-date-fns/src/root.tsx
 --- a/chapter-01-07-adding-links/src/root.tsx
 +++ b/chapter-01-08-with-date-fns/src/root.tsx
-@@ -1,16 +1,28 @@
+@@ -1,16 +1,29 @@
 +import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
 +import { enUS as localeEnUs } from "date-fns/locale";
  import data from "./data.json";
@@ -11,8 +11,8 @@ diff --git a/chapter-01-07-adding-links/src/root.tsx b/chapter-01-08-with-date-f
      <div>
        {data.map((item) => {
 +        // See https://date-fns.org/v2.30.0/docs/formatDistanceToNowStrict
-+        const formattedTime = formatDistanceToNowStrict(
-+          item.time * 1000, // seconds -> milliseconds
++        const formattedCreatedAt = formatDistanceToNowStrict(
++          new Date(item.created_at), // parse ISO 8601 date time string
 +          {
 +            addSuffix: true, // add "ago"
 +            locale: localeEnUs,
@@ -22,12 +22,13 @@ diff --git a/chapter-01-07-adding-links/src/root.tsx b/chapter-01-08-with-date-f
          return (
            <div key={item.id}>
              <p>
-               <a href={item.url}>{item.title}</a>
+               <a href={item.html_url}>{item.full_name}</a>
              </p>
-             <p>
--              {item.score} points by {item.by} | {item.descendants} comments
-+              {item.score} points by {item.by} {formattedTime} |{" "}
-+              {item.descendants} comments
-             </p>
+             <p>{item.description}</p>
+-            <p>{item.stargazers_count} stars</p>
++            <p>
++              {item.stargazers_count} stars | created {formattedCreatedAt}
++            </p>
            </div>
          );
+       })}

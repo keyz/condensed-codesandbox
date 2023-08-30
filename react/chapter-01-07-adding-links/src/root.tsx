@@ -7,11 +7,10 @@ export function GitHubRoot() {
         return (
           <div key={item.id}>
             <p>
-              <a href={item.url}>{item.title}</a>
+              <a href={item.html_url}>{item.full_name}</a>
             </p>
-            <p>
-              {item.score} points by {item.by} | {item.descendants} comments
-            </p>
+            <p>{item.description}</p>
+            <p>{item.stargazers_count} stars</p>
           </div>
         );
       })}

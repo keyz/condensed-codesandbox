@@ -9,4 +9,4 @@ diff --git a/chapter-01-08-with-date-fns/src/root.tsx b/chapter-01-09-basic-layo
 +    <div className="flex flex-col gap-6 p-8">
        {data.map((item) => {
          // See https://date-fns.org/v2.30.0/docs/formatDistanceToNowStrict
-         const formattedTime = formatDistanceToNowStrict(
+         const formattedCreatedAt = formatDistanceToNowStrict(

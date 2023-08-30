@@ -1,12 +1,30 @@
 diff --git a/chapter-01-09-basic-layout/src/root.tsx b/chapter-01-10-more-styling/src/root.tsx
 --- a/chapter-01-09-basic-layout/src/root.tsx
 +++ b/chapter-01-10-more-styling/src/root.tsx
-@@ -20,7 +20,7 @@ export function GitHubRoot() {
+@@ -7,8 +7,8 @@ export function GitHubRoot() {
+     <div className="flex flex-col gap-6 p-8">
+       {data.map((item) => {
+         // See https://date-fns.org/v2.30.0/docs/formatDistanceToNowStrict
+-        const formattedCreatedAt = formatDistanceToNowStrict(
+-          new Date(item.created_at), // parse ISO 8601 date time string
++        const formattedTime = formatDistanceToNowStrict(
++          item.time * 1000, // seconds -> milliseconds
+           {
+             addSuffix: true, // add "ago"
+             locale: localeEnUs,
+@@ -18,11 +18,11 @@ export function GitHubRoot() {
+         return (
+           <div key={item.id}>
              <p>
-               <a href={item.url}>{item.title}</a>
+-              <a href={item.html_url}>{item.full_name}</a>
++              <a href={item.url}>{item.title}</a>
              </p>
+-            <p>{item.description}</p>
 -            <p>
+-              {item.stargazers_count} stars | created {formattedCreatedAt}
 +            <p className="text-sm text-gray-600">
-               {item.score} points by {item.by} {formattedTime} |{" "}
-               {item.descendants} comments
++              {item.score} points by {item.by} {formattedTime} |{" "}
++              {item.descendants} comments
              </p>
+           </div>
+         );

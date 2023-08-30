@@ -6,10 +6,9 @@ export function GitHubRoot() {
       {data.map((item) => {
         return (
           <div key={item.id}>
-            <p>{item.title}</p>
-            <p>
-              {item.score} points by {item.by} | {item.descendants} comments
-            </p>
+            <p>{item.full_name}</p>
+            <p>{item.description}</p>
+            <p>{item.stargazers_count} stars</p>
           </div>
         );
       })}
