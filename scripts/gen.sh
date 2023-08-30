@@ -36,6 +36,8 @@ do
   sed -i "" "s/$template/$target/g" "$file"
 done
 
+echo -e "{\n  \"diffBase\": \"$template\"\n}" > .condensed.json
+
 echo "Installing..."
 cd "$REPO_ROOT"
 npm install
