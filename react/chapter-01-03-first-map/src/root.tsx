@@ -1,35 +1,17 @@
 const data = [
-  {
-    id: 37140013,
-    title: "How Is LLaMa.cpp Possible?",
-  },
-  {
-    id: 37142388,
-    title: "NetMaker: Connect Everything with a WireGuard VPN",
-  },
-  {
-    id: 37136898,
-    title: "Opendream: A layer-based UI for Stable Diffusion",
-  },
-  {
-    id: 37140159,
-    title: "Modern CSV version 2",
-  },
-  {
-    id: 37142426,
-    title: "Diligere, Equity-Invest Are New Firms of U.K. Con Man",
-  },
-  {
-    id: 37138807,
-    title: "How should I read type system notation?",
-  },
+  { id: 10270250, name: "facebook/react" },
+  { id: 29028775, name: "facebook/react-native" },
+  { id: 70107786, name: "vercel/next.js" },
+  { id: 63537249, name: "facebook/create-react-app" },
+  { id: 23083156, name: "mui/material-ui" },
+  { id: 34526884, name: "ant-design/ant-design" },
 ];
 
 export function GitHubRoot() {
   return (
     <div>
       {data.map((item) => {
-        return <p key={item.id}>{item.title}</p>;
+        return <p key={item.id}>{item.name}</p>;
       })}
     </div>
   );
