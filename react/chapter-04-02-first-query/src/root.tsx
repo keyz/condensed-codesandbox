@@ -1,13 +1,37 @@
+import { Octokit } from "@octokit/rest";
 import * as React from "react";
+import useSWR from "swr";
 import { PaginationControl } from "./components/pagination";
-import { repoList, type TRepoSearchResultItem } from "./data";
 import { formatRelativeTime } from "./helpers/time";
+import type { TRepoSearchResultItem } from "./types";
 
 const PAGE_SIZE = 10;
+
+const octokit = new Octokit();
+
+function useGitHubRepoSearchQuery() {
+  return useSWR(["octokit.search.repos"], async () => {
+    return await octokit.search.repos({
+      q: "react+stars:>100",
+      sort: "stars",
+      order: "desc",
+      per_page: 40,
+      page: 1,
+    });
+  });
+}
 
 export function GitHubRoot() {
   const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
 
+  const query = useGitHubRepoSearchQuery();
+  const response = query.data;
+
+  if (response == null) {
+    return null;
+  }
+
+  const repoList = response.data.items;
   const totalItemCount = repoList.length;
   const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
 
