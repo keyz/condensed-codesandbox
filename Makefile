@@ -3,6 +3,8 @@ include $(REPO_ROOT)/shared.mk
 
 REACT_SUBDIR_LIST := $(wildcard react/*)
 
+export NEXT_TELEMETRY_DISABLED := 1
+
 .PHONY: copy
 copy:
 	@./scripts/copy.sh
