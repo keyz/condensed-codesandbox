@@ -2,7 +2,7 @@ diff --git a/chapter-01-03-first-map/src/root.tsx b/chapter-01-04-real-data/src/
 --- a/chapter-01-03-first-map/src/root.tsx
 +++ b/chapter-01-04-real-data/src/root.tsx
 @@ -1,17 +1,10 @@
--const data = [
+-const repoList = [
 -  { id: 10270250, name: "facebook/react" },
 -  { id: 29028775, name: "facebook/react-native" },
 -  { id: 70107786, name: "vercel/next.js" },
@@ -10,12 +10,12 @@ diff --git a/chapter-01-03-first-map/src/root.tsx b/chapter-01-04-real-data/src/
 -  { id: 174038031, name: "react-hook-form/react-hook-form" },
 -  { id: 585146387, name: "shadcn-ui/ui" },
 -];
-+import data from "./data.json";
++import repoList from "./data.json";
  
  export function GitHubRoot() {
    return (
      <div>
-       {data.map((item) => {
+       {repoList.map((item) => {
 -        return <p key={item.id}>{item.name}</p>;
 +        return <p key={item.id}>{item.full_name}</p>;
        })}

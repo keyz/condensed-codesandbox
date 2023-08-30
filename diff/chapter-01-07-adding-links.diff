@@ -2,7 +2,7 @@ diff --git a/chapter-01-06-more-ui/src/root.tsx b/chapter-01-07-adding-links/src
 --- a/chapter-01-06-more-ui/src/root.tsx
 +++ b/chapter-01-07-adding-links/src/root.tsx
 @@ -6,7 +6,9 @@ export function GitHubRoot() {
-       {data.map((item) => {
+       {repoList.map((item) => {
          return (
            <div key={item.id}>
 -            <p>{item.full_name}</p>

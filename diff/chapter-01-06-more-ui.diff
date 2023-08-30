@@ -4,7 +4,7 @@ diff --git a/chapter-01-04-real-data/src/root.tsx b/chapter-01-06-more-ui/src/ro
 @@ -4,7 +4,13 @@ export function GitHubRoot() {
    return (
      <div>
-       {data.map((item) => {
+       {repoList.map((item) => {
 -        return <p key={item.id}>{item.full_name}</p>;
 +        return (
 +          <div key={item.id}>

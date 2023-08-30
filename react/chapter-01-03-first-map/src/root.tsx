@@ -1,4 +1,4 @@
-const data = [
+const repoList = [
   { id: 10270250, name: "facebook/react" },
   { id: 29028775, name: "facebook/react-native" },
   { id: 70107786, name: "vercel/next.js" },
@@ -10,7 +10,7 @@ const data = [
 export function GitHubRoot() {
   return (
     <div>
-      {data.map((item) => {
+      {repoList.map((item) => {
         return <p key={item.id}>{item.name}</p>;
       })}
     </div>

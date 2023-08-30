@@ -1,9 +1,9 @@
-import data from "./data.json";
+import repoList from "./data.json";
 
 export function GitHubRoot() {
   return (
     <div>
-      {data.map((item) => {
+      {repoList.map((item) => {
         return (
           <div key={item.id}>
             <p>{item.full_name}</p>

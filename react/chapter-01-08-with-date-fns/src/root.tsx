@@ -1,11 +1,11 @@
 import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
 import { enUS as localeEnUs } from "date-fns/locale";
-import data from "./data.json";
+import repoList from "./data.json";
 
 export function GitHubRoot() {
   return (
     <div>
-      {data.map((item) => {
+      {repoList.map((item) => {
         // See https://date-fns.org/v2.30.0/docs/formatDistanceToNowStrict
         const formattedCreatedAt = formatDistanceToNowStrict(
           new Date(item.created_at), // parse ISO 8601 date time string

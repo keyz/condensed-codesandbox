@@ -6,7 +6,7 @@ diff --git a/chapter-01-02-just-titles/src/root.tsx b/chapter-01-03-first-map/sr
 -  const name1 = "facebook/react";
 -  const name2 = "facebook/react-native";
 -  const name3 = "vercel/next.js";
-+const data = [
++const repoList = [
 +  { id: 10270250, name: "facebook/react" },
 +  { id: 29028775, name: "facebook/react-native" },
 +  { id: 70107786, name: "vercel/next.js" },
@@ -21,7 +21,7 @@ diff --git a/chapter-01-02-just-titles/src/root.tsx b/chapter-01-03-first-map/sr
 -      <p>{name1}</p>
 -      <p>{name2}</p>
 -      <p>{name3}</p>
-+      {data.map((item) => {
++      {repoList.map((item) => {
 +        return <p key={item.id}>{item.name}</p>;
 +      })}
      </div>
