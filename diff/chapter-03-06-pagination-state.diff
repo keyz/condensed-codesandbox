@@ -5,7 +5,7 @@ diff --git a/chapter-03-05-state-functional-updater/src/root.tsx b/chapter-03-06
  import { repoList, type TRepoSearchResultItem } from "./data";
  import { formatRelativeTime } from "./helpers/time";
  
-+const PAGE_SIZE = 10;
++const PAGE_SIZE = 8;
 +
  export function GitHubRoot() {
 +  const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);

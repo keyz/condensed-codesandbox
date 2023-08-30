@@ -8,7 +8,7 @@ diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetch
  import { repoList, type TRepoSearchResultItem } from "./data";
  import { formatRelativeTime } from "./helpers/time";
  
-@@ -7,9 +7,6 @@ const PAGE_SIZE = 10;
+@@ -7,9 +7,6 @@ const PAGE_SIZE = 8;
  
  export function GitHubRoot() {
    const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);

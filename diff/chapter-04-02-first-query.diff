@@ -10,7 +10,7 @@ diff --git a/chapter-04-01-data-fetching-starter/src/root.tsx b/chapter-04-02-fi
  import { formatRelativeTime } from "./helpers/time";
 +import type { TRepoSearchResultItem } from "./types";
  
- const PAGE_SIZE = 10;
+ const PAGE_SIZE = 8;
  
 +const octokit = new Octokit();
 +

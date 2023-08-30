@@ -3,7 +3,7 @@ import { PaginationControl } from "./components/pagination";
 import { repoList, type TRepoSearchResultItem } from "./data";
 import { formatRelativeTime } from "./helpers/time";
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 8;
 
 export function GitHubRoot() {
   const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);

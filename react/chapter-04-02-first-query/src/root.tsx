@@ -5,7 +5,7 @@ import { PaginationControl } from "./components/pagination";
 import { formatRelativeTime } from "./helpers/time";
 import type { TRepoSearchResultItem } from "./types";
 
-const PAGE_SIZE = 10;
+const PAGE_SIZE = 8;
 
 const octokit = new Octokit();
 
