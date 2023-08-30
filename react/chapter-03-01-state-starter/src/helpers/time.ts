@@ -4,9 +4,9 @@ import { enUS as localeEnUs } from "date-fns/locale";
 /**
  * See https://date-fns.org/v2.30.0/docs/formatDistanceToNowStrict
  */
-export function formatRelativeTime(secondTimestamp: number): string {
+export function formatRelativeTime(isoDateTime: string): string {
   return formatDistanceToNowStrict(
-    secondTimestamp * 1000, // seconds -> milliseconds
+    new Date(isoDateTime), // parse ISO 8601 date time string
     {
       addSuffix: true, // add "ago"
       locale: localeEnUs,

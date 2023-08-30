@@ -1,6 +1,6 @@
 import * as React from "react";
 import cx from "classnames";
-import { storyList, type TStoryItem } from "./data";
+import { repoList, type TRepoSearchResultItem } from "./data";
 import { formatRelativeTime } from "./helpers/time";
 
 const PAGE_SIZE = 10;
@@ -8,7 +8,7 @@ const PAGE_SIZE = 10;
 export function GitHubRoot() {
   const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
 
-  const totalItemCount = storyList.length;
+  const totalItemCount = repoList.length;
   const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
 
   const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
@@ -17,13 +17,13 @@ export function GitHubRoot() {
   const canGoBack = startIndex > 0;
   const canGoNext = endIndex < totalItemCount;
 
-  const visibleWindow = storyList.slice(startIndex, endIndex);
+  const visibleWindow = repoList.slice(startIndex, endIndex);
 
   return (
     <div className="p-8">
       <div className="flex flex-col gap-6">
         {visibleWindow.map((item) => {
-          return <NewsItem key={item.id} data={item} />;
+          return <RepoItem key={item.id} data={item} />;
         })}
       </div>
 
@@ -62,30 +62,24 @@ export function GitHubRoot() {
   );
 }
 
-function NewsItem(props: { data: TStoryItem }) {
+function RepoItem(props: { data: TRepoSearchResultItem }) {
   const { data } = props;
 
   const [likeCount, setLikeCount] = React.useState<number>(0);
 
-  const formattedTime = formatRelativeTime(data.time);
+  const formattedCreatedAt = formatRelativeTime(data.created_at);
 
   return (
     <div>
-      <p>
-        <a className="hover:underline" href={data.url}>
-          {data.title}
+      <p className="font-medium">
+        <a className="hover:underline" href={data.html_url}>
+          {data.full_name}
         </a>
       </p>
-
+      <p>{data.description}</p>
       <p className="text-sm text-gray-600">
-        {data.score} points by {data.by} {formattedTime}
-        {" | "}
-        <a
-          className="hover:underline"
-          href={`https://news.ycombinator.com/item?id=${data.id}`}
-        >
-          {data.descendants} comments
-        </a>
+        {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
+        {formattedCreatedAt}
         {" | "}
         <button
           className="hover:underline"

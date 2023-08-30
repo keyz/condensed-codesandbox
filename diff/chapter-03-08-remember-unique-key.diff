@@ -6,9 +6,9 @@ diff --git a/chapter-03-07-pagination-button/src/root.tsx b/chapter-03-08-rememb
      <div className="p-8">
        <div className="flex flex-col gap-6">
 -        {visibleWindow.map((item) => {
--          return <NewsItem key={item.id} data={item} />;
+-          return <RepoItem key={item.id} data={item} />;
 +        {visibleWindow.map((item, index) => {
-+          return <NewsItem key={index} data={item} />;
++          return <RepoItem key={index} data={item} />;
          })}
        </div>
  

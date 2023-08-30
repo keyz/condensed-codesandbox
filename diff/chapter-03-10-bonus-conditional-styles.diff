@@ -4,7 +4,7 @@ diff --git a/chapter-03-09-derived-value/src/root.tsx b/chapter-03-10-bonus-cond
 @@ -1,4 +1,5 @@
  import * as React from "react";
 +import cx from "classnames";
- import { storyList, type TStoryItem } from "./data";
+ import { repoList, type TRepoSearchResultItem } from "./data";
  import { formatRelativeTime } from "./helpers/time";
  
 @@ -29,7 +30,10 @@ export function GitHubRoot() {

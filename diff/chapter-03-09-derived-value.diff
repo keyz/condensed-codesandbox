@@ -8,15 +8,15 @@ diff --git a/chapter-03-08-remember-unique-key/src/root.tsx b/chapter-03-09-deri
 +  const canGoBack = startIndex > 0;
 +  const canGoNext = endIndex < totalItemCount;
 +
-   const visibleWindow = storyList.slice(startIndex, endIndex);
+   const visibleWindow = repoList.slice(startIndex, endIndex);
  
    return (
      <div className="p-8">
        <div className="flex flex-col gap-6">
 -        {visibleWindow.map((item, index) => {
--          return <NewsItem key={index} data={item} />;
+-          return <RepoItem key={index} data={item} />;
 +        {visibleWindow.map((item) => {
-+          return <NewsItem key={item.id} data={item} />;
++          return <RepoItem key={item.id} data={item} />;
          })}
        </div>
  

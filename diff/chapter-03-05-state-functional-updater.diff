@@ -1,7 +1,7 @@
 diff --git a/chapter-03-04-stale-state-bug/src/root.tsx b/chapter-03-05-state-functional-updater/src/root.tsx
 --- a/chapter-03-04-stale-state-bug/src/root.tsx
 +++ b/chapter-03-05-state-functional-updater/src/root.tsx
-@@ -42,9 +42,9 @@ function NewsItem(props: { data: TStoryItem }) {
+@@ -36,9 +36,9 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
          <button
            className="hover:underline"
            onClick={() => {

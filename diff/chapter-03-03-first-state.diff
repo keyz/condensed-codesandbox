@@ -3,22 +3,22 @@ diff --git a/chapter-03-02-new-component/src/root.tsx b/chapter-03-03-first-stat
 +++ b/chapter-03-03-first-state/src/root.tsx
 @@ -1,3 +1,4 @@
 +import * as React from "react";
- import { storyList, type TStoryItem } from "./data";
+ import { repoList, type TRepoSearchResultItem } from "./data";
  import { formatRelativeTime } from "./helpers/time";
  
 @@ -16,6 +17,8 @@ export function GitHubRoot() {
- function NewsItem(props: { data: TStoryItem }) {
+ function RepoItem(props: { data: TRepoSearchResultItem }) {
    const { data } = props;
  
 +  const [likeCount, setLikeCount] = React.useState<number>(0);
 +
-   const formattedTime = formatRelativeTime(data.time);
+   const formattedCreatedAt = formatRelativeTime(data.created_at);
  
    return (
-@@ -35,6 +38,15 @@ function NewsItem(props: { data: TStoryItem }) {
-         >
-           {data.descendants} comments
-         </a>
+@@ -29,6 +32,15 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
+       <p className="text-sm text-gray-600">
+         {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
+         {formattedCreatedAt}
 +        {" | "}
 +        <button
 +          className="hover:underline"

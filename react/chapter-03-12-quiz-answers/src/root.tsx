@@ -1,6 +1,6 @@
 import * as React from "react";
 import cx from "classnames";
-import { storyList, type TStoryItem } from "./data";
+import { repoList, type TRepoSearchResultItem } from "./data";
 import { formatRelativeTime } from "./helpers/time";
 
 const PAGE_SIZE = 10;
@@ -14,11 +14,11 @@ export function GitHubRoot() {
     new Set(),
   );
 
-  const filteredStoryList = storyList.filter(
+  const filteredRepoList = repoList.filter(
     (item) => !hiddenItemSet.has(item.id),
   );
 
-  const totalItemCount = filteredStoryList.length;
+  const totalItemCount = filteredRepoList.length;
   const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
 
   const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
@@ -27,14 +27,14 @@ export function GitHubRoot() {
   const canGoBack = startIndex > 0;
   const canGoNext = endIndex < totalItemCount;
 
-  const visibleWindow = filteredStoryList.slice(startIndex, endIndex);
+  const visibleWindow = filteredRepoList.slice(startIndex, endIndex);
 
   return (
     <div className="p-8">
       <div className="flex flex-col gap-6">
         {visibleWindow.map((item) => {
           return (
-            <NewsItem
+            <RepoItem
               key={item.id}
               data={item}
               likeCount={likeCountMap.get(item.id) ?? 0}
@@ -94,26 +94,27 @@ export function GitHubRoot() {
   );
 }
 
-function NewsItem(props: {
-  data: TStoryItem;
+function RepoItem(props: {
+  data: TRepoSearchResultItem;
   likeCount: number;
   onHideClick: () => void;
   onLikeClick: () => void;
 }) {
   const { data, likeCount, onHideClick, onLikeClick } = props;
 
-  const formattedTime = formatRelativeTime(data.time);
+  const formattedCreatedAt = formatRelativeTime(data.created_at);
 
   return (
     <div>
-      <p>
-        <a className="hover:underline" href={data.url}>
-          {data.title}
+      <p className="font-medium">
+        <a className="hover:underline" href={data.html_url}>
+          {data.full_name}
         </a>
       </p>
-
+      <p>{data.description}</p>
       <p className="text-sm text-gray-600">
-        {data.score} points by {data.by} {formattedTime}
+        {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
+        {formattedCreatedAt}
         {" | "}
         <button
           className="hover:underline"
@@ -123,13 +124,6 @@ function NewsItem(props: {
         >
           hide
         </button>
-        {" | "}
-        <a
-          className="hover:underline"
-          href={`https://news.ycombinator.com/item?id=${data.id}`}
-        >
-          {data.descendants} comments
-        </a>
         {" | "}
         <button
           className="hover:underline"

@@ -9,15 +9,15 @@ diff --git a/chapter-03-10-bonus-conditional-styles/src/root.tsx b/chapter-03-11
 +    new Map(),
 +  );
  
-   const totalItemCount = storyList.length;
+   const totalItemCount = repoList.length;
    const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
 @@ -23,7 +26,22 @@ export function GitHubRoot() {
      <div className="p-8">
        <div className="flex flex-col gap-6">
          {visibleWindow.map((item) => {
--          return <NewsItem key={item.id} data={item} />;
+-          return <RepoItem key={item.id} data={item} />;
 +          return (
-+            <NewsItem
++            <RepoItem
 +              key={item.id}
 +              data={item}
 +              likeCount={likeCountMap.get(item.id) ?? 0}
@@ -39,20 +39,20 @@ diff --git a/chapter-03-10-bonus-conditional-styles/src/root.tsx b/chapter-03-11
    );
  }
  
--function NewsItem(props: { data: TStoryItem }) {
+-function RepoItem(props: { data: TRepoSearchResultItem }) {
 -  const { data } = props;
 -
 -  const [likeCount, setLikeCount] = React.useState<number>(0);
-+function NewsItem(props: {
-+  data: TStoryItem;
++function RepoItem(props: {
++  data: TRepoSearchResultItem;
 +  likeCount: number;
 +  onLikeClick: () => void;
 +}) {
 +  const { data, likeCount, onLikeClick } = props;
  
-   const formattedTime = formatRelativeTime(data.time);
+   const formattedCreatedAt = formatRelativeTime(data.created_at);
  
-@@ -90,7 +110,7 @@ function NewsItem(props: { data: TStoryItem }) {
+@@ -84,7 +104,7 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
          <button
            className="hover:underline"
            onClick={() => {

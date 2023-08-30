@@ -2,7 +2,7 @@ diff --git a/chapter-03-05-state-functional-updater/src/root.tsx b/chapter-03-06
 --- a/chapter-03-05-state-functional-updater/src/root.tsx
 +++ b/chapter-03-06-pagination-state/src/root.tsx
 @@ -2,11 +2,20 @@ import * as React from "react";
- import { storyList, type TStoryItem } from "./data";
+ import { repoList, type TRepoSearchResultItem } from "./data";
  import { formatRelativeTime } from "./helpers/time";
  
 +const PAGE_SIZE = 10;
@@ -13,17 +13,17 @@ diff --git a/chapter-03-05-state-functional-updater/src/root.tsx b/chapter-03-06
 +  const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
 +  const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // exclusive
 +
-+  const visibleWindow = storyList.slice(startIndex, endIndex);
++  const visibleWindow = repoList.slice(startIndex, endIndex);
 +
    return (
      <div className="p-8">
        <div className="flex flex-col gap-6">
--        {storyList.map((item) => {
+-        {repoList.map((item) => {
 +        {visibleWindow.map((item) => {
-           return <NewsItem key={item.id} data={item} />;
+           return <RepoItem key={item.id} data={item} />;
          })}
        </div>
-@@ -43,8 +52,6 @@ function NewsItem(props: { data: TStoryItem }) {
+@@ -37,8 +46,6 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
            className="hover:underline"
            onClick={() => {
              setLikeCount((num) => num + 1);
