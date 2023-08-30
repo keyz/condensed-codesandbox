@@ -24,8 +24,14 @@ export function GitHubRoot() {
             </p>
             <p>{item.description}</p>
             <p className="text-sm text-gray-600">
-              {item.stargazers_count.toLocaleString("en-US")} stars | created{" "}
-              {formattedCreatedAt}
+              <a
+                className="hover:underline"
+                href={`https://github.com/${item.full_name}/stargazers`}
+              >
+                {item.stargazers_count.toLocaleString("en-US")} stars
+              </a>
+              {" | "}
+              created {formattedCreatedAt}
             </p>
           </div>
         );
