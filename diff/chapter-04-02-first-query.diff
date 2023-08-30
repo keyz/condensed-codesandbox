@@ -1,17 +1,14 @@
 diff --git a/chapter-04-01-data-fetching-starter/src/root.tsx b/chapter-04-02-first-query/src/root.tsx
 --- a/chapter-04-01-data-fetching-starter/src/root.tsx
 +++ b/chapter-04-02-first-query/src/root.tsx
-@@ -1,13 +1,37 @@
+@@ -1,8 +1,33 @@
 +import { Octokit } from "@octokit/rest";
  import * as React from "react";
-+import useSWR from "swr";
- import { PaginationControl } from "./components/pagination";
 -import { repoList, type TRepoSearchResultItem } from "./data";
++import useSWR from "swr";
  import { formatRelativeTime } from "./helpers/time";
 +import type { TRepoSearchResultItem } from "./types";
- 
- const PAGE_SIZE = 8;
- 
++
 +const octokit = new Octokit();
 +
 +function useGitHubRepoSearchQuery() {
@@ -25,10 +22,8 @@ diff --git a/chapter-04-01-data-fetching-starter/src/root.tsx b/chapter-04-02-fi
 +    });
 +  });
 +}
-+
- export function GitHubRoot() {
-   const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
  
+ export function GitHubRoot() {
 +  const query = useGitHubRepoSearchQuery();
 +  const response = query.data;
 +
@@ -37,6 +32,7 @@ diff --git a/chapter-04-01-data-fetching-starter/src/root.tsx b/chapter-04-02-fi
 +  }
 +
 +  const repoList = response.data.items;
-   const totalItemCount = repoList.length;
-   const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
- 
++
+   return (
+     <div className="p-8">
+       <div className="flex flex-col gap-6">

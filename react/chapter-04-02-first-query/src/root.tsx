@@ -1,11 +1,8 @@
 import { Octokit } from "@octokit/rest";
 import * as React from "react";
 import useSWR from "swr";
-import { PaginationControl } from "./components/pagination";
 import { formatRelativeTime } from "./helpers/time";
 import type { TRepoSearchResultItem } from "./types";
-
-const PAGE_SIZE = 8;
 
 const octokit = new Octokit();
 
@@ -22,8 +19,6 @@ function useGitHubRepoSearchQuery() {
 }
 
 export function GitHubRoot() {
-  const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
-
   const query = useGitHubRepoSearchQuery();
   const response = query.data;
 
@@ -32,37 +27,14 @@ export function GitHubRoot() {
   }
 
   const repoList = response.data.items;
-  const totalItemCount = repoList.length;
-  const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
-
-  const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
-  const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // exclusive
-
-  const canGoBack = startIndex > 0;
-  const canGoNext = endIndex < totalItemCount;
-
-  const visibleWindow = repoList.slice(startIndex, endIndex);
 
   return (
     <div className="p-8">
       <div className="flex flex-col gap-6">
-        {visibleWindow.map((item) => {
+        {repoList.map((item) => {
           return <RepoItem key={item.id} data={item} />;
         })}
       </div>
-
-      <PaginationControl
-        canGoBack={canGoBack}
-        canGoNext={canGoNext}
-        currentPageNumber={currentPageNumber}
-        onNextClick={() => {
-          setCurrentPageNumber((n) => n + 1);
-        }}
-        onPrevClick={() => {
-          setCurrentPageNumber((n) => n - 1);
-        }}
-        totalPageCount={totalPageCount}
-      />
     </div>
   );
 }
