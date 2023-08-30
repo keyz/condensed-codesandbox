@@ -6,9 +6,9 @@ diff --git a/chapter-01-03-first-map/src/root.tsx b/chapter-01-04-real-data/src/
 -  { id: 10270250, name: "facebook/react" },
 -  { id: 29028775, name: "facebook/react-native" },
 -  { id: 70107786, name: "vercel/next.js" },
--  { id: 63537249, name: "facebook/create-react-app" },
--  { id: 23083156, name: "mui/material-ui" },
--  { id: 34526884, name: "ant-design/ant-design" },
+-  { id: 135786093, name: "typescript-cheatsheets/react" },
+-  { id: 174038031, name: "react-hook-form/react-hook-form" },
+-  { id: 585146387, name: "shadcn-ui/ui" },
 -];
 +import data from "./data.json";
  
