@@ -18,7 +18,7 @@ diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetch
  
    const totalItemCount = repoList.length;
    const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
-@@ -26,66 +23,28 @@ export function GitHubRoot() {
+@@ -26,73 +23,40 @@ export function GitHubRoot() {
      <div className="p-8">
        <div className="flex flex-col gap-6">
          {visibleWindow.map((item) => {
@@ -100,7 +100,20 @@ diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetch
  
    const formattedCreatedAt = formatRelativeTime(data.created_at);
  
-@@ -100,15 +59,6 @@ function RepoItem(props: {
+   return (
+     <div>
+       <h2 className="font-medium">
+-        <a className="hover:underline" href={data.html_url}>
++        <a
++          className="hover:underline"
++          href={data.html_url}
++          rel="noopener"
++          target="_blank" // open in new tab
++        >
+           {data.full_name}
+         </a>
+       </h2>
+@@ -100,15 +64,6 @@ function RepoItem(props: {
        <p className="text-sm text-gray-600">
          {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
          {formattedCreatedAt}

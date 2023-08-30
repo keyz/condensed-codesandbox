@@ -75,7 +75,12 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
   return (
     <div>
       <h2 className="font-medium">
-        <a className="hover:underline" href={data.html_url}>
+        <a
+          className="hover:underline"
+          href={data.html_url}
+          rel="noopener"
+          target="_blank" // open in new tab
+        >
           {data.full_name}
         </a>
       </h2>
