@@ -1,37 +1,36 @@
 diff --git a/chapter-03-12-quiz-answers/src/root.tsx b/chapter-04-01-data-fetching-starter/src/root.tsx
 --- a/chapter-03-12-quiz-answers/src/root.tsx
 +++ b/chapter-04-01-data-fetching-starter/src/root.tsx
-@@ -1,24 +1,19 @@
+@@ -1,24 +1,16 @@
  import * as React from "react";
 -import cx from "classnames";
--import { repoList, type TRepoSearchResultItem } from "./data";
 +import { PaginationControl } from "./components/pagination";
-+import { storyList, type TStoryItem } from "./data";
+ import { repoList, type TRepoSearchResultItem } from "./data";
  import { formatRelativeTime } from "./helpers/time";
  
  const PAGE_SIZE = 10;
  
  export function GitHubRoot() {
-+  const data = storyList;
-+
-   const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
-   const [likeCountMap, setLikeCountMap] = React.useState<Map<number, number>>(
-     new Map(),
-   );
+-  const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
+-  const [likeCountMap, setLikeCountMap] = React.useState<Map<number, number>>(
+-    new Map(),
+-  );
 -  const [hiddenItemSet, setHiddenItemSet] = React.useState<Set<number>>(
 -    new Set(),
 -  );
++  const data = repoList;
  
 -  const filteredRepoList = repoList.filter(
 -    (item) => !hiddenItemSet.has(item.id),
 -  );
--
++  const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
+ 
 -  const totalItemCount = filteredRepoList.length;
 +  const totalItemCount = data.length;
    const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
  
    const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
-@@ -27,24 +22,17 @@ export function GitHubRoot() {
+@@ -27,80 +19,34 @@ export function GitHubRoot() {
    const canGoBack = startIndex > 0;
    const canGoNext = endIndex < totalItemCount;
  
@@ -42,12 +41,11 @@ diff --git a/chapter-03-12-quiz-answers/src/root.tsx b/chapter-04-01-data-fetchi
      <div className="p-8">
        <div className="flex flex-col gap-6">
          {visibleWindow.map((item) => {
-           return (
+-          return (
 -            <RepoItem
-+            <NewsItem
-               key={item.id}
-               data={item}
-               likeCount={likeCountMap.get(item.id) ?? 0}
+-              key={item.id}
+-              data={item}
+-              likeCount={likeCountMap.get(item.id) ?? 0}
 -              onHideClick={() => {
 -                setHiddenItemSet((set) => {
 -                  const copy = new Set(set);
@@ -55,10 +53,18 @@ diff --git a/chapter-03-12-quiz-answers/src/root.tsx b/chapter-04-01-data-fetchi
 -                  return copy;
 -                });
 -              }}
-               onLikeClick={() => {
-                 setLikeCountMap((map) => {
-                   const copy = new Map(map);
-@@ -59,78 +47,50 @@ export function GitHubRoot() {
+-              onLikeClick={() => {
+-                setLikeCountMap((map) => {
+-                  const copy = new Map(map);
+-                  const currentLikeCount = copy.get(item.id) ?? 0;
+-
+-                  copy.set(item.id, currentLikeCount + 1);
+-                  return copy;
+-                });
+-              }}
+-            />
+-          );
++          return <RepoItem key={item.id} data={item} />;
          })}
        </div>
  
@@ -111,55 +117,38 @@ diff --git a/chapter-03-12-quiz-answers/src/root.tsx b/chapter-04-01-data-fetchi
  
 -function RepoItem(props: {
 -  data: TRepoSearchResultItem;
-+function NewsItem(props: {
-+  data: TStoryItem;
-   likeCount: number;
+-  likeCount: number;
 -  onHideClick: () => void;
-   onLikeClick: () => void;
- }) {
+-  onLikeClick: () => void;
+-}) {
 -  const { data, likeCount, onHideClick, onLikeClick } = props;
-+  const { data, likeCount, onLikeClick } = props;
++function RepoItem(props: { data: TRepoSearchResultItem }) {
++  const { data } = props;
  
--  const formattedCreatedAt = formatRelativeTime(data.created_at);
-+  const formattedTime = formatRelativeTime(data.time);
+   const formattedCreatedAt = formatRelativeTime(data.created_at);
  
-   return (
-     <div>
--      <p className="font-medium">
--        <a className="hover:underline" href={data.html_url}>
--          {data.full_name}
-+      <p>
-+        <a className="hover:underline" href={data.url}>
-+          {data.title}
-         </a>
-       </p>
--      <p>{data.description}</p>
-+
+@@ -115,24 +61,6 @@ function RepoItem(props: {
        <p className="text-sm text-gray-600">
--        {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
--        {formattedCreatedAt}
-+        {data.score} points by {data.by} {formattedTime}
-         {" | "}
+         {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
+         {formattedCreatedAt}
+-        {" | "}
 -        <button
-+        <a
-           className="hover:underline"
+-          className="hover:underline"
 -          onClick={() => {
 -            onHideClick();
 -          }}
-+          href={`https://news.ycombinator.com/item?id=${data.id}`}
-         >
+-        >
 -          hide
 -        </button>
-+          {data.descendants} comments
-+        </a>
-         {" | "}
+-        {" | "}
 -        <button
 -          className="hover:underline"
 -          onClick={() => {
 -            onLikeClick();
 -          }}
 -        >
-+        <button className="hover:underline" onClick={onLikeClick}>
-           like ({likeCount})
-         </button>
+-          like ({likeCount})
+-        </button>
        </p>
+     </div>
+   );
