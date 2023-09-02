@@ -44,5 +44,5 @@ diff --git a/chapter-04-01-data-fetching-starter/src/root.tsx b/chapter-04-02-fi
 +  const repoList = response.data.items;
 +
    return (
-     <div className="p-8">
-       <div className="flex flex-col gap-6">
+     <div className="flex flex-col gap-6">
+       {repoList.map((item) => {

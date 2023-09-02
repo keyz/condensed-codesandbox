@@ -39,12 +39,10 @@ export function GitHubRoot() {
   const repoList = response.data.items;
 
   return (
-    <div className="p-8">
-      <div className="flex flex-col gap-6">
-        {repoList.map((item) => {
-          return <RepoItem key={item.id} data={item} />;
-        })}
-      </div>
+    <div className="flex flex-col gap-6">
+      {repoList.map((item) => {
+        return <RepoItem key={item.id} data={item} />;
+      })}
     </div>
   );
 }

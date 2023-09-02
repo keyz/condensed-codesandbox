@@ -1,7 +1,7 @@
 diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetching-starter/src/root.tsx
 --- a/chapter-03-11-lift-state-up/src/root.tsx
 +++ b/chapter-04-01-data-fetching-starter/src/root.tsx
-@@ -1,98 +1,33 @@
+@@ -1,98 +1,31 @@
  import * as React from "react";
 -import cx from "classnames";
  import { repoList, type TRepoSearchResultItem } from "./data";
@@ -27,8 +27,8 @@ diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetch
 -  const visibleWindow = repoList.slice(startIndex, endIndex);
 -
    return (
-     <div className="p-8">
-       <div className="flex flex-col gap-6">
+-    <div className="p-8">
+-      <div className="flex flex-col gap-6">
 -        {visibleWindow.map((item) => {
 -          return (
 -            <RepoItem
@@ -46,10 +46,8 @@ diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetch
 -              }}
 -            />
 -          );
-+        {repoList.map((item) => {
-+          return <RepoItem key={item.id} data={item} />;
-         })}
-       </div>
+-        })}
+-      </div>
 -
 -      <div className="mt-12">
 -        <button
@@ -82,6 +80,10 @@ diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetch
 -          Next
 -        </button>
 -      </div>
++    <div className="flex flex-col gap-6">
++      {repoList.map((item) => {
++        return <RepoItem key={item.id} data={item} />;
++      })}
      </div>
    );
  }
@@ -110,7 +112,7 @@ diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetch
            {data.full_name}
          </a>
        </h2>
-@@ -100,15 +35,6 @@ function RepoItem(props: {
+@@ -100,15 +33,6 @@ function RepoItem(props: {
        <p className="text-sm text-gray-600">
          {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
          {formattedCreatedAt}
