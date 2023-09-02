@@ -24,6 +24,14 @@ export function GitHubRoot() {
   const query = useGitHubRepoSearchQuery();
   const response = query.data;
 
+  if (query.isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (query.error != null) {
+    return <div>{String(query.error)}</div>;
+  }
+
   if (response == null) {
     return null;
   }
