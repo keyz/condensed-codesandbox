@@ -1,7 +1,7 @@
 diff --git a/chapter-04-01-data-fetching-starter/src/root.tsx b/chapter-04-02-first-query/src/root.tsx
 --- a/chapter-04-01-data-fetching-starter/src/root.tsx
 +++ b/chapter-04-02-first-query/src/root.tsx
-@@ -1,8 +1,43 @@
+@@ -1,8 +1,45 @@
 +import { Octokit } from "@octokit/rest";
  import * as React from "react";
 -import { repoList, type TRepoSearchResultItem } from "./data";
@@ -12,7 +12,9 @@ diff --git a/chapter-04-01-data-fetching-starter/src/root.tsx b/chapter-04-02-fi
 +const octokit = new Octokit();
 +
 +function useGitHubRepoSearchQuery() {
-+  return useSWR(["octokit.search.repos"], async () => {
++  const cacheKey = ["octokit.search.repos"];
++
++  return useSWR(cacheKey, async () => {
 +    // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
 +    // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
 +    return await octokit.search.repos({

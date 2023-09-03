@@ -7,7 +7,9 @@ import type { TRepoSearchResultItem } from "./types";
 const octokit = new Octokit();
 
 function useGitHubRepoSearchQuery() {
-  return useSWR(["octokit.search.repos"], async () => {
+  const cacheKey = ["octokit.search.repos"];
+
+  return useSWR(cacheKey, async () => {
     // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
     // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
     return await octokit.search.repos({

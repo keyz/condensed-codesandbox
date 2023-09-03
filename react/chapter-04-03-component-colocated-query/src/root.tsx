@@ -10,7 +10,9 @@ const octokit = new Octokit({
 });
 
 function useGitHubRepoSearchQuery() {
-  return useSWR(["octokit.search.repos"], async () => {
+  const cacheKey = ["octokit.search.repos"];
+
+  return useSWR(cacheKey, async () => {
     // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
     // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
     return await octokit.search.repos({
@@ -55,8 +57,9 @@ function useGitHubRepoLatestReleaseQuery(input: {
   repo: string;
 }) {
   const { owner, repo } = input;
+  const cacheKey = ["octokit.repos.getLatestRelease", { owner, repo }];
 
-  return useSWR(["octokit.repos.getLatestRelease", owner, repo], async () => {
+  return useSWR(cacheKey, async () => {
     // https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#get-the-latest-release
     return octokit.repos.getLatestRelease({
       owner,
@@ -76,11 +79,13 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
   });
 
   const releaseInfo =
-    query.data == null
-      ? null
-      : ` | ${query.data.data.tag_name} (released ${formatRelativeTime(
-          query.data.data.created_at,
-        )})`;
+    query.data == null ? null : (
+      <span>
+        {" | "}
+        {query.data.data.tag_name} (released{" "}
+        {formatRelativeTime(query.data.data.created_at)})
+      </span>
+    );
 
   const formattedCreatedAt = formatRelativeTime(data.created_at);
 

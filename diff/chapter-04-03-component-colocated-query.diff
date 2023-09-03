@@ -15,8 +15,8 @@ diff --git a/chapter-04-02-first-query/src/root.tsx b/chapter-04-03-component-co
 +});
  
  function useGitHubRepoSearchQuery() {
-   return useSWR(["octokit.search.repos"], async () => {
-@@ -47,9 +50,38 @@ export function GitHubRoot() {
+   const cacheKey = ["octokit.search.repos"];
+@@ -49,9 +52,41 @@ export function GitHubRoot() {
    );
  }
  
@@ -25,8 +25,9 @@ diff --git a/chapter-04-02-first-query/src/root.tsx b/chapter-04-03-component-co
 +  repo: string;
 +}) {
 +  const { owner, repo } = input;
++  const cacheKey = ["octokit.repos.getLatestRelease", { owner, repo }];
 +
-+  return useSWR(["octokit.repos.getLatestRelease", owner, repo], async () => {
++  return useSWR(cacheKey, async () => {
 +    // https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#get-the-latest-release
 +    return octokit.repos.getLatestRelease({
 +      owner,
@@ -46,16 +47,18 @@ diff --git a/chapter-04-02-first-query/src/root.tsx b/chapter-04-03-component-co
 +  });
 +
 +  const releaseInfo =
-+    query.data == null
-+      ? null
-+      : ` | ${query.data.data.tag_name} (released ${formatRelativeTime(
-+          query.data.data.created_at,
-+        )})`;
++    query.data == null ? null : (
++      <span>
++        {" | "}
++        {query.data.data.tag_name} (released{" "}
++        {formatRelativeTime(query.data.data.created_at)})
++      </span>
++    );
 +
    const formattedCreatedAt = formatRelativeTime(data.created_at);
  
    return (
-@@ -68,6 +100,7 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
+@@ -70,6 +105,7 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
        <p className="text-sm text-gray-600">
          {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
          {formattedCreatedAt}
