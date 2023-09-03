@@ -1,0 +1,12 @@
+diff --git a/chapter-04-07-pagination-take-2/src/root.tsx b/chapter-04-08-reset-pagination-state/src/root.tsx
+--- a/chapter-04-07-pagination-take-2/src/root.tsx
++++ b/chapter-04-08-reset-pagination-state/src/root.tsx
+@@ -39,7 +39,7 @@ export function GitHubRoot() {
+         </button>
+       </div>
+ 
+-      <SearchResult searchQ={searchQ} />
++      <SearchResult key={searchQ} searchQ={searchQ} />
+     </>
+   );
+ }
