@@ -1,0 +1,30 @@
+diff --git a/chapter-04-03-component-colocated-query/src/root.tsx b/chapter-04-04-dynamic-query/src/root.tsx
+--- a/chapter-04-03-component-colocated-query/src/root.tsx
++++ b/chapter-04-04-dynamic-query/src/root.tsx
+@@ -9,14 +9,14 @@ const octokit = new Octokit({
+   auth: process.env.NEXT_PUBLIC_UNSAFE_LOCAL_ONLY_GITHUB_PERSONAL_ACCESS_TOKEN,
+ });
+ 
+-function useGitHubRepoSearchQuery() {
+-  const cacheKey = ["octokit.search.repos"];
++function useGitHubRepoSearchQuery(q: string) {
++  const cacheKey = ["octokit.search.repos", q];
+ 
+   return useSWR(cacheKey, async () => {
+     // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
+     // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
+     return await octokit.search.repos({
+-      q: "react+stars:>100",
++      q,
+       sort: "stars",
+       order: "desc",
+       per_page: 40,
+@@ -26,7 +26,7 @@ function useGitHubRepoSearchQuery() {
+ }
+ 
+ export function GitHubRoot() {
+-  const query = useGitHubRepoSearchQuery();
++  const query = useGitHubRepoSearchQuery("react+stars:>100");
+   const response = query.data;
+ 
+   if (query.isLoading) {
