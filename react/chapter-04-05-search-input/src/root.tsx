@@ -81,7 +81,7 @@ function useGitHubRepoLatestReleaseQuery(input: {
   repo: string;
 }) {
   const { owner, repo } = input;
-  const cacheKey = ["octokit.repos.getLatestRelease", { owner, repo }];
+  const cacheKey = ["octokit.repos.getLatestRelease", owner, repo];
 
   return useSWR(cacheKey, async () => {
     // https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#get-the-latest-release
