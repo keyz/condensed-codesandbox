@@ -1,0 +1,29 @@
+diff --git a/chapter-04-08-reset-pagination-state/src/root.tsx b/chapter-04-09-prefetch-data/src/root.tsx
+--- a/chapter-04-08-reset-pagination-state/src/root.tsx
++++ b/chapter-04-09-prefetch-data/src/root.tsx
+@@ -112,10 +112,25 @@ export function SearchResult(props: { searchQ: string }) {
+         }}
+         totalPageCount={totalPageCount}
+       />
++
++      {!canGoForward ? null : (
++        <PrefetchPage searchQ={searchQ} pageNumber={currentPageNumber + 2} />
++      )}
+     </>
+   );
+ }
+ 
++function PrefetchPage(props: { searchQ: string; pageNumber: number }) {
++  const { searchQ, pageNumber } = props;
++
++  useGitHubRepoSearchQuery({
++    q: searchQ,
++    pageNumber,
++  });
++
++  return null;
++}
++
+ function useGitHubRepoLatestReleaseQuery(input: {
+   owner: string;
+   repo: string;
