@@ -1,6 +1,6 @@
-diff --git a/chapter-04-06-decouple-input-and-query-states/src/root.tsx b/chapter-04-07-pagination-take-2/src/root.tsx
---- a/chapter-04-06-decouple-input-and-query-states/src/root.tsx
-+++ b/chapter-04-07-pagination-take-2/src/root.tsx
+diff --git a/chapter-04-07-enter-to-submit/src/root.tsx b/chapter-04-08-pagination-take-2/src/root.tsx
+--- a/chapter-04-07-enter-to-submit/src/root.tsx
++++ b/chapter-04-08-pagination-take-2/src/root.tsx
 @@ -1,10 +1,13 @@
  import { Octokit } from "@octokit/rest";
  import * as React from "react";
@@ -15,7 +15,7 @@ diff --git a/chapter-04-06-decouple-input-and-query-states/src/root.tsx b/chapte
  const octokit = new Octokit({
    auth: process.env.NEXT_PUBLIC_UNSAFE_LOCAL_ONLY_GITHUB_PERSONAL_ACCESS_TOKEN,
  });
-@@ -41,8 +44,9 @@ export function GitHubRoot() {
+@@ -46,8 +49,9 @@ export function GitHubRoot() {
    );
  }
  
@@ -27,7 +27,7 @@ diff --git a/chapter-04-06-decouple-input-and-query-states/src/root.tsx b/chapte
  
    return useSWR(cacheKey, async () => {
      // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
-@@ -51,8 +55,8 @@ function useGitHubRepoSearchQuery(q: string) {
+@@ -56,8 +60,8 @@ function useGitHubRepoSearchQuery(q: string) {
        q,
        sort: "stars",
        order: "desc",
@@ -38,7 +38,7 @@ diff --git a/chapter-04-06-decouple-input-and-query-states/src/root.tsx b/chapte
      });
    });
  }
-@@ -60,7 +64,12 @@ function useGitHubRepoSearchQuery(q: string) {
+@@ -65,7 +69,12 @@ function useGitHubRepoSearchQuery(q: string) {
  export function SearchResult(props: { searchQ: string }) {
    const { searchQ } = props;
  
@@ -52,7 +52,7 @@ diff --git a/chapter-04-06-decouple-input-and-query-states/src/root.tsx b/chapte
    const response = query.data;
  
    if (query.isLoading) {
-@@ -77,12 +86,33 @@ export function SearchResult(props: { searchQ: string }) {
+@@ -82,12 +91,33 @@ export function SearchResult(props: { searchQ: string }) {
  
    const repoList = response.data.items;
  

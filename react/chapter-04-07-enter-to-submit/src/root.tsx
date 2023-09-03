@@ -1,12 +1,9 @@
 import { Octokit } from "@octokit/rest";
 import * as React from "react";
 import useSWR from "swr";
-import { PaginationControl } from "./components/pagination";
 import { assertNonNull } from "./helpers/refinement";
 import { formatRelativeTime } from "./helpers/time";
 import type { TRepoSearchResultItem } from "./types";
-
-const PAGE_SIZE = 8;
 
 const octokit = new Octokit({
   auth: process.env.NEXT_PUBLIC_UNSAFE_LOCAL_ONLY_GITHUB_PERSONAL_ACCESS_TOKEN,
@@ -18,7 +15,14 @@ export function GitHubRoot() {
 
   return (
     <>
-      <div className="mb-6 flex gap-4">
+      <form
+        className="mb-6 flex gap-4"
+        onSubmit={(event) => {
+          event.preventDefault();
+
+          setSearchQ(rawInput);
+        }}
+      >
         <input
           className="w-60 rounded-md border px-3 py-1 text-sm shadow-sm"
           onChange={(event) => {
@@ -31,22 +35,19 @@ export function GitHubRoot() {
 
         <button
           className="rounded-md border px-3 py-1 text-sm font-medium shadow-sm active:scale-95"
-          onClick={() => {
-            setSearchQ(rawInput);
-          }}
+          type="submit"
         >
           Search
         </button>
-      </div>
+      </form>
 
       <SearchResult searchQ={searchQ} />
     </>
   );
 }
 
-function useGitHubRepoSearchQuery(input: { q: string; pageNumber: number }) {
-  const { q, pageNumber } = input;
-  const cacheKey = ["octokit.search.repos", q, pageNumber];
+function useGitHubRepoSearchQuery(q: string) {
+  const cacheKey = ["octokit.search.repos", q];
 
   return useSWR(cacheKey, async () => {
     // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
@@ -55,8 +56,8 @@ function useGitHubRepoSearchQuery(input: { q: string; pageNumber: number }) {
       q,
       sort: "stars",
       order: "desc",
-      per_page: PAGE_SIZE,
-      page: pageNumber,
+      per_page: 24,
+      page: 1,
     });
   });
 }
@@ -64,12 +65,7 @@ function useGitHubRepoSearchQuery(input: { q: string; pageNumber: number }) {
 export function SearchResult(props: { searchQ: string }) {
   const { searchQ } = props;
 
-  const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
-
-  const query = useGitHubRepoSearchQuery({
-    q: searchQ,
-    pageNumber: currentPageNumber + 1,
-  });
+  const query = useGitHubRepoSearchQuery(searchQ);
   const response = query.data;
 
   if (query.isLoading) {
@@ -86,33 +82,12 @@ export function SearchResult(props: { searchQ: string }) {
 
   const repoList = response.data.items;
 
-  const totalItemCount = response.data.total_count;
-  const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
-
-  const canGoBack = currentPageNumber * PAGE_SIZE > 0;
-  const canGoForward = (currentPageNumber + 1) * PAGE_SIZE < totalItemCount;
-
   return (
-    <>
-      <div className="flex flex-col gap-6">
-        {repoList.map((item) => {
-          return <RepoItem key={item.id} data={item} />;
-        })}
-      </div>
-
-      <PaginationControl
-        canGoBack={canGoBack}
-        canGoForward={canGoForward}
-        currentPageNumber={currentPageNumber}
-        onNextClick={() => {
-          setCurrentPageNumber((n) => n + 1);
-        }}
-        onPrevClick={() => {
-          setCurrentPageNumber((n) => n - 1);
-        }}
-        totalPageCount={totalPageCount}
-      />
-    </>
+    <div className="flex flex-col gap-6">
+      {repoList.map((item) => {
+        return <RepoItem key={item.id} data={item} />;
+      })}
+    </div>
   );
 }
 

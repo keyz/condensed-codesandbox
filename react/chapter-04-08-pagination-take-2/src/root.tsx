@@ -18,7 +18,14 @@ export function GitHubRoot() {
 
   return (
     <>
-      <div className="mb-6 flex gap-4">
+      <form
+        className="mb-6 flex gap-4"
+        onSubmit={(event) => {
+          event.preventDefault();
+
+          setSearchQ(rawInput);
+        }}
+      >
         <input
           className="w-60 rounded-md border px-3 py-1 text-sm shadow-sm"
           onChange={(event) => {
@@ -31,15 +38,13 @@ export function GitHubRoot() {
 
         <button
           className="rounded-md border px-3 py-1 text-sm font-medium shadow-sm active:scale-95"
-          onClick={() => {
-            setSearchQ(rawInput);
-          }}
+          type="submit"
         >
           Search
         </button>
-      </div>
+      </form>
 
-      <SearchResult key={searchQ} searchQ={searchQ} />
+      <SearchResult searchQ={searchQ} />
     </>
   );
 }
@@ -112,23 +117,8 @@ export function SearchResult(props: { searchQ: string }) {
         }}
         totalPageCount={totalPageCount}
       />
-
-      {!canGoForward ? null : (
-        <PrefetchPage searchQ={searchQ} pageNumber={currentPageNumber + 2} />
-      )}
     </>
   );
-}
-
-function PrefetchPage(props: { searchQ: string; pageNumber: number }) {
-  const { searchQ, pageNumber } = props;
-
-  useGitHubRepoSearchQuery({
-    q: searchQ,
-    pageNumber,
-  });
-
-  return null;
 }
 
 function useGitHubRepoLatestReleaseQuery(input: {
