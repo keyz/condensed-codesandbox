@@ -90,7 +90,7 @@ export function SearchResult(props: { searchQ: string }) {
   const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
 
   const canGoBack = currentPageNumber * PAGE_SIZE > 0;
-  const canGoNext = (currentPageNumber + 1) * PAGE_SIZE < totalItemCount;
+  const canGoForward = (currentPageNumber + 1) * PAGE_SIZE < totalItemCount;
 
   return (
     <>
@@ -102,7 +102,7 @@ export function SearchResult(props: { searchQ: string }) {
 
       <PaginationControl
         canGoBack={canGoBack}
-        canGoNext={canGoNext}
+        canGoForward={canGoForward}
         currentPageNumber={currentPageNumber}
         onNextClick={() => {
           setCurrentPageNumber((n) => n + 1);

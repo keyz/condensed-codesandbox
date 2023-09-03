@@ -14,7 +14,7 @@ export function GitHubRoot() {
   const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // Exclusive
 
   const canGoBack = startIndex > 0;
-  const canGoNext = endIndex < totalItemCount;
+  const canGoForward = endIndex < totalItemCount;
 
   const visibleWindow = repoList.slice(startIndex, endIndex);
 
@@ -42,7 +42,7 @@ export function GitHubRoot() {
         </span>
 
         <button
-          disabled={!canGoNext}
+          disabled={!canGoForward}
           className="hover:underline"
           onClick={() => {
             setCurrentPageNumber((n) => n + 1);

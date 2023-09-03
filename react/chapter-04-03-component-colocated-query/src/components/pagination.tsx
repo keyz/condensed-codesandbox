@@ -2,7 +2,7 @@ import cx from "classnames";
 
 export function PaginationControl(props: {
   canGoBack: boolean;
-  canGoNext: boolean;
+  canGoForward: boolean;
   currentPageNumber: number;
   onNextClick: () => void;
   onPrevClick: () => void;
@@ -10,7 +10,7 @@ export function PaginationControl(props: {
 }) {
   const {
     canGoBack,
-    canGoNext,
+    canGoForward,
     currentPageNumber,
     onNextClick,
     onPrevClick,
@@ -35,10 +35,10 @@ export function PaginationControl(props: {
       </span>
 
       <button
-        disabled={!canGoNext}
+        disabled={!canGoForward}
         className={cx({
-          "hover:underline": canGoNext,
-          "text-gray-300": !canGoNext,
+          "hover:underline": canGoForward,
+          "text-gray-300": !canGoForward,
         })}
         onClick={onNextClick}
       >

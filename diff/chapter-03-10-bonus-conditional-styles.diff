@@ -22,11 +22,11 @@ diff --git a/chapter-03-09-derived-value/src/root.tsx b/chapter-03-10-bonus-cond
 @@ -43,7 +47,10 @@ export function GitHubRoot() {
  
          <button
-           disabled={!canGoNext}
+           disabled={!canGoForward}
 -          className="hover:underline"
 +          className={cx({
-+            "hover:underline": canGoNext,
-+            "text-gray-300": !canGoNext,
++            "hover:underline": canGoForward,
++            "text-gray-300": !canGoForward,
 +          })}
            onClick={() => {
              setCurrentPageNumber((n) => n + 1);

@@ -20,7 +20,7 @@ diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-03-12-quiz-answe
    const startIndex = currentPageNumber * PAGE_SIZE; // Inclusive
 @@ -20,7 +27,7 @@ export function GitHubRoot() {
    const canGoBack = startIndex > 0;
-   const canGoNext = endIndex < totalItemCount;
+   const canGoForward = endIndex < totalItemCount;
  
 -  const visibleWindow = repoList.slice(startIndex, endIndex);
 +  const visibleWindow = filteredRepoList.slice(startIndex, endIndex);
