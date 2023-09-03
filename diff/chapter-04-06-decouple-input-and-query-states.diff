@@ -1,18 +1,12 @@
 diff --git a/chapter-04-05-search-input/src/root.tsx b/chapter-04-06-decouple-input-and-query-states/src/root.tsx
 --- a/chapter-04-05-search-input/src/root.tsx
 +++ b/chapter-04-06-decouple-input-and-query-states/src/root.tsx
-@@ -10,21 +10,48 @@ const octokit = new Octokit({
+@@ -10,20 +10,30 @@ const octokit = new Octokit({
  });
  
  export function GitHubRoot() {
--  const [searchQ, setSearchQ] = React.useState<string>("react+stars:>100");
-+  const [searchState, setSearchState] = React.useState<{
-+    rawInput: string;
-+    searchQ: string;
-+  }>({
-+    rawInput: "react+stars:>100",
-+    searchQ: "react+stars:>100",
-+  });
++  const [rawInput, setRawInput] = React.useState<string>("react+stars:>100");
+   const [searchQ, setSearchQ] = React.useState<string>("react+stars:>100");
  
    return (
      <>
@@ -21,37 +15,23 @@ diff --git a/chapter-04-05-search-input/src/root.tsx b/chapter-04-06-decouple-in
          <input
            className="w-60 rounded-md border px-3 py-1 text-sm shadow-sm"
            onChange={(event) => {
--            setSearchQ(event.currentTarget.value);
-+            const newInputValue = event.currentTarget.value;
-+
-+            setSearchState((state) => {
-+              return {
-+                rawInput: newInputValue, // Update immediately
-+                searchQ: state.searchQ, // No change
-+              };
-+            });
+             const newInputValue = event.currentTarget.value;
+ 
+-            setSearchQ(newInputValue);
++            setRawInput(newInputValue);
            }}
 -          value={searchQ}
-+          value={searchState.rawInput}
++          value={rawInput}
          />
 +
 +        <button
 +          className="rounded-md border px-3 py-1 text-sm font-medium shadow-sm active:scale-95"
 +          onClick={() => {
-+            setSearchState((state) => {
-+              return {
-+                rawInput: state.rawInput, // No change
-+                searchQ: state.rawInput, // "Commit"
-+              };
-+            });
++            setSearchQ(rawInput);
 +          }}
 +        >
 +          Search
 +        </button>
        </div>
  
--      <SearchResult searchQ={searchQ} />
-+      <SearchResult searchQ={searchState.searchQ} />
-     </>
-   );
- }
+       <SearchResult searchQ={searchQ} />

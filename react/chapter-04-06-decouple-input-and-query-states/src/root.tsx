@@ -10,13 +10,8 @@ const octokit = new Octokit({
 });
 
 export function GitHubRoot() {
-  const [searchState, setSearchState] = React.useState<{
-    rawInput: string;
-    searchQ: string;
-  }>({
-    rawInput: "react+stars:>100",
-    searchQ: "react+stars:>100",
-  });
+  const [rawInput, setRawInput] = React.useState<string>("react+stars:>100");
+  const [searchQ, setSearchQ] = React.useState<string>("react+stars:>100");
 
   return (
     <>
@@ -26,32 +21,22 @@ export function GitHubRoot() {
           onChange={(event) => {
             const newInputValue = event.currentTarget.value;
 
-            setSearchState((state) => {
-              return {
-                rawInput: newInputValue, // Update immediately
-                searchQ: state.searchQ, // No change
-              };
-            });
+            setRawInput(newInputValue);
           }}
-          value={searchState.rawInput}
+          value={rawInput}
         />
 
         <button
           className="rounded-md border px-3 py-1 text-sm font-medium shadow-sm active:scale-95"
           onClick={() => {
-            setSearchState((state) => {
-              return {
-                rawInput: state.rawInput, // No change
-                searchQ: state.rawInput, // "Commit"
-              };
-            });
+            setSearchQ(rawInput);
           }}
         >
           Search
         </button>
       </div>
 
-      <SearchResult searchQ={searchState.searchQ} />
+      <SearchResult searchQ={searchQ} />
     </>
   );
 }

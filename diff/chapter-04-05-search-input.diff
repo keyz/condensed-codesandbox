@@ -1,7 +1,7 @@
 diff --git a/chapter-04-04-dynamic-query/src/root.tsx b/chapter-04-05-search-input/src/root.tsx
 --- a/chapter-04-04-dynamic-query/src/root.tsx
 +++ b/chapter-04-05-search-input/src/root.tsx
-@@ -9,6 +9,26 @@ const octokit = new Octokit({
+@@ -9,6 +9,28 @@ const octokit = new Octokit({
    auth: process.env.NEXT_PUBLIC_UNSAFE_LOCAL_ONLY_GITHUB_PERSONAL_ACCESS_TOKEN,
  });
  
@@ -14,7 +14,9 @@ diff --git a/chapter-04-04-dynamic-query/src/root.tsx b/chapter-04-05-search-inp
 +        <input
 +          className="w-60 rounded-md border px-3 py-1 text-sm shadow-sm"
 +          onChange={(event) => {
-+            setSearchQ(event.currentTarget.value);
++            const newInputValue = event.currentTarget.value;
++
++            setSearchQ(newInputValue);
 +          }}
 +          value={searchQ}
 +        />
@@ -28,7 +30,7 @@ diff --git a/chapter-04-04-dynamic-query/src/root.tsx b/chapter-04-05-search-inp
  function useGitHubRepoSearchQuery(q: string) {
    const cacheKey = ["octokit.search.repos", q];
  
-@@ -25,8 +45,10 @@ function useGitHubRepoSearchQuery(q: string) {
+@@ -25,8 +47,10 @@ function useGitHubRepoSearchQuery(q: string) {
    });
  }
  

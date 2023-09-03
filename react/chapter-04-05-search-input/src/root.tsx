@@ -18,7 +18,9 @@ export function GitHubRoot() {
         <input
           className="w-60 rounded-md border px-3 py-1 text-sm shadow-sm"
           onChange={(event) => {
-            setSearchQ(event.currentTarget.value);
+            const newInputValue = event.currentTarget.value;
+
+            setSearchQ(newInputValue);
           }}
           value={searchQ}
         />
