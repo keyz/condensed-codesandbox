@@ -1,7 +1,7 @@
 import { Octokit } from "@octokit/rest";
 import * as React from "react";
 import useSWR from "swr";
-import { assertNonNull } from "./helpers/assert";
+import { assertNonNull } from "./helpers/refinement";
 import { formatRelativeTime } from "./helpers/time";
 import type { TRepoSearchResultItem } from "./types";
 
@@ -91,7 +91,7 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
           className="hover:underline"
           href={data.html_url}
           rel="noopener"
-          target="_blank" // open in new tab
+          target="_blank" // Open in new tab
         >
           {data.full_name}
         </a>

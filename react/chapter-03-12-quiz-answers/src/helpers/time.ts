@@ -6,9 +6,9 @@ import { enUS as localeEnUs } from "date-fns/locale";
  */
 export function formatRelativeTime(isoDateTime: string): string {
   return formatDistanceToNowStrict(
-    new Date(isoDateTime), // parse ISO 8601 date time string
+    new Date(isoDateTime), // Parse ISO 8601 date time string
     {
-      addSuffix: true, // add "ago"
+      addSuffix: true, // Add "ago"
       locale: localeEnUs,
     },
   );

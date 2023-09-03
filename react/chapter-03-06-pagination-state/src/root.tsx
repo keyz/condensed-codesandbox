@@ -7,8 +7,8 @@ const PAGE_SIZE = 8;
 export function GitHubRoot() {
   const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
 
-  const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
-  const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // exclusive
+  const startIndex = currentPageNumber * PAGE_SIZE; // Inclusive
+  const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // Exclusive
 
   const visibleWindow = repoList.slice(startIndex, endIndex);
 

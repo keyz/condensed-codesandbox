@@ -2,8 +2,8 @@ diff --git a/chapter-03-07-pagination-button/src/root.tsx b/chapter-03-09-derive
 --- a/chapter-03-07-pagination-button/src/root.tsx
 +++ b/chapter-03-09-derived-value/src/root.tsx
 @@ -13,6 +13,9 @@ export function GitHubRoot() {
-   const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
-   const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // exclusive
+   const startIndex = currentPageNumber * PAGE_SIZE; // Inclusive
+   const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // Exclusive
  
 +  const canGoBack = startIndex > 0;
 +  const canGoNext = endIndex < totalItemCount;

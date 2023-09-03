@@ -8,9 +8,9 @@ export function GitHubRoot() {
       {repoList.map((item) => {
         // See https://date-fns.org/v2.30.0/docs/formatDistanceToNowStrict
         const formattedCreatedAt = formatDistanceToNowStrict(
-          new Date(item.created_at), // parse ISO 8601 date time string
+          new Date(item.created_at), // Parse ISO 8601 date time string
           {
-            addSuffix: true, // add "ago"
+            addSuffix: true, // Add "ago"
             locale: localeEnUs,
           },
         );

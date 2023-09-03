@@ -21,8 +21,8 @@ export function GitHubRoot() {
   const totalItemCount = filteredRepoList.length;
   const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
 
-  const startIndex = currentPageNumber * PAGE_SIZE; // inclusive
-  const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // exclusive
+  const startIndex = currentPageNumber * PAGE_SIZE; // Inclusive
+  const endIndex = (currentPageNumber + 1) * PAGE_SIZE; // Exclusive
 
   const canGoBack = startIndex > 0;
   const canGoNext = endIndex < totalItemCount;
