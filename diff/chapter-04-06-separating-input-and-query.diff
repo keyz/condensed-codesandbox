@@ -1,0 +1,57 @@
+diff --git a/chapter-04-05-search-input/src/root.tsx b/chapter-04-06-separating-input-and-query/src/root.tsx
+--- a/chapter-04-05-search-input/src/root.tsx
++++ b/chapter-04-06-separating-input-and-query/src/root.tsx
+@@ -10,21 +10,48 @@ const octokit = new Octokit({
+ });
+ 
+ export function GitHubRoot() {
+-  const [searchQ, setSearchQ] = React.useState<string>("react+stars:>100");
++  const [searchState, setSearchState] = React.useState<{
++    rawInput: string;
++    searchQ: string;
++  }>({
++    rawInput: "react+stars:>100",
++    searchQ: "react+stars:>100",
++  });
+ 
+   return (
+     <>
+-      <div className="mb-6">
++      <div className="mb-6 flex gap-4">
+         <input
+           className="rounded-md border px-3 py-1 text-sm shadow-sm"
+           onChange={(event) => {
+-            setSearchQ(event.currentTarget.value);
++            const newInputValue = event.currentTarget.value;
++
++            setSearchState((state) => {
++              return {
++                rawInput: newInputValue, // Update immediately
++                searchQ: state.searchQ, // No change
++              };
++            });
+           }}
+-          value={searchQ}
++          value={searchState.rawInput}
+         />
++
++        <button
++          className="rounded-md border px-3 py-1 text-sm font-medium shadow-sm"
++          onClick={() => {
++            setSearchState((state) => {
++              return {
++                rawInput: state.rawInput, // No change
++                searchQ: state.rawInput, // "Commit"
++              };
++            });
++          }}
++        >
++          Search
++        </button>
+       </div>
+ 
+-      <SearchResult searchQ={searchQ} />
++      <SearchResult searchQ={searchState.searchQ} />
+     </>
+   );
+ }

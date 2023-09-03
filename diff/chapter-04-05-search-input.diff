@@ -6,7 +6,7 @@ diff --git a/chapter-04-04-dynamic-query/src/root.tsx b/chapter-04-05-search-inp
  });
  
 +export function GitHubRoot() {
-+  const [searchQ, setSearchQ] = React.useState("react+stars:>100");
++  const [searchQ, setSearchQ] = React.useState<string>("react+stars:>100");
 +
 +  return (
 +    <>
