@@ -19,7 +19,7 @@ function useGitHubRepoSearchQuery(q: string) {
       q,
       sort: "stars",
       order: "desc",
-      per_page: 40,
+      per_page: 24,
       page: 1,
     });
   });

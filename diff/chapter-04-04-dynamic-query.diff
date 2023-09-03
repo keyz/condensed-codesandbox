@@ -18,7 +18,7 @@ diff --git a/chapter-04-03-component-colocated-query/src/root.tsx b/chapter-04-0
 +      q,
        sort: "stars",
        order: "desc",
-       per_page: 40,
+       per_page: 24,
 @@ -26,7 +26,7 @@ function useGitHubRepoSearchQuery() {
  }
  
