@@ -1,6 +1,7 @@
 import { Octokit } from "@octokit/rest";
 import * as React from "react";
 import useSWR from "swr";
+import { assertNonNull } from "./helpers/assert";
 import { formatRelativeTime } from "./helpers/time";
 import type { TRepoSearchResultItem } from "./types";
 
@@ -67,8 +68,10 @@ function useGitHubRepoLatestReleaseQuery(input: {
 function RepoItem(props: { data: TRepoSearchResultItem }) {
   const { data } = props;
 
+  assertNonNull(data.owner, "data.owner");
+
   const query = useGitHubRepoLatestReleaseQuery({
-    owner: data.owner!.login,
+    owner: data.owner.login,
     repo: data.name,
   });
 

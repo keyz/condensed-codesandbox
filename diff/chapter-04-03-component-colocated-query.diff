@@ -1,7 +1,11 @@
 diff --git a/chapter-04-02-first-query/src/root.tsx b/chapter-04-03-component-colocated-query/src/root.tsx
 --- a/chapter-04-02-first-query/src/root.tsx
 +++ b/chapter-04-03-component-colocated-query/src/root.tsx
-@@ -4,7 +4,9 @@ import useSWR from "swr";
+@@ -1,10 +1,13 @@
+ import { Octokit } from "@octokit/rest";
+ import * as React from "react";
+ import useSWR from "swr";
++import { assertNonNull } from "./helpers/assert";
  import { formatRelativeTime } from "./helpers/time";
  import type { TRepoSearchResultItem } from "./types";
  
@@ -12,7 +16,7 @@ diff --git a/chapter-04-02-first-query/src/root.tsx b/chapter-04-03-component-co
  
  function useGitHubRepoSearchQuery() {
    return useSWR(["octokit.search.repos"], async () => {
-@@ -47,9 +49,36 @@ export function GitHubRoot() {
+@@ -47,9 +50,38 @@ export function GitHubRoot() {
    );
  }
  
@@ -34,8 +38,10 @@ diff --git a/chapter-04-02-first-query/src/root.tsx b/chapter-04-03-component-co
  function RepoItem(props: { data: TRepoSearchResultItem }) {
    const { data } = props;
  
++  assertNonNull(data.owner, "data.owner");
++
 +  const query = useGitHubRepoLatestReleaseQuery({
-+    owner: data.owner!.login,
++    owner: data.owner.login,
 +    repo: data.name,
 +  });
 +
@@ -49,7 +55,7 @@ diff --git a/chapter-04-02-first-query/src/root.tsx b/chapter-04-03-component-co
    const formattedCreatedAt = formatRelativeTime(data.created_at);
  
    return (
-@@ -68,6 +97,7 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
+@@ -68,6 +100,7 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
        <p className="text-sm text-gray-600">
          {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
          {formattedCreatedAt}
