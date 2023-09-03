@@ -26,11 +26,13 @@ fi
 
 echo "Copying files..."
 
-rsync -vhra --exclude-from=../.gitignore "$template/" "$target/"
+cp -R "$template/" "$target/"
 
 echo "Updating generated files..."
 
 cd "$target"
+rm -rf ./node_modules/ ./.next/ ./.cache/
+
 for file in *.{json,md}
 do
   sed -i "" "s/$template/$target/g" "$file"
