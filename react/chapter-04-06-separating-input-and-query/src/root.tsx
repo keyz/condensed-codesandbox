@@ -22,7 +22,7 @@ export function GitHubRoot() {
     <>
       <div className="mb-6 flex gap-4">
         <input
-          className="rounded-md border px-3 py-1 text-sm shadow-sm"
+          className="w-60 rounded-md border px-3 py-1 text-sm shadow-sm"
           onChange={(event) => {
             const newInputValue = event.currentTarget.value;
 
@@ -37,7 +37,7 @@ export function GitHubRoot() {
         />
 
         <button
-          className="rounded-md border px-3 py-1 text-sm font-medium shadow-sm"
+          className="rounded-md border px-3 py-1 text-sm font-medium shadow-sm active:scale-95"
           onClick={() => {
             setSearchState((state) => {
               return {
