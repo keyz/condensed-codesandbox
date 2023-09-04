@@ -31,7 +31,7 @@ do
 
   target_path=$(echo "$source_path" | sed "s/$source_name\//$target_name\//")
 
-  command="cp $source_path $target_path"
+  command="mkdir -p $(dirname "$target_path") && cp $source_path $target_path"
   echo "$ $command"
   eval "$command"
 
