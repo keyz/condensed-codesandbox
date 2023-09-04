@@ -1,14 +1,14 @@
 diff --git a/chapter-04-09-reset-pagination-state/src/root.tsx b/chapter-04-10-prefetch-data/src/root.tsx
 --- a/chapter-04-09-reset-pagination-state/src/root.tsx
 +++ b/chapter-04-10-prefetch-data/src/root.tsx
-@@ -117,10 +117,25 @@ export function SearchResult(props: { searchQ: string }) {
+@@ -117,10 +117,25 @@ function SearchResult(props: { searchQ: string }) {
          }}
          totalPageCount={totalPageCount}
        />
 +
-+      {!canGoForward ? null : (
++      {canGoForward ? (
 +        <PrefetchPage searchQ={searchQ} pageNumber={currentPageNumber + 2} />
-+      )}
++      ) : null}
      </>
    );
  }

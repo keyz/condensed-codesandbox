@@ -66,7 +66,7 @@ function useGitHubRepoSearchQuery(input: { q: string; pageNumber: number }) {
   });
 }
 
-export function SearchResult(props: { searchQ: string }) {
+function SearchResult(props: { searchQ: string }) {
   const { searchQ } = props;
 
   const [currentPageNumber, setCurrentPageNumber] = React.useState<number>(0);
@@ -118,9 +118,9 @@ export function SearchResult(props: { searchQ: string }) {
         totalPageCount={totalPageCount}
       />
 
-      {!canGoForward ? null : (
+      {canGoForward ? (
         <PrefetchPage searchQ={searchQ} pageNumber={currentPageNumber + 2} />
-      )}
+      ) : null}
     </>
   );
 }

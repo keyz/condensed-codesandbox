@@ -62,7 +62,7 @@ function useGitHubRepoSearchQuery(q: string) {
   });
 }
 
-export function SearchResult(props: { searchQ: string }) {
+function SearchResult(props: { searchQ: string }) {
   const { searchQ } = props;
 
   const query = useGitHubRepoSearchQuery(searchQ);
