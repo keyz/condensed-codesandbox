@@ -1,3 +1,5 @@
+import { RequestError } from "@octokit/request-error";
+
 export function assertNonNull<T>(
   input: T,
   name: string,
@@ -12,4 +14,8 @@ export function assertNonNull<T>(
     Error.captureStackTrace(error, assertNonNull);
     throw error;
   }
+}
+
+export function isGitHubRequestError(error: unknown): error is RequestError {
+  return error instanceof RequestError;
 }
