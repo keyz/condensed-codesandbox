@@ -1,7 +1,7 @@
 diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetching-starter/src/root.tsx
 --- a/chapter-03-11-lift-state-up/src/root.tsx
 +++ b/chapter-04-01-data-fetching-starter/src/root.tsx
-@@ -1,98 +1,31 @@
+@@ -1,114 +1,36 @@
  import * as React from "react";
 -import cx from "classnames";
  import { repoList, type TRepoSearchResultItem } from "./data";
@@ -94,10 +94,10 @@ diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetch
 -  onLikeClick: () => void;
 -}) {
 -  const { data, likeCount, onLikeClick } = props;
+-
+-  const formattedCreatedAt = formatRelativeTime(data.created_at);
 +function RepoItem(props: { data: TRepoSearchResultItem }) {
 +  const { data } = props;
- 
-   const formattedCreatedAt = formatRelativeTime(data.created_at);
  
    return (
      <div>
@@ -112,10 +112,10 @@ diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetch
            {data.full_name}
          </a>
        </h2>
-@@ -100,15 +33,6 @@ function RepoItem(props: {
+       <p>{data.description}</p>
        <p className="text-sm text-gray-600">
          {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
-         {formattedCreatedAt}
+-        {formattedCreatedAt}
 -        {" | "}
 -        <button
 -          className="hover:underline"
@@ -125,6 +125,7 @@ diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetch
 -        >
 -          like ({likeCount})
 -        </button>
++        {formatRelativeTime(data.created_at)}
        </p>
      </div>
    );

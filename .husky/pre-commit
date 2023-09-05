@@ -6,7 +6,7 @@
 echo "Checking diff snapshot..."
 make snapshot
 
-if [ -z "$( git status --porcelain ./diff/ )" ]; then
+if [ -z "$( git ls-files -m ./diff/ )" ]; then
   echo "Nothing changed."
 else
   echo "🚧 Snapshot updated."

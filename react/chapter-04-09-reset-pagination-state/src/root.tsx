@@ -156,8 +156,6 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
       </span>
     );
 
-  const formattedCreatedAt = formatRelativeTime(data.created_at);
-
   return (
     <div>
       <h2 className="font-medium">
@@ -173,7 +171,7 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
       <p>{data.description}</p>
       <p className="text-sm text-gray-600">
         {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
-        {formattedCreatedAt}
+        {formatRelativeTime(data.created_at)}
         {releaseInfo}
       </p>
     </div>

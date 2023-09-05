@@ -55,13 +55,13 @@ diff --git a/chapter-04-02-first-query/src/root.tsx b/chapter-04-03-component-co
 +      </span>
 +    );
 +
-   const formattedCreatedAt = formatRelativeTime(data.created_at);
- 
    return (
-@@ -70,6 +105,7 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
+     <div>
+       <h2 className="font-medium">
+@@ -68,6 +103,7 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
        <p className="text-sm text-gray-600">
          {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
-         {formattedCreatedAt}
+         {formatRelativeTime(data.created_at)}
 +        {releaseInfo}
        </p>
      </div>
