@@ -14,28 +14,9 @@ diff --git a/chapter-04-02-first-query/src/root.tsx b/chapter-04-03-component-co
 +  auth: process.env.NEXT_PUBLIC_UNSAFE_LOCAL_ONLY_GITHUB_PERSONAL_ACCESS_TOKEN,
 +});
  
- function useGitHubRepoSearchQuery() {
-   const cacheKey = ["octokit.search.repos"];
-@@ -49,9 +52,41 @@ export function GitHubRoot() {
-   );
- }
- 
-+function useGitHubRepoLatestReleaseQuery(input: {
-+  owner: string;
-+  repo: string;
-+}) {
-+  const { owner, repo } = input;
-+  const cacheKey = ["octokit.repos.getLatestRelease", owner, repo];
-+
-+  return useSWR(cacheKey, async () => {
-+    // https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#get-the-latest-release
-+    return octokit.repos.getLatestRelease({
-+      owner,
-+      repo,
-+    });
-+  });
-+}
-+
+ export function GitHubRoot() {
+   const query = useGitHubRepoSearchQuery();
+@@ -36,6 +39,22 @@ export function GitHubRoot() {
  function RepoItem(props: { data: TRepoSearchResultItem }) {
    const { data } = props;
  
@@ -58,7 +39,7 @@ diff --git a/chapter-04-02-first-query/src/root.tsx b/chapter-04-03-component-co
    return (
      <div>
        <h2 className="font-medium">
-@@ -68,6 +103,7 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
+@@ -52,6 +71,7 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
        <p className="text-sm text-gray-600">
          {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
          {formatRelativeTime(data.created_at)}
@@ -66,3 +47,23 @@ diff --git a/chapter-04-02-first-query/src/root.tsx b/chapter-04-03-component-co
        </p>
      </div>
    );
+@@ -72,3 +92,19 @@ function useGitHubRepoSearchQuery() {
+     });
+   });
+ }
++
++function useGitHubRepoLatestReleaseQuery(input: {
++  owner: string;
++  repo: string;
++}) {
++  const { owner, repo } = input;
++  const cacheKey = ["octokit.repos.getLatestRelease", owner, repo];
++
++  return useSWR(cacheKey, async () => {
++    // https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#get-the-latest-release
++    return octokit.repos.getLatestRelease({
++      owner,
++      repo,
++    });
++  });
++}

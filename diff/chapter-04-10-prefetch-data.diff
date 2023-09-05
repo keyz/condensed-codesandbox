@@ -1,7 +1,7 @@
 diff --git a/chapter-04-09-reset-pagination-state/src/root.tsx b/chapter-04-10-prefetch-data/src/root.tsx
 --- a/chapter-04-09-reset-pagination-state/src/root.tsx
 +++ b/chapter-04-10-prefetch-data/src/root.tsx
-@@ -117,10 +117,25 @@ function SearchResult(props: { searchQ: string }) {
+@@ -100,6 +100,10 @@ function SearchResult(props: { searchQ: string }) {
          }}
          totalPageCount={totalPageCount}
        />
@@ -10,6 +10,9 @@ diff --git a/chapter-04-09-reset-pagination-state/src/root.tsx b/chapter-04-10-p
 +        <PrefetchPage searchQ={searchQ} pageNumber={currentPageNumber + 2} />
 +      ) : null}
      </>
+   );
+ }
+@@ -145,6 +149,17 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
    );
  }
  
@@ -24,6 +27,6 @@ diff --git a/chapter-04-09-reset-pagination-state/src/root.tsx b/chapter-04-10-p
 +  return null;
 +}
 +
- function useGitHubRepoLatestReleaseQuery(input: {
-   owner: string;
-   repo: string;
+ function useGitHubRepoSearchQuery(input: { q: string; pageNumber: number }) {
+   const { q, pageNumber } = input;
+   const cacheKey = ["octokit.search.repos", q, pageNumber];

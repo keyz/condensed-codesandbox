@@ -1,11 +1,11 @@
 diff --git a/chapter-04-04-dynamic-query/src/root.tsx b/chapter-04-05-search-input/src/root.tsx
 --- a/chapter-04-04-dynamic-query/src/root.tsx
 +++ b/chapter-04-05-search-input/src/root.tsx
-@@ -9,6 +9,28 @@ const octokit = new Octokit({
-   auth: process.env.NEXT_PUBLIC_UNSAFE_LOCAL_ONLY_GITHUB_PERSONAL_ACCESS_TOKEN,
+@@ -10,7 +10,31 @@ const octokit = new Octokit({
  });
  
-+export function GitHubRoot() {
+ export function GitHubRoot() {
+-  const query = useGitHubRepoSearchQuery("react+stars:>100");
 +  const [searchQ, setSearchQ] = React.useState<string>("react+stars:>100");
 +
 +  return (
@@ -27,15 +27,6 @@ diff --git a/chapter-04-04-dynamic-query/src/root.tsx b/chapter-04-05-search-inp
 +  );
 +}
 +
- function useGitHubRepoSearchQuery(q: string) {
-   const cacheKey = ["octokit.search.repos", q];
- 
-@@ -25,8 +47,10 @@ function useGitHubRepoSearchQuery(q: string) {
-   });
- }
- 
--export function GitHubRoot() {
--  const query = useGitHubRepoSearchQuery("react+stars:>100");
 +function SearchResult(props: { searchQ: string }) {
 +  const { searchQ } = props;
 +

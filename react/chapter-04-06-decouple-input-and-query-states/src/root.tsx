@@ -41,22 +41,6 @@ export function GitHubRoot() {
   );
 }
 
-function useGitHubRepoSearchQuery(q: string) {
-  const cacheKey = ["octokit.search.repos", q];
-
-  return useSWR(cacheKey, async () => {
-    // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
-    // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
-    return await octokit.search.repos({
-      q,
-      sort: "stars",
-      order: "desc",
-      per_page: 24,
-      page: 1,
-    });
-  });
-}
-
 function SearchResult(props: { searchQ: string }) {
   const { searchQ } = props;
 
@@ -84,22 +68,6 @@ function SearchResult(props: { searchQ: string }) {
       })}
     </div>
   );
-}
-
-function useGitHubRepoLatestReleaseQuery(input: {
-  owner: string;
-  repo: string;
-}) {
-  const { owner, repo } = input;
-  const cacheKey = ["octokit.repos.getLatestRelease", owner, repo];
-
-  return useSWR(cacheKey, async () => {
-    // https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#get-the-latest-release
-    return octokit.repos.getLatestRelease({
-      owner,
-      repo,
-    });
-  });
 }
 
 function RepoItem(props: { data: TRepoSearchResultItem }) {
@@ -141,4 +109,36 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
       </p>
     </div>
   );
+}
+
+function useGitHubRepoSearchQuery(q: string) {
+  const cacheKey = ["octokit.search.repos", q];
+
+  return useSWR(cacheKey, async () => {
+    // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
+    // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
+    return await octokit.search.repos({
+      q,
+      sort: "stars",
+      order: "desc",
+      per_page: 24,
+      page: 1,
+    });
+  });
+}
+
+function useGitHubRepoLatestReleaseQuery(input: {
+  owner: string;
+  repo: string;
+}) {
+  const { owner, repo } = input;
+  const cacheKey = ["octokit.repos.getLatestRelease", owner, repo];
+
+  return useSWR(cacheKey, async () => {
+    // https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#get-the-latest-release
+    return octokit.repos.getLatestRelease({
+      owner,
+      repo,
+    });
+  });
 }

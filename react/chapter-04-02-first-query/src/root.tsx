@@ -6,22 +6,6 @@ import type { TRepoSearchResultItem } from "./types";
 
 const octokit = new Octokit();
 
-function useGitHubRepoSearchQuery() {
-  const cacheKey = ["octokit.search.repos"];
-
-  return useSWR(cacheKey, async () => {
-    // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
-    // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
-    return await octokit.search.repos({
-      q: "react+stars:>100",
-      sort: "stars",
-      order: "desc",
-      per_page: 24,
-      page: 1,
-    });
-  });
-}
-
 export function GitHubRoot() {
   const query = useGitHubRepoSearchQuery();
   const response = query.data;
@@ -71,4 +55,20 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
       </p>
     </div>
   );
+}
+
+function useGitHubRepoSearchQuery() {
+  const cacheKey = ["octokit.search.repos"];
+
+  return useSWR(cacheKey, async () => {
+    // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
+    // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
+    return await octokit.search.repos({
+      q: "react+stars:>100",
+      sort: "stars",
+      order: "desc",
+      per_page: 24,
+      page: 1,
+    });
+  });
 }

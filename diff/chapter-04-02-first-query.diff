@@ -1,7 +1,7 @@
 diff --git a/chapter-04-01-data-fetching-starter/src/root.tsx b/chapter-04-02-first-query/src/root.tsx
 --- a/chapter-04-01-data-fetching-starter/src/root.tsx
 +++ b/chapter-04-02-first-query/src/root.tsx
-@@ -1,8 +1,45 @@
+@@ -1,8 +1,29 @@
 +import { Octokit } from "@octokit/rest";
  import * as React from "react";
 -import { repoList, type TRepoSearchResultItem } from "./data";
@@ -10,22 +10,6 @@ diff --git a/chapter-04-01-data-fetching-starter/src/root.tsx b/chapter-04-02-fi
 +import type { TRepoSearchResultItem } from "./types";
 +
 +const octokit = new Octokit();
-+
-+function useGitHubRepoSearchQuery() {
-+  const cacheKey = ["octokit.search.repos"];
-+
-+  return useSWR(cacheKey, async () => {
-+    // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
-+    // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
-+    return await octokit.search.repos({
-+      q: "react+stars:>100",
-+      sort: "stars",
-+      order: "desc",
-+      per_page: 24,
-+      page: 1,
-+    });
-+  });
-+}
  
  export function GitHubRoot() {
 +  const query = useGitHubRepoSearchQuery();
@@ -48,3 +32,23 @@ diff --git a/chapter-04-01-data-fetching-starter/src/root.tsx b/chapter-04-02-fi
    return (
      <div className="flex flex-col gap-6">
        {repoList.map((item) => {
+@@ -35,3 +56,19 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
+     </div>
+   );
+ }
++
++function useGitHubRepoSearchQuery() {
++  const cacheKey = ["octokit.search.repos"];
++
++  return useSWR(cacheKey, async () => {
++    // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
++    // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
++    return await octokit.search.repos({
++      q: "react+stars:>100",
++      sort: "stars",
++      order: "desc",
++      per_page: 24,
++      page: 1,
++    });
++  });
++}

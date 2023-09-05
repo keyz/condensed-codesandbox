@@ -49,23 +49,6 @@ export function GitHubRoot() {
   );
 }
 
-function useGitHubRepoSearchQuery(input: { q: string; pageNumber: number }) {
-  const { q, pageNumber } = input;
-  const cacheKey = ["octokit.search.repos", q, pageNumber];
-
-  return useSWR(cacheKey, async () => {
-    // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
-    // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
-    return await octokit.search.repos({
-      q,
-      sort: "stars",
-      order: "desc",
-      per_page: PAGE_SIZE,
-      page: pageNumber,
-    });
-  });
-}
-
 function SearchResult(props: { searchQ: string }) {
   const { searchQ } = props;
 
@@ -125,33 +108,6 @@ function SearchResult(props: { searchQ: string }) {
   );
 }
 
-function PrefetchPage(props: { searchQ: string; pageNumber: number }) {
-  const { searchQ, pageNumber } = props;
-
-  useGitHubRepoSearchQuery({
-    q: searchQ,
-    pageNumber,
-  });
-
-  return null;
-}
-
-function useGitHubRepoLatestReleaseQuery(input: {
-  owner: string;
-  repo: string;
-}) {
-  const { owner, repo } = input;
-  const cacheKey = ["octokit.repos.getLatestRelease", owner, repo];
-
-  return useSWR(cacheKey, async () => {
-    // https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#get-the-latest-release
-    return octokit.repos.getLatestRelease({
-      owner,
-      repo,
-    });
-  });
-}
-
 function RepoItem(props: { data: TRepoSearchResultItem }) {
   const { data } = props;
 
@@ -191,4 +147,48 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
       </p>
     </div>
   );
+}
+
+function PrefetchPage(props: { searchQ: string; pageNumber: number }) {
+  const { searchQ, pageNumber } = props;
+
+  useGitHubRepoSearchQuery({
+    q: searchQ,
+    pageNumber,
+  });
+
+  return null;
+}
+
+function useGitHubRepoSearchQuery(input: { q: string; pageNumber: number }) {
+  const { q, pageNumber } = input;
+  const cacheKey = ["octokit.search.repos", q, pageNumber];
+
+  return useSWR(cacheKey, async () => {
+    // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
+    // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
+    return await octokit.search.repos({
+      q,
+      sort: "stars",
+      order: "desc",
+      per_page: PAGE_SIZE,
+      page: pageNumber,
+    });
+  });
+}
+
+function useGitHubRepoLatestReleaseQuery(input: {
+  owner: string;
+  repo: string;
+}) {
+  const { owner, repo } = input;
+  const cacheKey = ["octokit.repos.getLatestRelease", owner, repo];
+
+  return useSWR(cacheKey, async () => {
+    // https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#get-the-latest-release
+    return octokit.repos.getLatestRelease({
+      owner,
+      repo,
+    });
+  });
 }
