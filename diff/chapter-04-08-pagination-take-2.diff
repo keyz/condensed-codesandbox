@@ -26,9 +26,9 @@ diff --git a/chapter-04-07-enter-to-submit/src/root.tsx b/chapter-04-08-paginati
 +    q: searchQ,
 +    pageNumber: currentPageNumber + 1,
 +  });
-   const response = query.data;
  
    if (query.isLoading) {
+     return <div>Loading...</div>;
 @@ -66,12 +74,33 @@ function SearchResult(props: { searchQ: string }) {
  
    const repoList = response.data.items;

@@ -13,7 +13,6 @@ diff --git a/chapter-04-01-data-fetching-starter/src/root.tsx b/chapter-04-02-fi
  
  export function GitHubRoot() {
 +  const query = useGitHubRepoSearchQuery();
-+  const response = query.data;
 +
 +  if (query.isLoading) {
 +    return <div>Loading...</div>;
@@ -23,6 +22,7 @@ diff --git a/chapter-04-01-data-fetching-starter/src/root.tsx b/chapter-04-02-fi
 +    return <div>{String(query.error)}</div>;
 +  }
 +
++  const response = query.data;
 +  if (response == null) {
 +    return null;
 +  }

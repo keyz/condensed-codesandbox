@@ -8,7 +8,6 @@ const octokit = new Octokit();
 
 export function GitHubRoot() {
   const query = useGitHubRepoSearchQuery();
-  const response = query.data;
 
   if (query.isLoading) {
     return <div>Loading...</div>;
@@ -18,6 +17,7 @@ export function GitHubRoot() {
     return <div>{String(query.error)}</div>;
   }
 
+  const response = query.data;
   if (response == null) {
     return null;
   }

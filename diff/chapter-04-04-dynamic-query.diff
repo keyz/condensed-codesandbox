@@ -7,9 +7,9 @@ diff --git a/chapter-04-03-component-colocated-query/src/root.tsx b/chapter-04-0
  export function GitHubRoot() {
 -  const query = useGitHubRepoSearchQuery();
 +  const query = useGitHubRepoSearchQuery("react+stars:>100");
-   const response = query.data;
  
    if (query.isLoading) {
+     return <div>Loading...</div>;
 @@ -77,14 +77,14 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
    );
  }

@@ -58,7 +58,6 @@ function SearchResult(props: { searchQ: string }) {
     q: searchQ,
     pageNumber: currentPageNumber + 1,
   });
-  const response = query.data;
 
   if (query.isLoading) {
     return <div>Loading...</div>;
@@ -68,6 +67,7 @@ function SearchResult(props: { searchQ: string }) {
     return <div>{String(query.error)}</div>;
   }
 
+  const response = query.data;
   if (response == null) {
     return null;
   }

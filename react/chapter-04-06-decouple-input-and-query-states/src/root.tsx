@@ -45,7 +45,6 @@ function SearchResult(props: { searchQ: string }) {
   const { searchQ } = props;
 
   const query = useGitHubRepoSearchQuery(searchQ);
-  const response = query.data;
 
   if (query.isLoading) {
     return <div>Loading...</div>;
@@ -55,6 +54,7 @@ function SearchResult(props: { searchQ: string }) {
     return <div>{String(query.error)}</div>;
   }
 
+  const response = query.data;
   if (response == null) {
     return null;
   }

@@ -31,6 +31,6 @@ diff --git a/chapter-04-04-dynamic-query/src/root.tsx b/chapter-04-05-search-inp
 +  const { searchQ } = props;
 +
 +  const query = useGitHubRepoSearchQuery(searchQ);
-   const response = query.data;
  
    if (query.isLoading) {
+     return <div>Loading...</div>;
