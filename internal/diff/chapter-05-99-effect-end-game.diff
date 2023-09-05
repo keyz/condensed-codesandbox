@@ -1,0 +1,464 @@
+diff --git a/chapter-05-01-effect-starter/src/components/auth-callout.tsx b/chapter-05-01-effect-starter/src/components/auth-callout.tsx
+deleted file mode 100644
+index 316d06e..0000000
+--- a/chapter-05-01-effect-starter/src/components/auth-callout.tsx
++++ /dev/null
+@@ -1,21 +0,0 @@
+-export function AuthCallout() {
+-  const token =
+-    process.env.NEXT_PUBLIC_UNSAFE_LOCAL_ONLY_GITHUB_PERSONAL_ACCESS_TOKEN;
+-
+-  if (token?.startsWith("ghp_")) {
+-    // Token found
+-    return null;
+-  }
+-
+-  return (
+-    <div
+-      className="mb-6 rounded bg-red-100 px-4 py-3 text-red-700 shadow-sm"
+-      role="alert"
+-    >
+-      <p>No access token found. GitHub API calls will be rate limited.</p>
+-      <p>
+-        To authenticate, see instructions in file <code>.env.example</code>.
+-      </p>
+-    </div>
+-  );
+-}
+diff --git a/chapter-05-99-effect-end-game/src/components/pressable.tsx b/chapter-05-99-effect-end-game/src/components/pressable.tsx
+new file mode 100644
+index 0000000..d51c443
+--- /dev/null
++++ b/chapter-05-99-effect-end-game/src/components/pressable.tsx
+@@ -0,0 +1,34 @@
++import cx from "classnames";
++
++export function Button(props: React.ComponentProps<"button">) {
++  const { className, ...restProps } = props;
++
++  return (
++    <button
++      className={cx(
++        "rounded-md border px-3 py-1 text-sm font-medium shadow-sm active:scale-95",
++        className,
++      )}
++      {...restProps}
++    />
++  );
++}
++
++export function Link(
++  props: React.ComponentProps<"a"> & { shouldOpenInNewTab?: boolean },
++) {
++  const { className, shouldOpenInNewTab = false, ...restProps } = props;
++
++  return (
++    <a
++      className={cx("hover:underline", className)}
++      {...restProps}
++      {...(shouldOpenInNewTab
++        ? {
++            rel: "noopener",
++            target: "_blank",
++          }
++        : {})}
++    />
++  );
++}
+diff --git a/chapter-05-99-effect-end-game/src/context.tsx b/chapter-05-99-effect-end-game/src/context.tsx
+new file mode 100644
+index 0000000..04a5d9b
+--- /dev/null
++++ b/chapter-05-99-effect-end-game/src/context.tsx
+@@ -0,0 +1,63 @@
++import { Octokit } from "@octokit/rest";
++import * as React from "react";
++
++const LOCAL_STORAGE_KEY = "condensed-github-token";
++
++type TContextValue = {
++  octokit: Octokit | null;
++  setGitHubToken: (token: string | null) => void;
++};
++
++const OctokitContext = React.createContext<TContextValue | null>(null);
++
++export function OctokitProvider(props: { children: React.ReactNode }) {
++  const { children } = props;
++  const [octokit, setOctokit] = React.useState<Octokit | null>(null);
++
++  // Initial synchronization
++  React.useEffect(() => {
++    const token = window.localStorage.getItem(LOCAL_STORAGE_KEY);
++
++    if (token == null) {
++      setOctokit(null);
++    } else {
++      setOctokit(new Octokit({ auth: token }));
++    }
++  }, []);
++
++  // Double write
++  const setGitHubToken = React.useCallback((token: string | null) => {
++    if (token == null) {
++      setOctokit(null);
++      window.localStorage.removeItem(LOCAL_STORAGE_KEY);
++    } else {
++      setOctokit(new Octokit({ auth: token }));
++      window.localStorage.setItem(LOCAL_STORAGE_KEY, token);
++    }
++  }, []);
++
++  const contextValue = React.useMemo(() => {
++    return {
++      octokit,
++      setGitHubToken,
++    };
++  }, [octokit, setGitHubToken]);
++
++  return (
++    <OctokitContext.Provider value={contextValue}>
++      {children}
++    </OctokitContext.Provider>
++  );
++}
++
++export function useOctokit(): TContextValue {
++  const contextValue = React.useContext(OctokitContext);
++
++  if (contextValue == null) {
++    throw new Error(
++      "No provider found. Did you forget to place a `<OctokitProvider>`?",
++    );
++  }
++
++  return contextValue;
++}
+diff --git a/chapter-05-01-effect-starter/src/pages/index.tsx b/chapter-05-99-effect-end-game/src/pages/index.tsx
+--- a/chapter-05-01-effect-starter/src/pages/index.tsx
++++ b/chapter-05-99-effect-end-game/src/pages/index.tsx
+@@ -1,10 +1,8 @@
+-import { AuthCallout } from "../components/auth-callout";
+ import { GitHubRoot } from "../root";
+ 
+ export default function HomePage() {
+   return (
+     <main className="m-auto max-w-2xl p-8">
+-      <AuthCallout />
+       <GitHubRoot />
+     </main>
+   );
+diff --git a/chapter-05-01-effect-starter/src/root.tsx b/chapter-05-99-effect-end-game/src/root.tsx
+--- a/chapter-05-01-effect-starter/src/root.tsx
++++ b/chapter-05-99-effect-end-game/src/root.tsx
+@@ -1,18 +1,62 @@
+-import { Octokit } from "@octokit/rest";
++import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
++import { StarIcon } from "@heroicons/react/24/outline";
++import cx from "classnames";
++import NextImage from "next/image";
+ import * as React from "react";
+ import useSWR from "swr";
++import useSWRMutation from "swr/mutation";
+ import { PaginationControl } from "./components/pagination";
+-import { assertNonNull } from "./helpers/refinement";
++import { Button, Link } from "./components/pressable";
++import { OctokitProvider, useOctokit } from "./context";
++import { assertNonNull, isGitHubRequestError } from "./helpers/refinement";
+ import { formatRelativeTime } from "./helpers/time";
+ import type { TRepoSearchResultItem } from "./types";
+ 
+ const PAGE_SIZE = 8;
+ 
+-const octokit = new Octokit({
+-  auth: process.env.NEXT_PUBLIC_UNSAFE_LOCAL_ONLY_GITHUB_PERSONAL_ACCESS_TOKEN,
+-});
+-
+ export function GitHubRoot() {
++  return (
++    <OctokitProvider>
++      <AuthGating>
++        <GitHubView />
++      </AuthGating>
++    </OctokitProvider>
++  );
++}
++
++function AuthGating(props: { children: React.ReactNode }) {
++  const { children } = props;
++  const { octokit, setGitHubToken } = useOctokit();
++
++  if (octokit == null) {
++    return (
++      <Button
++        onClick={() => {
++          const userInput = window.prompt(
++            "What’s your GitHub personal access token?",
++          );
++
++          // https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#githubs-token-formats
++          if (
++            !userInput?.startsWith("ghp_") &&
++            !userInput?.startsWith("github_pat_")
++          ) {
++            window.alert("Invalid access token");
++            return;
++          }
++
++          setGitHubToken(userInput);
++        }}
++      >
++        Log in
++      </Button>
++    );
++  }
++
++  return children;
++}
++
++function GitHubView() {
+   const [rawInput, setRawInput] = React.useState<string>("react+stars:>100");
+   const [searchQ, setSearchQ] = React.useState<string>("react+stars:>100");
+ 
+@@ -37,13 +81,12 @@ export function GitHubRoot() {
+             value={rawInput}
+           />
+ 
+-          <button
+-            className="rounded-md border px-3 py-1 text-sm font-medium shadow-sm active:scale-95"
+-            type="submit"
+-          >
+-            Search
+-          </button>
++          <Button type="submit">
++            <MagnifyingGlassIcon className="h-4 w-4" />
++          </Button>
+         </form>
++
++        <UserAvatar />
+       </div>
+ 
+       <SearchResult key={searchQ} searchQ={searchQ} />
+@@ -51,6 +94,37 @@ export function GitHubRoot() {
+   );
+ }
+ 
++function UserAvatar() {
++  const query = useGitHubWhoAmIQuery();
++  const { setGitHubToken } = useOctokit();
++
++  const response = query.data;
++  if (response == null) {
++    return null;
++  }
++
++  return (
++    <button
++      className="rounded-full active:scale-95"
++      onClick={() => {
++        const userInput = window.confirm("Log out?");
++        if (userInput) {
++          setGitHubToken(null);
++          window.location.reload();
++        }
++      }}
++    >
++      <NextImage
++        src={response.data.avatar_url}
++        alt="GitHub user avatar"
++        width={32}
++        height={32}
++        className="-my-1 rounded-full shadow-sm"
++      />
++    </button>
++  );
++}
++
+ function SearchResult(props: { searchQ: string }) {
+   const { searchQ } = props;
+ 
+@@ -124,33 +198,59 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
+     query.data == null ? null : (
+       <span>
+         {" | "}
+-        {query.data.data.tag_name} (released{" "}
++        {query.data.data.tag_name} (
+         {formatRelativeTime(query.data.data.created_at)})
+       </span>
+     );
+ 
+   return (
+     <div>
+-      <h2 className="font-medium">
+-        <a
+-          className="hover:underline"
+-          href={data.html_url}
+-          rel="noopener"
+-          target="_blank" // Open in new tab
+-        >
+-          {data.full_name}
+-        </a>
+-      </h2>
++      <div className="flex items-baseline justify-between gap-4">
++        <h2 className="font-medium">
++          <Link href={data.html_url} shouldOpenInNewTab={true}>
++            {data.full_name}
++          </Link>
++        </h2>
++        <StarCell
++          owner={data.owner.login}
++          repo={data.name}
++          starCount={data.stargazers_count}
++        />
++      </div>
+       <p>{data.description}</p>
+       <p className="text-sm text-gray-600">
+-        {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
+-        {formatRelativeTime(data.created_at)}
++        Created {formatRelativeTime(data.created_at)}
+         {releaseInfo}
+       </p>
+     </div>
+   );
+ }
+ 
++function StarCell(props: { owner: string; repo: string; starCount: number }) {
++  const { owner, repo, starCount } = props;
++
++  const starStatusQuery = useGitHubRepoStarStatusQuery({
++    owner,
++    repo,
++  });
++
++  const isLoading = starStatusQuery.data == null; // TODO
++  const hasStarred = starStatusQuery.data === true;
++
++  return (
++    <div className="flex items-baseline gap-1 text-gray-600">
++      <p className="text-sm">{starCount.toLocaleString("en-US")}</p>
++      <StarIcon
++        className={cx({
++          "-mt-[1px] h-4 w-4 self-center": true,
++          "text-gray-400": isLoading,
++          "fill-orange-400 text-orange-400": hasStarred,
++        })}
++      />
++    </div>
++  );
++}
++
+ function PrefetchPage(props: { searchQ: string; pageNumber: number }) {
+   const { searchQ, pageNumber } = props;
+ 
+@@ -164,11 +264,15 @@ function PrefetchPage(props: { searchQ: string; pageNumber: number }) {
+ 
+ function useGitHubRepoSearchQuery(input: { q: string; pageNumber: number }) {
+   const { q, pageNumber } = input;
++  const { octokit } = useOctokit();
++  assertNonNull(octokit, "octokit");
++
+   const cacheKey = ["octokit.search.repos", q, pageNumber];
+ 
+   return useSWR(cacheKey, async () => {
+     // https://docs.github.com/en/search-github/searching-on-github/searching-for-repositories
+     // https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax
++    // https://octokit.github.io/rest.js/v20#search-repos
+     return await octokit.search.repos({
+       q,
+       sort: "stars",
+@@ -184,13 +288,90 @@ function useGitHubRepoLatestReleaseQuery(input: {
+   repo: string;
+ }) {
+   const { owner, repo } = input;
++  const { octokit } = useOctokit();
++  assertNonNull(octokit, "octokit");
++
+   const cacheKey = ["octokit.repos.getLatestRelease", owner, repo];
+ 
+   return useSWR(cacheKey, async () => {
+-    // https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#get-the-latest-release
+-    return await octokit.repos.getLatestRelease({
+-      owner,
+-      repo,
+-    });
++    try {
++      // https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#get-the-latest-release
++      // https://octokit.github.io/rest.js/v20#repos-get-latest-release
++      return await octokit.repos.getLatestRelease({
++        owner,
++        repo,
++      });
++    } catch (error) {
++      if (isGitHubRequestError(error)) {
++        if (error.status === 404) {
++          return null; // No releases
++        }
++      }
++
++      throw error; // Rethrow otherwise
++    }
++  });
++}
++
++function useGitHubRepoStarStatusQuery(input: { owner: string; repo: string }) {
++  const { owner, repo } = input;
++  const { octokit } = useOctokit();
++  assertNonNull(octokit, "octokit");
++
++  const cacheKey = [
++    "octokit.activity.checkRepoIsStarredByAuthenticatedUser",
++    owner,
++    repo,
++  ];
++
++  return useSWR(cacheKey, async (): Promise<boolean> => {
++    // https://docs.github.com/en/rest/activity/starring?apiVersion=2022-11-28#check-if-a-repository-is-starred-by-the-authenticated-user
++    // https://octokit.github.io/rest.js/v20#activity-check-repo-is-starred-by-authenticated-user
++    try {
++      const response =
++        await octokit.activity.checkRepoIsStarredByAuthenticatedUser({
++          owner,
++          repo,
++          headers: {
++            "If-None-Match": "", // Disable caching
++          },
++        });
++
++      return response.status === 204;
++    } catch (error) {
++      if (isGitHubRequestError(error)) {
++        if (error.status === 404) {
++          return false; // Not starred
++        }
++      }
++
++      throw error; // Rethrow otherwise
++    }
++  });
++}
++
++function useGitHubWhoAmIQuery() {
++  const { octokit } = useOctokit();
++  assertNonNull(octokit, "octokit");
++
++  const cacheKey = ["octokit.users.getAuthenticated"];
++
++  return useSWR(cacheKey, async () => {
++    try {
++      // https://docs.github.com/en/rest/users/users?apiVersion=2022-11-28#get-the-authenticated-user
++      // https://octokit.github.io/rest.js/v20#users-get-authenticated
++      return await octokit.users.getAuthenticated();
++    } catch (error) {
++      if (isGitHubRequestError(error)) {
++        if (error.status === 401) {
++          return null; // Not logged in: no current user
++        }
++        if (error.status === 403) {
++          return null; // Rate limit reached: likely no access token
++        }
++      }
++
++      throw error; // Rethrow otherwise
++    }
+   });
+ }

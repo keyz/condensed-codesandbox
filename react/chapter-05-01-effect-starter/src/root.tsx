@@ -18,31 +18,33 @@ export function GitHubRoot() {
 
   return (
     <>
-      <form
-        className="mb-6 flex gap-4"
-        onSubmit={(event) => {
-          event.preventDefault();
+      <div className="mb-6 flex items-center justify-between gap-8">
+        <form
+          className="flex flex-grow gap-4"
+          onSubmit={(event) => {
+            event.preventDefault();
 
-          setSearchQ(rawInput);
-        }}
-      >
-        <input
-          className="w-60 rounded-md border px-3 py-1 text-sm shadow-sm"
-          onChange={(event) => {
-            const newInputValue = event.currentTarget.value;
-
-            setRawInput(newInputValue);
+            setSearchQ(rawInput);
           }}
-          value={rawInput}
-        />
-
-        <button
-          className="rounded-md border px-3 py-1 text-sm font-medium shadow-sm active:scale-95"
-          type="submit"
         >
-          Search
-        </button>
-      </form>
+          <input
+            className="w-full max-w-[240px] rounded-md border px-3 py-1 text-sm shadow-sm"
+            onChange={(event) => {
+              const newInputValue = event.currentTarget.value;
+
+              setRawInput(newInputValue);
+            }}
+            value={rawInput}
+          />
+
+          <button
+            className="rounded-md border px-3 py-1 text-sm font-medium shadow-sm active:scale-95"
+            type="submit"
+          >
+            Search
+          </button>
+        </form>
+      </div>
 
       <SearchResult key={searchQ} searchQ={searchQ} />
     </>
