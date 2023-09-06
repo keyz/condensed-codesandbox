@@ -22,13 +22,16 @@ do
 
   previous_dir=$(jq -r '.diffBase | select(. != null)' "$config_path")
 
+  relative_path=$(jq -r '.relativePath | select(. != null)' "$config_path")
+  relative_path=${relative_path:-"src/root.tsx"}
+
   if [[ -z "$previous_dir" ]]
   then
     continue
   fi
 
-  previous="$previous_dir/src/root.tsx"
-  current="$current_dir/src/root.tsx"
+  previous="$previous_dir/$relative_path"
+  current="$current_dir/$relative_path"
 
   target_path="$DIFF_ROOT/$current_dir.diff"
 
