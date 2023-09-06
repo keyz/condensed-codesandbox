@@ -102,7 +102,7 @@ function useGitHubRepoLatestReleaseQuery(input: {
 
   return useSWR(cacheKey, async () => {
     // https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#get-the-latest-release
-    return octokit.repos.getLatestRelease({
+    return await octokit.repos.getLatestRelease({
       owner,
       repo,
     });
