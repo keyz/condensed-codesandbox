@@ -54,6 +54,10 @@ reset:
 	rm -rf ./node_modules/ ./.next/ ./.cache/
 	@$(MAKE) for-each COMMAND="rm -rf ./node_modules/ ./.next/ ./.cache/"
 
+.PHONY: shellcheck
+shellcheck:
+	@shellcheck scripts/*.sh
+
 .PHONY: snapshot
 snapshot:
 	@./scripts/snapshot.sh
