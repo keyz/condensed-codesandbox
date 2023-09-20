@@ -16,7 +16,7 @@ export function GitHubRoot() {
   const visibleWindow = repoList.slice(startIndex, endIndex);
 
   return (
-    <div className="p-8">
+    <>
       <div className="flex flex-col gap-6">
         {visibleWindow.map((item, index) => {
           return <RepoItem key={index} data={item} />;
@@ -46,7 +46,7 @@ export function GitHubRoot() {
           Next
         </button>
       </div>
-    </div>
+    </>
   );
 }
 

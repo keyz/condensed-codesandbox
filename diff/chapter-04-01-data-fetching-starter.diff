@@ -27,7 +27,7 @@ diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetch
 -  const visibleWindow = repoList.slice(startIndex, endIndex);
 -
    return (
--    <div className="p-8">
+-    <>
 -      <div className="flex flex-col gap-6">
 -        {visibleWindow.map((item) => {
 -          return (
@@ -80,11 +80,12 @@ diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetch
 -          Next
 -        </button>
 -      </div>
+-    </>
 +    <div className="flex flex-col gap-6">
 +      {repoList.map((item) => {
 +        return <RepoItem key={item.id} data={item} />;
 +      })}
-     </div>
++    </div>
    );
  }
  

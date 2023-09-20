@@ -26,7 +26,7 @@ diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-03-12-quiz-answe
 +  const visibleWindow = filteredRepoList.slice(startIndex, endIndex);
  
    return (
-     <div className="p-8">
+     <>
 @@ -31,6 +38,13 @@ export function GitHubRoot() {
                key={item.id}
                data={item}

@@ -3,7 +3,7 @@ diff --git a/chapter-03-07-pagination-button/src/root.tsx b/chapter-03-08-rememb
 +++ b/chapter-03-08-remember-unique-key/src/root.tsx
 @@ -18,8 +18,8 @@ export function GitHubRoot() {
    return (
-     <div className="p-8">
+     <>
        <div className="flex flex-col gap-6">
 -        {visibleWindow.map((item) => {
 -          return <RepoItem key={item.id} data={item} />;

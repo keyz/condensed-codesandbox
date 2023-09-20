@@ -12,7 +12,7 @@ diff --git a/chapter-03-10-bonus-conditional-styles/src/root.tsx b/chapter-03-11
    const totalItemCount = repoList.length;
    const totalPageCount = Math.ceil(totalItemCount / PAGE_SIZE);
 @@ -23,7 +26,22 @@ export function GitHubRoot() {
-     <div className="p-8">
+     <>
        <div className="flex flex-col gap-6">
          {visibleWindow.map((item) => {
 -          return <RepoItem key={item.id} data={item} />;

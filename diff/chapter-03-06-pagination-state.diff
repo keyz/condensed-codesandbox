@@ -1,7 +1,7 @@
 diff --git a/chapter-03-05-state-functional-updater/src/root.tsx b/chapter-03-06-pagination-state/src/root.tsx
 --- a/chapter-03-05-state-functional-updater/src/root.tsx
 +++ b/chapter-03-06-pagination-state/src/root.tsx
-@@ -2,11 +2,20 @@ import * as React from "react";
+@@ -2,10 +2,19 @@ import * as React from "react";
  import { repoList, type TRepoSearchResultItem } from "./data";
  import { formatRelativeTime } from "./helpers/time";
  
@@ -16,14 +16,13 @@ diff --git a/chapter-03-05-state-functional-updater/src/root.tsx b/chapter-03-06
 +  const visibleWindow = repoList.slice(startIndex, endIndex);
 +
    return (
-     <div className="p-8">
-       <div className="flex flex-col gap-6">
--        {repoList.map((item) => {
-+        {visibleWindow.map((item) => {
-           return <RepoItem key={item.id} data={item} />;
-         })}
-       </div>
-@@ -37,8 +46,6 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
+     <div className="flex flex-col gap-6">
+-      {repoList.map((item) => {
++      {visibleWindow.map((item) => {
+         return <RepoItem key={item.id} data={item} />;
+       })}
+     </div>
+@@ -35,8 +44,6 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
            className="hover:underline"
            onClick={() => {
              setLikeCount((num) => num + 1);

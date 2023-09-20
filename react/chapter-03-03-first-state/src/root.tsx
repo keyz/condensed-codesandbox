@@ -4,12 +4,10 @@ import { formatRelativeTime } from "./helpers/time";
 
 export function GitHubRoot() {
   return (
-    <div className="p-8">
-      <div className="flex flex-col gap-6">
-        {repoList.map((item) => {
-          return <RepoItem key={item.id} data={item} />;
-        })}
-      </div>
+    <div className="flex flex-col gap-6">
+      {repoList.map((item) => {
+        return <RepoItem key={item.id} data={item} />;
+      })}
     </div>
   );
 }

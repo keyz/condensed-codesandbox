@@ -1,5 +1,9 @@
 import { GitHubRoot } from "../root";
 
 export default function HomePage() {
-  return <GitHubRoot />;
+  return (
+    <main className="m-auto max-w-2xl p-8">
+      <GitHubRoot />
+    </main>
+  );
 }

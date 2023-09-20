@@ -1,7 +1,7 @@
 diff --git a/chapter-01-10-more-styling/src/root.tsx b/chapter-03-01-state-starter/src/root.tsx
 --- a/chapter-01-10-more-styling/src/root.tsx
 +++ b/chapter-03-01-state-starter/src/root.tsx
-@@ -1,32 +1,29 @@
+@@ -1,28 +1,23 @@
 -import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
 -import { enUS as localeEnUs } from "date-fns/locale";
 -import repoList from "./data.json";
@@ -11,7 +11,8 @@ diff --git a/chapter-01-10-more-styling/src/root.tsx b/chapter-03-01-state-start
  export function GitHubRoot() {
    return (
 -    <div className="flex flex-col gap-6 p-8">
--      {repoList.map((item) => {
++    <div className="flex flex-col gap-6">
+       {repoList.map((item) => {
 -        // See https://date-fns.org/v2.30.0/docs/formatDistanceToNowStrict
 -        const formattedCreatedAt = formatDistanceToNowStrict(
 -          new Date(item.created_at), // Parse ISO 8601 date time string
@@ -20,39 +21,21 @@ diff --git a/chapter-01-10-more-styling/src/root.tsx b/chapter-03-01-state-start
 -            locale: localeEnUs,
 -          },
 -        );
-+    <div className="p-8">
-+      <div className="flex flex-col gap-6">
-+        {repoList.map((item) => {
-+          const formattedCreatedAt = formatRelativeTime(item.created_at);
++        const formattedCreatedAt = formatRelativeTime(item.created_at);
  
--        return (
--          <div key={item.id}>
--            <h2 className="font-medium">
+         return (
+           <div key={item.id}>
+             <h2 className="font-medium">
 -              <a href={item.html_url}>{item.full_name}</a>
--            </h2>
--            <p>{item.description}</p>
--            <p className="text-sm text-gray-600">
++              <a className="hover:underline" href={item.html_url}>
++                {item.full_name}
++              </a>
+             </h2>
+             <p>{item.description}</p>
+             <p className="text-sm text-gray-600">
 -              {item.stargazers_count} stars | created {formattedCreatedAt}
--            </p>
--          </div>
--        );
--      })}
-+          return (
-+            <div key={item.id}>
-+              <h2 className="font-medium">
-+                <a className="hover:underline" href={item.html_url}>
-+                  {item.full_name}
-+                </a>
-+              </h2>
-+              <p>{item.description}</p>
-+              <p className="text-sm text-gray-600">
-+                {item.stargazers_count.toLocaleString("en-US")} stars | created{" "}
-+                {formattedCreatedAt}
-+              </p>
-+            </div>
-+          );
-+        })}
-+      </div>
-     </div>
-   );
- }
++              {item.stargazers_count.toLocaleString("en-US")} stars | created{" "}
++              {formattedCreatedAt}
+             </p>
+           </div>
+         );

@@ -6,7 +6,7 @@ diff --git a/chapter-03-02-new-component/src/root.tsx b/chapter-03-03-first-stat
  import { repoList, type TRepoSearchResultItem } from "./data";
  import { formatRelativeTime } from "./helpers/time";
  
-@@ -16,6 +17,8 @@ export function GitHubRoot() {
+@@ -14,6 +15,8 @@ export function GitHubRoot() {
  function RepoItem(props: { data: TRepoSearchResultItem }) {
    const { data } = props;
  
@@ -15,7 +15,7 @@ diff --git a/chapter-03-02-new-component/src/root.tsx b/chapter-03-03-first-stat
    const formattedCreatedAt = formatRelativeTime(data.created_at);
  
    return (
-@@ -29,6 +32,15 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
+@@ -27,6 +30,15 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {
        <p className="text-sm text-gray-600">
          {data.stargazers_count.toLocaleString("en-US")} stars | created{" "}
          {formattedCreatedAt}
