@@ -11,4 +11,4 @@ read -rep "Module to run? " target
 echo ""
 
 cd "$target"
-npm run dev
+corepack npm run dev

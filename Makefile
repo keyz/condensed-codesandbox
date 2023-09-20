@@ -31,11 +31,11 @@ gen:
 
 .PHONY: install
 install:
-	npm install
+	corepack npm install
 
 .PHONY: install-ci
 install-ci:
-	npm ci
+	corepack npm ci
 
 .PHONY: matrixize
 matrixize:
@@ -43,7 +43,7 @@ matrixize:
 
 .PHONY: outdated
 outdated:
-	npm outdated
+	corepack npm outdated
 
 .PHONY: rename
 rename:
@@ -64,7 +64,7 @@ snapshot:
 
 .PHONY: upgrade
 upgrade:
-	npm upgrade --save
+	corepack npm upgrade --save
 
 .PHONY: warmup
 warmup:

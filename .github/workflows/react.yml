@@ -23,10 +23,10 @@ jobs:
         uses: ./.github/actions/js-setup
 
       - name: Ensure dependency versions are consistent
-        run: npm run consistent-versions
+        run: corepack npm run consistent-versions
 
       - name: Prettier
-        run: npm run prettier:check
+        run: corepack npm run prettier:check
 
       - name: Snapshot
         run: make snapshot
@@ -53,11 +53,11 @@ jobs:
         uses: ./.github/actions/js-setup
 
       - name: Lint
-        run: npm run lint
+        run: corepack npm run lint
         working-directory: "./${{ matrix.module }}"
 
       - name: Build
-        run: npm run build
+        run: corepack npm run build
         working-directory: "./${{ matrix.module }}"
 
       - name: Check Git

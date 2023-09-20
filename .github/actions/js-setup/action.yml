@@ -15,7 +15,7 @@ runs:
 
     - name: Get npm store directory (for caching)
       id: npm-cache-dir
-      run: echo "data=$(npm config get cache)" >> "$GITHUB_OUTPUT"
+      run: echo "data=$(corepack npm config get cache)" >> "$GITHUB_OUTPUT"
       shell: bash
 
     - name: Cache npm store

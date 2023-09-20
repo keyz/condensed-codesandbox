@@ -42,4 +42,4 @@ echo -e "{\n  \"diffBase\": \"$template\"\n}" > .condensed.json
 
 echo "Installing..."
 cd "$REPO_ROOT"
-npm install
+corepack npm install
