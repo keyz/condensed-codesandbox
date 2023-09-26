@@ -31,6 +31,9 @@
     "eslint.workingDirectories": [
       {
         "pattern": "./react/*/"
+      },
+      {
+        "pattern": "./internal/"
       }
     ],
     "files.associations": {
