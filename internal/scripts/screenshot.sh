@@ -25,6 +25,6 @@ do
 
   cd "$INTERNAL_ROOT"
 
-  MODULE="$dir" PORT="$port" corepack npm run screenshot
+  MODULE="$dir" PORT="$port" corepack npm run capture
   kill "$(lsof -t -i:"$port")"
 done

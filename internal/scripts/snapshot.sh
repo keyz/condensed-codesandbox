@@ -4,7 +4,7 @@ set -euo pipefail
 
 REPO_ROOT=$(git rev-parse --show-toplevel)
 REACT_ROOT="$REPO_ROOT/react"
-DIFF_ROOT="$REPO_ROOT/diff"
+DIFF_ROOT="$REPO_ROOT/internal/diff"
 
 rm -rf "$DIFF_ROOT"
 mkdir -p "$DIFF_ROOT"

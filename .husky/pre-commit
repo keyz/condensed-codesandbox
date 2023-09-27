@@ -6,10 +6,10 @@
 echo "Checking diff snapshot..."
 make snapshot
 
-if [ -z "$( git ls-files --others --modified --deleted --exclude-standard ./diff/ )" ]
+if [ -z "$( git ls-files --others --modified --deleted --exclude-standard ./internal/diff/ )" ]
 then
   echo "Everything up-to-date."
 else
   echo "🚧 Snapshot updated."
-  git add ./diff/
+  git add ./internal/diff/
 fi

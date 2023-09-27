@@ -4,7 +4,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "playwright:install": "playwright install chromium",
-    "screenshot": "node -r @swc-node/register ./scripts/screenshot.ts",
+    "capture": "node -r @swc-node/register ./scripts/capture.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

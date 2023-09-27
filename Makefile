@@ -1,5 +1,5 @@
 REPO_ROOT := $(shell git rev-parse --show-toplevel)
-include $(REPO_ROOT)/shared.mk
+include $(REPO_ROOT)/internal/shared.mk
 
 REACT_SUBDIR_LIST := $(wildcard react/*)
 
@@ -7,15 +7,15 @@ export NEXT_TELEMETRY_DISABLED := 1
 
 .PHONY: copy
 copy:
-	@./scripts/copy.sh
+	@./internal/scripts/copy.sh
 
 .PHONY: dev
 dev:
-	@./scripts/dev.sh
+	@./internal/scripts/dev.sh
 
 .PHONY: embed
 embed:
-	@./scripts/embed.sh
+	@./internal/scripts/embed.sh
 
 .PHONY: for-each
 for-each:
@@ -27,7 +27,7 @@ for-each:
 
 .PHONY: gen
 gen:
-	@./scripts/gen.sh
+	@./internal/scripts/gen.sh
 
 .PHONY: install
 install:
@@ -47,7 +47,7 @@ outdated:
 
 .PHONY: rename
 rename:
-	@./scripts/rename.sh
+	@./internal/scripts/rename.sh
 
 .PHONY: reset
 reset:
@@ -56,16 +56,16 @@ reset:
 
 .PHONY: shellcheck
 shellcheck:
-	@shellcheck scripts/*.sh
+	@shellcheck ./internal/scripts/*.sh
 
 .PHONY: screenshot
 screenshot:
 	@$(MAKE) -C ./internal install
-	@./scripts/screenshot.sh
+	@./internal/scripts/screenshot.sh
 
 .PHONY: snapshot
 snapshot:
-	@./scripts/snapshot.sh
+	@./internal/scripts/snapshot.sh
 
 .PHONY: upgrade
 upgrade:
@@ -73,4 +73,4 @@ upgrade:
 
 .PHONY: warmup
 warmup:
-	@WARMUP=1 ./scripts/embed.sh
+	@WARMUP=1 ./internal/scripts/embed.sh
