@@ -60,6 +60,7 @@ shellcheck:
 
 .PHONY: screenshot
 screenshot:
+	@$(MAKE) -C ./internal install
 	@./scripts/screenshot.sh
 
 .PHONY: snapshot

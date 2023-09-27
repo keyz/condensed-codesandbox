@@ -5,7 +5,3 @@ include $(REPO_ROOT)/shared.mk
 install:
 	corepack npm install
 	corepack npm run playwright:install
-
-.PHONY: screenshot
-screenshot:
-	corepack npm run screenshot
