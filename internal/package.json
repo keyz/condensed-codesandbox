@@ -4,15 +4,15 @@
   "license": "Apache-2.0",
   "scripts": {
     "playwright:install": "playwright install chromium",
-    "screenshot": "tsx scripts/screenshot.ts",
+    "screenshot": "node -r @swc-node/register ./scripts/screenshot.ts",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
+    "@swc-node/register": "^1.6.8",
     "@tsconfig/node18": "^18.2.2",
     "@tsconfig/strictest": "^2.0.2",
     "@types/node": "^18.18.0",
     "playwright": "^1.38.1",
-    "tsx": "^3.13.0",
     "typescript": "^5.2.2"
   },
   "packageManager": "npm@10.1.0"

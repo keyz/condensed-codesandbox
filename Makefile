@@ -58,6 +58,10 @@ reset:
 shellcheck:
 	@shellcheck scripts/*.sh
 
+.PHONY: screenshot
+screenshot:
+	@./scripts/screenshot.sh
+
 .PHONY: snapshot
 snapshot:
 	@./scripts/snapshot.sh
