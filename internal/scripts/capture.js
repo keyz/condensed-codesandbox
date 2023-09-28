@@ -1,6 +1,6 @@
-import fs from "fs";
-import path from "path";
-import playwright from "playwright";
+const fs = require("fs");
+const path = require("path");
+const playwright = require("playwright");
 
 const TARGET_DIR = path.resolve(__dirname, "../screenshots");
 
@@ -49,7 +49,12 @@ main().catch((error) => {
   process.exit(1);
 });
 
-function assertNonEmptyString(input: unknown, name: string): string {
+/**
+ * @param {unknown} input
+ * @param {string} name
+ * @returns {string}
+ */
+function assertNonEmptyString(input, name) {
   if (typeof input !== "string" || !input) {
     throw new Error(`${name}: got unexpected ${JSON.stringify(input)}`);
   }
