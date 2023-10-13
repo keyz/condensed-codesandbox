@@ -3,5 +3,8 @@
   "name": "condensed",
   "build": {
     "dockerfile": "./Dockerfile"
+  },
+  "containerEnv": {
+    "NEXT_TELEMETRY_DISABLED": "1"
   }
 }

@@ -21,13 +21,20 @@
     "install": {
       "name": "Install dependencies",
       "command": "npm install",
+      "runAtStart": false,
       "restartOn": {
         "files": ["./package.json"]
       }
     },
+    "lint": {
+      "name": "Lint",
+      "command": "npm run lint",
+      "runAtStart": false
+    },
     "reboot": {
-      "name": "Reboot sandbox container",
-      "command": "rm -rf ./node_modules/ ./.next/ ./.cache/ && echo '' >> ./.codesandbox/Dockerfile"
+      "name": "Reboot CodeSandbox container",
+      "command": "rm -rf ./node_modules/ ./.next/ ./.cache/ && echo '' >> ./.devcontainer/devcontainer.json",
+      "runAtStart": false
     }
   }
 }
