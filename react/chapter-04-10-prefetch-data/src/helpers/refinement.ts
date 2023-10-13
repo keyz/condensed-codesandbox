@@ -11,7 +11,7 @@ export function assertNonNull<T>(
 
     // Bonus: recapture stack trace from the callsite
     // https://nodejs.org/api/errors.html#errorcapturestacktracetargetobject-constructoropt
-    Error.captureStackTrace(error, assertNonNull);
+    Error.captureStackTrace?.(error, assertNonNull);
     throw error;
   }
 }
