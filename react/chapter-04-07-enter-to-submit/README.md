@@ -3,6 +3,7 @@
 - StackBlitz WebContainer https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-04-07-enter-to-submit?file=src/root.tsx
 - StackBlitz Embedded https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-04-07-enter-to-submit?embed=1&file=src/root.tsx&hideNavigation=1
 - StackBlitz Codeflow https://stackblitz.com/~/github.com/keyz/condensed-codesandbox/tree/main/react/chapter-04-07-enter-to-submit?file=/react/chapter-04-07-enter-to-submit/src/root.tsx
+- Condensed Embedded https://condensed.dev/embedded/react/chapter-04-07-enter-to-submit
 -->
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).

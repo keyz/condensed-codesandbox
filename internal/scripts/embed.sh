@@ -14,13 +14,15 @@ do
     continue
   fi
 
-  url="https://codesandbox.io/p/sandbox/github/keyz/condensed-codesandbox/tree/main/react/$dir?file=/src/root.tsx"
+  embedded_url="https://condensed.dev/embedded/react/$dir"
+  sandbox_url="https://codesandbox.io/p/sandbox/github/keyz/condensed-codesandbox/tree/main/react/$dir?file=/src/root.tsx"
 
   echo "$dir"
-  echo -e "\t$url\n"
+  echo -e "\t- $sandbox_url"
+  echo -e "\t- $embedded_url\n"
 
   if [[ "${WARMUP:-0}" == "1" ]]
   then
-    curl --fail --silent --show-error --output /dev/null "$url"
+    curl --fail --silent --show-error --output /dev/null "$sandbox_url"
   fi
 done

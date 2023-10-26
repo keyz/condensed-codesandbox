@@ -3,6 +3,7 @@
 - StackBlitz WebContainer https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-03-04-stale-state-bug?file=src/root.tsx
 - StackBlitz Embedded https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-03-04-stale-state-bug?embed=1&file=src/root.tsx&hideNavigation=1
 - StackBlitz Codeflow https://stackblitz.com/~/github.com/keyz/condensed-codesandbox/tree/main/react/chapter-03-04-stale-state-bug?file=/react/chapter-03-04-stale-state-bug/src/root.tsx
+- Condensed Embedded https://condensed.dev/embedded/react/chapter-03-04-stale-state-bug
 -->
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).

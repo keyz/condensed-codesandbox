@@ -3,6 +3,7 @@
 - StackBlitz WebContainer https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-04-03-component-colocated-query?file=src/root.tsx
 - StackBlitz Embedded https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-04-03-component-colocated-query?embed=1&file=src/root.tsx&hideNavigation=1
 - StackBlitz Codeflow https://stackblitz.com/~/github.com/keyz/condensed-codesandbox/tree/main/react/chapter-04-03-component-colocated-query?file=/react/chapter-04-03-component-colocated-query/src/root.tsx
+- Condensed Embedded https://condensed.dev/embedded/react/chapter-04-03-component-colocated-query
 -->
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
