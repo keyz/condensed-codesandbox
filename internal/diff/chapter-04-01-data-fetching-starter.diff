@@ -1,4 +1,3 @@
-diff --git a/chapter-03-11-lift-state-up/src/root.tsx b/chapter-04-01-data-fetching-starter/src/root.tsx
 --- a/chapter-03-11-lift-state-up/src/root.tsx
 +++ b/chapter-04-01-data-fetching-starter/src/root.tsx
 @@ -1,114 +1,36 @@

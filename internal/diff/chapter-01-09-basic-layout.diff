@@ -1,4 +1,3 @@
-diff --git a/chapter-01-08-with-date-fns/src/root.tsx b/chapter-01-09-basic-layout/src/root.tsx
 --- a/chapter-01-08-with-date-fns/src/root.tsx
 +++ b/chapter-01-09-basic-layout/src/root.tsx
 @@ -4,7 +4,7 @@ import repoList from "./data.json";

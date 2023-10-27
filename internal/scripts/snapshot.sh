@@ -35,7 +35,7 @@ do
 
   target_path="$DIFF_ROOT/$current_dir.diff"
 
-  (git --no-pager diff --no-index "$previous" "$current" || true) > "$target_path"
+  (git --no-pager diff --no-index "$previous" "$current" || true) | sed 1d > "$target_path"
 
   sed_pattern="/^index [a-f0-9]{7}\.\.[a-f0-9]{7} [0-9]{6}$/d"
 

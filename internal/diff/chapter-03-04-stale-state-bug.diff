@@ -1,4 +1,3 @@
-diff --git a/chapter-03-03-first-state/src/root.tsx b/chapter-03-04-stale-state-bug/src/root.tsx
 --- a/chapter-03-03-first-state/src/root.tsx
 +++ b/chapter-03-04-stale-state-bug/src/root.tsx
 @@ -35,6 +35,8 @@ function RepoItem(props: { data: TRepoSearchResultItem }) {

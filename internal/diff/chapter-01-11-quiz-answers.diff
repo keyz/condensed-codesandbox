@@ -1,4 +1,3 @@
-diff --git a/chapter-01-10-more-styling/src/root.tsx b/chapter-01-11-quiz-answers/src/root.tsx
 --- a/chapter-01-10-more-styling/src/root.tsx
 +++ b/chapter-01-11-quiz-answers/src/root.tsx
 @@ -18,11 +18,20 @@ export function GitHubRoot() {

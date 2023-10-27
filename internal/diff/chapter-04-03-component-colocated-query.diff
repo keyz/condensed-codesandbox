@@ -1,4 +1,3 @@
-diff --git a/chapter-04-02-first-query/src/root.tsx b/chapter-04-03-component-colocated-query/src/root.tsx
 --- a/chapter-04-02-first-query/src/root.tsx
 +++ b/chapter-04-03-component-colocated-query/src/root.tsx
 @@ -1,10 +1,13 @@

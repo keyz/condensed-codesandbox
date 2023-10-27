@@ -1,4 +1,3 @@
-diff --git a/chapter-03-10-bonus-conditional-styles/src/root.tsx b/chapter-03-11-lift-state-up/src/root.tsx
 --- a/chapter-03-10-bonus-conditional-styles/src/root.tsx
 +++ b/chapter-03-11-lift-state-up/src/root.tsx
 @@ -7,6 +7,9 @@ const PAGE_SIZE = 8;

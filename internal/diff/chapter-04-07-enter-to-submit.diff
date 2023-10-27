@@ -1,4 +1,3 @@
-diff --git a/chapter-04-06-decouple-input-and-query-states/src/root.tsx b/chapter-04-07-enter-to-submit/src/root.tsx
 --- a/chapter-04-06-decouple-input-and-query-states/src/root.tsx
 +++ b/chapter-04-07-enter-to-submit/src/root.tsx
 @@ -15,7 +15,14 @@ export function GitHubRoot() {

@@ -1,4 +1,3 @@
-diff --git a/chapter-01-07-adding-links/src/root.tsx b/chapter-01-08-with-date-fns/src/root.tsx
 --- a/chapter-01-07-adding-links/src/root.tsx
 +++ b/chapter-01-08-with-date-fns/src/root.tsx
 @@ -1,16 +1,29 @@

@@ -1,4 +1,3 @@
-diff --git a/chapter-01-02-just-titles/src/root.tsx b/chapter-01-03-first-map/src/root.tsx
 --- a/chapter-01-02-just-titles/src/root.tsx
 +++ b/chapter-01-03-first-map/src/root.tsx
 @@ -1,13 +1,18 @@
