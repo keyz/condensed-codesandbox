@@ -15,7 +15,8 @@ do
   fi
 
   # https://codesandbox.io/docs/learn/devboxes/synced-templates
-  sandbox_url="https://codesandbox.io/s/github/keyz/condensed-codesandbox/main/react/$dir?file=/src/root.tsx"
+  # sandbox_url="https://codesandbox.io/s/github/keyz/condensed-codesandbox/main/react/$dir?file=/src/root.tsx"
+  sandbox_url="https://codesandbox.io/p/devbox/github/keyz/condensed-codesandbox/tree/main/react/$dir?file=/src/root.tsx"
   embedded_url="https://condensed.dev/embedded/react/$dir"
 
   echo "$dir"
