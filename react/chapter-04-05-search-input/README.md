@@ -1,5 +1,5 @@
 <!--
-- CodeSandbox https://codesandbox.io/p/sandbox/github/keyz/condensed-codesandbox/tree/main/react/chapter-04-05-search-input?file=/src/root.tsx
+- CodeSandbox https://codesandbox.io/s/github/keyz/condensed-codesandbox/main/react/chapter-04-05-search-input?file=/src/root.tsx
 - StackBlitz WebContainer https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-04-05-search-input?file=src/root.tsx
 - StackBlitz Embedded https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-04-05-search-input?embed=1&file=src/root.tsx&hideNavigation=1
 - StackBlitz Codeflow https://stackblitz.com/~/github.com/keyz/condensed-codesandbox/tree/main/react/chapter-04-05-search-input?file=/react/chapter-04-05-search-input/src/root.tsx

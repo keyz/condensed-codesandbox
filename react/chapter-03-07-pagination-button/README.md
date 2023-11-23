@@ -1,5 +1,5 @@
 <!--
-- CodeSandbox https://codesandbox.io/p/sandbox/github/keyz/condensed-codesandbox/tree/main/react/chapter-03-07-pagination-button?file=/src/root.tsx
+- CodeSandbox https://codesandbox.io/s/github/keyz/condensed-codesandbox/main/react/chapter-03-07-pagination-button?file=/src/root.tsx
 - StackBlitz WebContainer https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-03-07-pagination-button?file=src/root.tsx
 - StackBlitz Embedded https://stackblitz.com/github/keyz/condensed-codesandbox/tree/main/react/chapter-03-07-pagination-button?embed=1&file=src/root.tsx&hideNavigation=1
 - StackBlitz Codeflow https://stackblitz.com/~/github.com/keyz/condensed-codesandbox/tree/main/react/chapter-03-07-pagination-button?file=/react/chapter-03-07-pagination-button/src/root.tsx

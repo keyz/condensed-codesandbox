@@ -14,8 +14,9 @@ do
     continue
   fi
 
+  # https://codesandbox.io/docs/learn/devboxes/synced-templates
+  sandbox_url="https://codesandbox.io/s/github/keyz/condensed-codesandbox/main/react/$dir?file=/src/root.tsx"
   embedded_url="https://condensed.dev/embedded/react/$dir"
-  sandbox_url="https://codesandbox.io/p/sandbox/github/keyz/condensed-codesandbox/tree/main/react/$dir?file=/src/root.tsx"
 
   echo "$dir"
   echo -e "\t- $sandbox_url"
@@ -23,6 +24,6 @@ do
 
   if [[ "${WARMUP:-0}" == "1" ]]
   then
-    curl --fail --silent --show-error --output /dev/null "$sandbox_url"
+    curl --fail --silent --show-error --output /dev/null --location "$sandbox_url"
   fi
 done
