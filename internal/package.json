@@ -12,7 +12,7 @@
     "@tsconfig/strictest": "^2.0.2",
     "@types/node": "^18.19.2",
     "playwright": "^1.40.1",
-    "typescript": "^5.3.2"
+    "typescript": "^5.3.3"
   },
   "packageManager": "npm@10.2.4"
 }
