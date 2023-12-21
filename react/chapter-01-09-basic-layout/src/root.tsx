@@ -1,5 +1,5 @@
-import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
-import { enUS as localeEnUs } from "date-fns/locale";
+import { formatDistanceToNowStrict } from "date-fns/formatDistanceToNowStrict";
+import { enUS as localeEnUs } from "date-fns/locale/en-US";
 import repoList from "./data.json";
 
 export function GitHubRoot() {
