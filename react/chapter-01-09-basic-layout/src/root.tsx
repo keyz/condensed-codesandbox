@@ -6,7 +6,7 @@ export function GitHubRoot() {
   return (
     <div className="flex flex-col gap-6 p-8">
       {repoList.map((item) => {
-        // See https://date-fns.org/v2.30.0/docs/formatDistanceToNowStrict
+        // See https://date-fns.org/docs/formatDistanceToNowStrict
         const formattedCreatedAt = formatDistanceToNowStrict(
           item.created_at, // Parse ISO 8601 date time string
           {
