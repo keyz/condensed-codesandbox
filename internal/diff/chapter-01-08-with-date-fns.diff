@@ -1,8 +1,8 @@
 --- a/chapter-01-07-adding-links/src/root.tsx
 +++ b/chapter-01-08-with-date-fns/src/root.tsx
 @@ -1,16 +1,29 @@
-+import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
-+import { enUS as localeEnUs } from "date-fns/locale";
++import { formatDistanceToNowStrict } from "date-fns/formatDistanceToNowStrict";
++import { enUS as localeEnUs } from "date-fns/locale/en-US";
  import repoList from "./data.json";
  
  export function GitHubRoot() {

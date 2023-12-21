@@ -1,8 +1,8 @@
 --- a/chapter-01-10-more-styling/src/root.tsx
 +++ b/chapter-03-01-state-starter/src/root.tsx
 @@ -1,28 +1,23 @@
--import formatDistanceToNowStrict from "date-fns/formatDistanceToNowStrict";
--import { enUS as localeEnUs } from "date-fns/locale";
+-import { formatDistanceToNowStrict } from "date-fns/formatDistanceToNowStrict";
+-import { enUS as localeEnUs } from "date-fns/locale/en-US";
 -import repoList from "./data.json";
 +import { repoList } from "./data";
 +import { formatRelativeTime } from "./helpers/time";
