@@ -11,7 +11,7 @@
   "devDependencies": {
     "husky": "^8.0.3",
     "prettier": "^3.1.1",
-    "prettier-plugin-tailwindcss": "^0.5.9",
+    "prettier-plugin-tailwindcss": "^0.5.10",
     "syncpack": "^11.2.1"
   },
   "workspaces": [
