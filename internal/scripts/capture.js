@@ -34,6 +34,8 @@ async function main() {
   });
   const page = await context.newPage();
 
+  await waitUntilAvailable(url);
+
   await page.goto(url);
   await page.waitForSelector("#__next");
   await page.waitForLoadState("networkidle");
@@ -60,4 +62,31 @@ function assertNonEmptyString(input, name) {
   }
 
   return input;
+}
+
+/**
+ * @param {string} url
+ * @returns {Promise<void>}
+ */
+async function waitUntilAvailable(url) {
+  while (true) {
+    try {
+      await fetch(url);
+      return;
+    } catch (_) {
+      await sleep(200);
+    }
+  }
+}
+
+/**
+ * @param {number} ms
+ * @returns {Promise<void>}
+ */
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve();
+    }, ms);
+  });
 }
