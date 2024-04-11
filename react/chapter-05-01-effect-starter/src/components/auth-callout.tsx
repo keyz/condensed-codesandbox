@@ -2,7 +2,7 @@ export function AuthCallout() {
   const token =
     process.env.NEXT_PUBLIC_UNSAFE_LOCAL_ONLY_GITHUB_PERSONAL_ACCESS_TOKEN;
 
-  if (token?.startsWith("ghp_")) {
+  if (/^(ghp_|github_pat_)/.test(token ?? "")) {
     // Token found
     return null;
   }
