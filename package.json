@@ -4,7 +4,6 @@
   "license": "Apache-2.0",
   "scripts": {
     "consistent-versions": "syncpack list-mismatches",
-    "prepare": "node ./internal/scripts/install-husky.js",
     "prettier:check": "prettier --check \"**/*.{css,html,js,json,md,mdx,svg,ts,tsx,yaml,yml}\" --ignore-path ./.prettierignore",
     "prettier:write": "prettier --write \"**/*.{css,html,js,json,md,mdx,svg,ts,tsx,yaml,yml}\" --ignore-path ./.prettierignore"
   },
