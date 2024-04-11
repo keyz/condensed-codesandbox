@@ -29,6 +29,10 @@ for-each:
 gen:
 	@./internal/scripts/gen.sh
 
+.PHONY: husky
+husky:
+	corepack npm exec husky
+
 .PHONY: install
 install:
 	corepack npm install
