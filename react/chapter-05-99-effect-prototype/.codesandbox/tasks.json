@@ -1,0 +1,40 @@
+{
+  "$schema": "https://codesandbox.io/schemas/tasks.json",
+  "setupTasks": [
+    {
+      "name": "Install dependencies",
+      "command": "npm install"
+    }
+  ],
+  "tasks": {
+    "dev": {
+      "name": "Dev server",
+      "command": "npm run dev",
+      "runAtStart": true,
+      "preview": {
+        "port": 3000
+      },
+      "restartOn": {
+        "files": ["./package-lock.json"]
+      }
+    },
+    "install": {
+      "name": "Install dependencies",
+      "command": "npm install",
+      "runAtStart": false,
+      "restartOn": {
+        "files": ["./package.json"]
+      }
+    },
+    "lint": {
+      "name": "Lint",
+      "command": "npm run lint",
+      "runAtStart": false
+    },
+    "reboot": {
+      "name": "Reboot CodeSandbox container",
+      "command": "rm -rf ./node_modules/ ./.next/ ./.cache/ && echo '' >> ./.devcontainer/devcontainer.json",
+      "runAtStart": false
+    }
+  }
+}
