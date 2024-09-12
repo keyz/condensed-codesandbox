@@ -8,7 +8,7 @@
     "prettier:write": "prettier --write \"**/*.{css,html,js,json,md,mdx,svg,ts,tsx,yaml,yml}\" --ignore-path ./.prettierignore"
   },
   "devDependencies": {
-    "husky": "^9.0.11",
+    "husky": "^9.1.6",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "syncpack": "^12.3.3"
