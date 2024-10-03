@@ -16,5 +16,5 @@
   "workspaces": [
     "react/*"
   ],
-  "packageManager": "npm@10.8.1"
+  "packageManager": "npm@10.9.0"
 }
